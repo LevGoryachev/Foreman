@@ -12,6 +12,12 @@ public class MainController {
         return "loginpage";
     }
 
+    @GetMapping ("/registration")
+    public String regForm () {
+
+        return "registrationpage";
+    }
+
     @GetMapping ("/construction")
     public String constructionMainForm () {
 
