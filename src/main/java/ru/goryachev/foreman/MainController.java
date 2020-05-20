@@ -6,10 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-    @GetMapping ("/aloha")
-    public String showMessage () {
+    @GetMapping ("/login")
+    public String loginForm () {
 
-        return "aloha";
+        return "loginpage";
+    }
+
+    @GetMapping ("/construction")
+    public String constructionMainForm () {
+
+        return "constructionmain";
     }
 
 }
