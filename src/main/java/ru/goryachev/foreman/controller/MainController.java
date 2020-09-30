@@ -1,4 +1,4 @@
-package ru.goryachev.foreman;
+package ru.goryachev.foreman.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
