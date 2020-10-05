@@ -11,5 +11,6 @@ public class App {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         PartBean partBean = context.getBean(PartBean.class);
 
+
     }
 }
