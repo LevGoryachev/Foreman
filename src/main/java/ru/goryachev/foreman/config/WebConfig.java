@@ -22,12 +22,10 @@ public class WebConfig {
         return freeMarkerViewResolver;
     }
 
+    @Bean
     public FreeMarkerConfigurer getFreeMarkerConfigurer () {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
-        freeMarkerConfigurer.setTemplateLoaderPaths("/","/WEB-INF");
-
+        freeMarkerConfigurer.setTemplateLoaderPaths("/","/WEB-INF/views");
         return freeMarkerConfigurer;
     }
-
-
 }
