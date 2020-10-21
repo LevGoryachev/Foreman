@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Login</title>
+     <title>Login</title>
 </head>
-
 <body>
-
-<p>Enter your Login</p>
-<p>Enter your Password</p>
-
+<h2>Sign in</h2>
+    <form action="check_user.php" method="post">
+        <!-- check_user.php - is a handler (method "post" sends data from the fields to the page check_user.php) -->
+        <p>
+            <label>Enter your Login:<br></label>
+            <input name="login" type="text" size="15" maxlength="15">
+        </p>
+        <p>
+            <label>Enter your Password:<br></label>
+            <input name="password" type="password" size="15" maxlength="15">
+        </p>
+        <p>
+            <input type="submit" name="submit" value="Sign in">
+        </p>
+    </form>
 </body>
-
 </html>
