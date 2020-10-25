@@ -17,6 +17,8 @@ repositories {
 dependencies {
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: servletVersion
     compile group: 'org.springframework', name: 'spring-webmvc', version: springVersion
+    compile group: 'org.springframework', name: 'spring-jdbc', version: springVersion
+    compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
 }
 
 war {
