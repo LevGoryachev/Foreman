@@ -31,8 +31,10 @@ Spring-Web-MVC, Spring JDBC, Servlet-API
 <h3>ru/goryachev/foreman/services</h3>
 <p>Contains classes of service logic. These classes use the data which are obtained from the database.</p>
 
-<h2>2. Data Base</h2>
-<p>To create use file DDLscript_v1.0-db.</p>
+<h2>2. Database</h2>
+<p>To create database use the file DDLscript_v1.0-db.md (you can customize it).</p>
+<p>For connection to database use an appropriate driver. In this example - "org.postgresql.Driver", but you can use different (see <b>1.Structure: ru/goryachev/foreman/config - about JDBCConfig.java).</b></p>
+<h3>Database scheme</h3>
 
 ![DBscheme_v1 0-db](https://user-images.githubusercontent.com/61917893/97116617-6ddbc600-170f-11eb-94f4-f646b5e49360.jpg)
 
