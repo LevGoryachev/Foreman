@@ -11,7 +11,7 @@ Spring-Web-MVC, Spring JDBC, Servlet-API
 <p><b>WebConfig.java</b> - configurer that implements WebMvcConfigurer, sets ViewResolver (JSP pages).</p>
 <p><b>JDBCConfig.java</b> - configurer that implements WebMvcConfigurer and configures connection to database, using  beans JdbcTemplate, DataSource (dependency: spring-jdbc).</p>
 <p>Use appropriate driver to connect to your database. In this example -  "org.postgresql.Driver", dependency: compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4' from MavenCentral</p>
-<p><b>Due to the fact that connection uses user name, user password, this class is NOT available. You can see JDBCConfigTemplate.java, you can use it and set your properties and take steps to hide confidential information.</b></p>
+<p><b>Due to the fact that connection uses user name, user password, this class is NOT available. You can see JDBCConfigSample.java, you can use it and set your properties and take steps to hide confidential information.</b></p>
 <p><b>SpringConfig.java</b> - configurer that implements WebMvcConfigurer for additional configuration.</p>
 <h3>ru/goryachev/foreman/controllers</h3>
 <p><b>MainController.java</b> - works with: </p>

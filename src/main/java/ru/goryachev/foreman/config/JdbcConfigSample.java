@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.sql.DataSource;
 
 @Configuration
-public class JdbcConfigTemplate implements WebMvcConfigurer {
+public class JdbcConfigSample implements WebMvcConfigurer {
 
     @Bean
     public JdbcTemplate getJdbcTemplate(){

@@ -1,7 +1,7 @@
 package ru.goryachev.foreman.app;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-import ru.goryachev.foreman.config.JdbcConfigTemplate;
+import ru.goryachev.foreman.config.JdbcConfigSample;
 import ru.goryachev.foreman.config.SpringConfig;
 import ru.goryachev.foreman.config.WebConfig;
 
@@ -15,7 +15,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[]{
-                WebConfig.class, SpringConfig.class, JdbcConfigTemplate.class
+                WebConfig.class, SpringConfig.class, JdbcConfigSample.class
         };
     }
 
