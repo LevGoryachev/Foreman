@@ -24,6 +24,6 @@ public class JdbcConfigSample implements WebMvcConfigurer {
         dataSource.setUsername("postgres");
         dataSource.setPassword("postgres");
         dataSource.setDriverClassName("org.postgresql.Driver");
-        return null;
+        return dataSource;
     }
 }

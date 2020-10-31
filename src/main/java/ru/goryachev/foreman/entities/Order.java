@@ -22,6 +22,9 @@ public class Order {
     }
 
     public void setOrdertime(Date ordertime) {
+        if (ordertime == null) {
+            this.ordertime = new Date(0);
+        }
         this.ordertime = ordertime;
     }
 
@@ -30,6 +33,9 @@ public class Order {
     }
 
     public void setStatus(String status) {
+        if (status == null) {
+            this.status = "";
+        }
         this.status = status;
     }
 

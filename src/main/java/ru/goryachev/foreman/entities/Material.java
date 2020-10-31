@@ -21,6 +21,9 @@ public class Material {
     }
 
     public void setName(String name) {
+        if (name == null) {
+            this.name = "";
+        }
         this.name = name;
     }
 
@@ -29,6 +32,9 @@ public class Material {
     }
 
     public void setUm(String um) {
+        if (um == null) {
+            this.um = "";
+        }
         this.um = um;
     }
 
@@ -45,6 +51,9 @@ public class Material {
     }
 
     public void setNotes(String notes) {
+        if (notes == null) {
+            this.notes = "";
+        }
         this.notes = notes;
     }
 }

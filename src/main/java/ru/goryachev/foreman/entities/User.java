@@ -22,6 +22,9 @@ public class User {
     }
 
     public void setFirstName(String firstName) {
+        if (firstName == null) {
+            this.firstName = "";
+        }
         this.firstName = firstName;
     }
 
@@ -30,6 +33,9 @@ public class User {
     }
 
     public void setMiddleName(String middleName) {
+        if (middleName == null) {
+            this.middleName = "";
+        }
         this.middleName = middleName;
     }
 
@@ -38,6 +44,9 @@ public class User {
     }
 
     public void setLastName(String lastName) {
+        if (lastName == null) {
+            this.lastName = "";
+        }
         this.lastName = lastName;
     }
 
@@ -46,6 +55,9 @@ public class User {
     }
 
     public void setNickName(String nickName) {
+        if (nickName == null) {
+            this.nickName = "";
+        }
         this.nickName = nickName;
     }
 
@@ -54,6 +66,9 @@ public class User {
     }
 
     public void setRole(String role) {
+        if (role == null) {
+            this.role = "";
+        }
         this.role = role;
     }
 }
