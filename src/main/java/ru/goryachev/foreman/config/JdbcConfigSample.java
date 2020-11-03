@@ -5,8 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import ru.goryachev.foreman.dao.BillPositionDAO;
+import ru.goryachev.foreman.dao.ConstructionsDAO;
+import ru.goryachev.foreman.dao.DataAccessible;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 @Configuration
 public class JdbcConfigSample implements WebMvcConfigurer {
@@ -26,4 +30,5 @@ public class JdbcConfigSample implements WebMvcConfigurer {
         dataSource.setDriverClassName("org.postgresql.Driver");
         return dataSource;
     }
+
 }
