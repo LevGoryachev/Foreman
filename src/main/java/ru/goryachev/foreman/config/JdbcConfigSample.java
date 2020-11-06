@@ -5,9 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import ru.goryachev.foreman.dao.BillPositionDAO;
-import ru.goryachev.foreman.dao.ConstructionsDAO;
-import ru.goryachev.foreman.dao.DataAccessible;
+import ru.goryachev.foreman.dao.*;
+import ru.goryachev.foreman.entities.BillPosition;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -29,6 +28,36 @@ public class JdbcConfigSample implements WebMvcConfigurer {
         dataSource.setPassword("postgres");
         dataSource.setDriverClassName("org.postgresql.Driver");
         return dataSource;
+    }
+
+    @Bean
+    public ConstructionsDAO getConstructionsDAO () {
+        return new ConstructionsDAO(getJdbcTemplate());
+    }
+
+    @Bean
+    public BillPositionDAO getBillPositionDAO () {
+        return new BillPositionDAO(getJdbcTemplate());
+    }
+
+    @Bean
+    public MaterialsDAO getMaterialsDAO () {
+        return new MaterialsDAO(getJdbcTemplate());
+    }
+
+    @Bean
+    public OrdersDAO getOrdersDAO () {
+        return new OrdersDAO(getJdbcTemplate());
+    }
+
+    @Bean
+    public OrderPositionDAO getOrderPositionDAO () {
+        return new OrderPositionDAO(getJdbcTemplate());
+    }
+
+    @Bean
+    public UsersDAO getUsersDAO () {
+        return new UsersDAO(getJdbcTemplate());
     }
 
 }
