@@ -6,10 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import ru.goryachev.foreman.dao.*;
-import ru.goryachev.foreman.entities.BillPosition;
-
 import javax.sql.DataSource;
-import java.util.List;
 
 @Configuration
 public class JdbcConfigSample implements WebMvcConfigurer {
