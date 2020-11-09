@@ -20,7 +20,7 @@ public class JdbcConfigSample implements WebMvcConfigurer {
     @Bean
     public DataSource getDataSource () {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/foreman");
         dataSource.setUsername("postgres");
         dataSource.setPassword("postgres");
         dataSource.setDriverClassName("org.postgresql.Driver");

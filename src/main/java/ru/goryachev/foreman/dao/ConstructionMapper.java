@@ -10,9 +10,9 @@ public class ConstructionMapper implements RowMapper<Construction> {
     public Construction mapRow(ResultSet rs, int rowNum) throws SQLException {
         Construction construction = new Construction();
         construction.setId(rs.getInt("id"));
-        construction.setCodenumber(rs.getString("codenumber "));
+        construction.setCodenumber(rs.getString("codenumber"));
         construction.setName(rs.getString("name"));
-        construction.setDescription(rs.getString("description "));
+        construction.setDescription(rs.getString("description"));
         return construction;
     }
 }
