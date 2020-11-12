@@ -36,14 +36,16 @@ Spring-Web-MVC, Spring JDBC, Servlet-API
 <p>Contains classes of service logic. These classes use the data which are obtained from the database.</p>
 
 <h2>2. Database</h2>
-<p>To create database use the file DDLscript_v1.0-db.md (you can customize it)</p>
+<p>To create database use the files (you can customize it):</p>
+<p>DDLscript_v2.0-db.md</p>
+<p>SPscript_v2.0-db.md (plpgsql stored procedures)</p>
 <p>The database contains:</p>
-<p>tables: 6</p>
+<p>tables: 7</p>
 <p>stored procedures: 2</p>
 <p>For connection to database use an appropriate driver. In this example - "org.postgresql.Driver", PostgreSQL version 13, but you can use different (see <b>1.Structure: ru/goryachev/foreman/config - about JDBCConfig.java).</b></p>
 
 <h3>Database scheme</h3>
 
-![DBscheme_v1 0-db](https://user-images.githubusercontent.com/61917893/97116617-6ddbc600-170f-11eb-94f4-f646b5e49360.jpg)
+![DBscheme_v2 0-db](https://user-images.githubusercontent.com/61917893/98996869-a6b7cf80-2544-11eb-90aa-3e85d40af57d.jpg)
 <p></p>
 <p>Free software.  Intended for educational purposes. Lev Goryachev.</p>
