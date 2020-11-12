@@ -11,7 +11,7 @@ Spring-Web-MVC, Spring JDBC, Servlet-API
 <p><b>WebConfig.java</b> - configurer that implements WebMvcConfigurer, sets ViewResolver (JSP pages).</p>
 <p><b>JDBCConfig.java</b> - configurer that implements WebMvcConfigurer and configures connection to database, using  beans JdbcTemplate, DataSource (dependency: spring-jdbc).</p>
 <p>Use appropriate driver to connect to your database. In this example -  "org.postgresql.Driver", dependency: compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4' from MavenCentral</p>
-<p><b>Due to the fact that connection uses user name, user password, this class is NOT available. You can see JDBCConfigSample.java, you can use it and set your properties and take steps to hide confidential information.</b></p>
+<p><b>Due to the fact that connection uses user name, user password, JDBCConfig.java class is NOT available. You can see JDBCConfigSample.java which is absolutely identical - you can use it and set your properties (take steps to hide confidential information).</b></p>
 <p><b>ServiceConfig.java</b> - configurer that implements WebMvcConfigurer for service configuration (beans of services)</p>
 <h3>ru/goryachev/foreman/controllers</h3>
 <p><b>MainController.java</b> - works with: </p>
@@ -25,17 +25,25 @@ Spring-Web-MVC, Spring JDBC, Servlet-API
 <p><b>OrderController.java</b>- works with:</p>
 <p>/construction/order  - page that displays the order form with appropriate information (user, date) and with list of ordered materials.</p>
 <h3>ru/goryachev/foreman/dao</h3>
-<p>Contains interface DataAccessible and appropriate classes for implementation.</p>
+<p>Contains:</p>
+<p>interface DataAccessible;</p>
+<p>dao classes (for each entity) - implementations of DataAccessible.</p>
+<p>mappers (for each dao class) - implementations of RowMapper (springframework.jdbc.core.RowMapper)</p>
 <h3>ru/goryachev/foreman/entities</h3>
-<p>Contains classes of entities that correspond to the entities of database. Include fields, getters, setters.</p>
+<p>Contains classes of entities that correspond to the entities of database.
+ Include fields, getters, setters. Setters (only for reference types) contain 'if' statement to check a null (get rid of null if that is received from database).</p>
 <h3>ru/goryachev/foreman/services</h3>
 <p>Contains classes of service logic. These classes use the data which are obtained from the database.</p>
 
 <h2>2. Database</h2>
-<p>To create database use the file DDLscript_v1.0-db.md (you can customize it).</p>
-<p>For connection to database use an appropriate driver. In this example - "org.postgresql.Driver", but you can use different (see <b>1.Structure: ru/goryachev/foreman/config - about JDBCConfig.java).</b></p>
+<p>To create database use the file DDLscript_v1.0-db.md (you can customize it)</p>
+<p>The database contains:</p>
+<p>tables: 6</p>
+<p>stored procedures: 2</p>
+<p>For connection to database use an appropriate driver. In this example - "org.postgresql.Driver", PostgreSQL version 13, but you can use different (see <b>1.Structure: ru/goryachev/foreman/config - about JDBCConfig.java).</b></p>
+
 <h3>Database scheme</h3>
 
 ![DBscheme_v1 0-db](https://user-images.githubusercontent.com/61917893/97116617-6ddbc600-170f-11eb-94f4-f646b5e49360.jpg)
-
+<p></p>
 <p>Free software.  Intended for educational purposes. Lev Goryachev.</p>
