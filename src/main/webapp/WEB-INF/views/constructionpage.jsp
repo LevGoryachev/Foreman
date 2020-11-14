@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 
 <head>
-    <title>$Construction</title>
+    <title>${showConstruction.name}</title>
 </head>
 
 <body>
     <p>
-        <h3>Description</h3>
+        <h3>General information:</h3>
+    <table border="1" cellpadding="5">
+        <tr>
+            <td>${showConstruction.codenumber}</td>
+            <td>${showConstruction.name}</td>
+        </tr>
+    </table>
+    <h3>Description:</h3>
+    <table>
+        <td>${showConstruction.description}</td>
+    </table>
+
     </p>
     <p>
         <h3><a href="./materials">Bill of materials</a></h3>
@@ -22,6 +33,10 @@
     </p>
     <p>
         and should not be available for suppliers
+    </p>
+
+    <p>
+        <h3><a href="../constructions">Back to list of constructions</a></h3>
     </p>
 </body>
 

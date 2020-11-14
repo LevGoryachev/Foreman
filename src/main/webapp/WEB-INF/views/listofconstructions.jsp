@@ -18,7 +18,7 @@
         <tr>
             <td>${constructionlst.id}</td>
             <td>${constructionlst.codenumber}</td>
-            <td>${constructionlst.name}</td>
+            <td><a href="./construction/${constructionlst.name}">${constructionlst.name}</a></td>
             <td>${constructionlst.description}</td>
         </tr>
     </c:forEach>

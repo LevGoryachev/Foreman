@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.goryachev.foreman.entities.Construction;
 import ru.goryachev.foreman.service.ConstructionService;
+import ru.goryachev.foreman.service.MaterialService;
 
 import java.util.List;
 
@@ -16,6 +17,9 @@ public class MainController {
 
     @Autowired
     public ConstructionService constructionService;
+
+    @Autowired
+    public MaterialService materialService;
 
     @GetMapping("/login")
     public String loginForm () {
@@ -43,4 +47,13 @@ public class MainController {
 
         return "listofconstructions";
     }
+
+
+    @GetMapping ("/materials")
+    public String materialsGeneral (Model model) {
+        model.addAttribute("materialList", materialService.getAll());
+
+        return "materialsgeneral";
+    }
+
 }

@@ -14,7 +14,7 @@ public class MaterialService implements Applicable {
 
     @Override
     public List<Material> getAll() {
-        return null;
+        return materialsDAO.getAll();
     }
 
 }

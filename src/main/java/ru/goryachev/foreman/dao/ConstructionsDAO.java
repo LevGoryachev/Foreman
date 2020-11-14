@@ -16,9 +16,14 @@ public class ConstructionsDAO implements DataAccessible {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public Construction getByName(String name) {
+        String sqlQuery = "SELECT * FROM construction WHERE name=?";
+        return jdbcTemplate.queryForObject(sqlQuery, new ConstructionMapper(), name);
+    }
+
     @Override
     public List<Construction> getAll() {
-        final char dm = (char) 34;
+        final char dm = (char) 34; // double mark, just in case
         String sqlQuery = "SELECT * FROM construction";
 
         //Check List<>
