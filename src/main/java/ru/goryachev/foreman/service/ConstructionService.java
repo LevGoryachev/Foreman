@@ -14,9 +14,7 @@ public class ConstructionService implements Applicable {
     @Autowired
     public ConstructionsDAO constructionsDAO;
 
-    public Construction getByName(String name) {
-        return constructionsDAO.getByName(name);
-    }
+
 
     @Override
     public List<Construction> getAll() {
@@ -47,5 +45,9 @@ public class ConstructionService implements Applicable {
     @Override
     public void delete(int id) {
 
+    }
+
+    public Construction getByName(String name) {
+        return constructionsDAO.getByName(name);
     }
 }

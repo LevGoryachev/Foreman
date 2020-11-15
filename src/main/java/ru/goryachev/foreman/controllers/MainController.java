@@ -3,9 +3,11 @@ package ru.goryachev.foreman.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
+
+import org.springframework.web.bind.annotation.*;
 import ru.goryachev.foreman.entities.Construction;
+import ru.goryachev.foreman.entities.Material;
 import ru.goryachev.foreman.service.ConstructionService;
 import ru.goryachev.foreman.service.MaterialService;
 
@@ -20,6 +22,7 @@ public class MainController {
 
     @Autowired
     public MaterialService materialService;
+
 
     @GetMapping("/login")
     public String loginForm () {
@@ -54,6 +57,32 @@ public class MainController {
         model.addAttribute("materialList", materialService.getAll());
 
         return "materialsgeneral";
+    }
+
+    @PostMapping("/materials/add")
+    public String addGeneralMaterial (@ModelAttribute("material") Material material) {
+        materialService.save(material);
+    return "redirect:/materials";
+    }
+
+
+    @GetMapping ("/materials/edit/{id}")
+    public String editPageGeneralMaterial (@PathVariable("id") int id, Model model) {
+        model.addAttribute("materialEdit", materialService.getById(id));
+        return "editmaterial";
+    }
+
+    @PostMapping ("/materials/upd")
+    public String updateGeneralMaterial (@ModelAttribute ("material") Material material) {
+        materialService.update(material);
+        return "redirect:/materials";
+    }
+
+    @GetMapping ("/materials/del/{id}")
+    public String delGeneralMaterial (@PathVariable("id") int id) {
+        materialService.delete(id);
+
+        return "redirect:/materials";
     }
 
 }

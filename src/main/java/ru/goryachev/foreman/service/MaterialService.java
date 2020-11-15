@@ -3,6 +3,7 @@ package ru.goryachev.foreman.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.goryachev.foreman.dao.MaterialsDAO;
+import ru.goryachev.foreman.entities.Construction;
 import ru.goryachev.foreman.entities.Entity;
 import ru.goryachev.foreman.entities.Material;
 import java.util.List;
@@ -25,12 +26,16 @@ public class MaterialService implements Applicable {
 
     @Override
     public void update(Entity entity) {
-
+        materialsDAO.update(entity);
     }
 
     @Override
     public void delete(int id) {
+        materialsDAO.delete(id);
+    }
 
+    public Material getById(int id) {
+        return materialsDAO.getById(id);
     }
 
 }
