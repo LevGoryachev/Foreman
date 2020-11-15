@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.goryachev.foreman.dao.ConstructionsDAO;
 import ru.goryachev.foreman.entities.Construction;
+import ru.goryachev.foreman.entities.Entity;
+
 import java.util.List;
 
 @Service
@@ -30,5 +32,20 @@ public class ConstructionService implements Applicable {
         }
 
         return constructionsDAO.getAll();
+    }
+
+    @Override
+    public void save(Entity entity) {
+
+    }
+
+    @Override
+    public void update(Entity entity) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
     }
 }

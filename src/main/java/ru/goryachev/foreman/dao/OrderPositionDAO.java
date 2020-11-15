@@ -2,6 +2,7 @@ package ru.goryachev.foreman.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import ru.goryachev.foreman.entities.Entity;
 import ru.goryachev.foreman.entities.OrderPosition;
 
 import java.util.List;
@@ -19,5 +20,20 @@ public class OrderPositionDAO implements DataAccessible {
     public List<OrderPosition> getAll() {
         String sqlQuery = "SELECT * FROM orderposition";
         return jdbcTemplate.query(sqlQuery,new OrderPositionMapper());
+    }
+
+    @Override
+    public void save(Entity entity) {
+
+    }
+
+    @Override
+    public void update(Entity entity) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
     }
 }
