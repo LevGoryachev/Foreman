@@ -2,7 +2,7 @@ package ru.goryachev.foreman.entities;
 
 import java.util.Date;
 
-public class Order {
+public class Order implements Entity {
 
     int id;
     Date ordertime;

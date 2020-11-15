@@ -1,6 +1,6 @@
 package ru.goryachev.foreman.entities;
 
-public class Material {
+public class Material implements Entity {
 
     private int id;
     private String name;

@@ -1,6 +1,6 @@
 package ru.goryachev.foreman.entities;
 
-public class Construction {
+public class Construction implements Entity {
 
     private int id;
     private String codenumber;

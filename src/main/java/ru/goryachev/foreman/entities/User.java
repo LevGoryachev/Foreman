@@ -1,6 +1,6 @@
 package ru.goryachev.foreman.entities;
 
-public class User {
+public class User implements Entity {
 
     private int id;
     private String firstName;

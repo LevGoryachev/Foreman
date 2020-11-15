@@ -1,6 +1,6 @@
 package ru.goryachev.foreman.entities;
 
-public class BillPosition {
+public class BillPosition implements Entity {
 
     private int constructionid;
     private int materialid;
