@@ -23,20 +23,24 @@
             <td>${materialList.unitWkg}</td>
             <td>${materialList.notes}</td>
             <td><a href="./materials/edit/${materialList.id}">UPDATE</a></td>
-            <td><a href="./materials/del/${materialList.id}">DELETE</a></td>
+            <form name = "edit" action = "${pageContext.request.contextPath}/materials/edit/${materialList.id}" method="get">
+                <td><input type="submit" value="UPDATE"></td>
+            </form>
+
+            <form name = "delete" action = "${pageContext.request.contextPath}/materials/del/${materialList.id}" method="get" onsubmit="return confirm('Delete this?');">
+                <td><input type="submit" value="DELETE"></td>
+            </form>
         </tr>
     </c:forEach>
-    <form name = "material" action = "${pageContext.request.contextPath}/materials/add" method="post">
+    <form name = "material" action = "${pageContext.request.contextPath}/materials/add" method="post" onsubmit="return confirm('Add new?');">
         <tr>
             <td><input title="ID" type="text" name="id"></td>
             <td> <input title="NAME" type="text" name="name"></td>
             <td> <input title="UNIT MEASURE" type="text" name="um"></td>
             <td><input title="UNIT WEIGHT, KG" type="text" name="unitWkg"></td>
             <td><input title="NOTES" type="text" name="notes"></td>
-        </tr>
-
-        <tr>
-            <td><input type="submit" value="OK"></td>
+            <td>""</td>
+            <td><input type="submit" value="ADD NEW"></td>
         </tr>
     </form>
 </table>
