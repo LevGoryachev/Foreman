@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.goryachev.foreman.dao.ConstructionsDAO;
 import ru.goryachev.foreman.entities.Construction;
 import ru.goryachev.foreman.entities.Entity;
+import ru.goryachev.foreman.entities.Material;
 
 import java.util.List;
 
@@ -34,20 +35,25 @@ public class ConstructionService implements Applicable {
 
     @Override
     public void save(Entity entity) {
-
+        constructionsDAO.save(entity);
     }
 
     @Override
     public void update(Entity entity) {
-
+        constructionsDAO.update(entity);
     }
 
     @Override
     public void delete(int id) {
-
+        constructionsDAO.delete(id);
     }
 
     public Construction getByName(String name) {
         return constructionsDAO.getByName(name);
     }
+
+    public Construction getById(int id) {
+        return constructionsDAO.getById(id);
+    }
+
 }

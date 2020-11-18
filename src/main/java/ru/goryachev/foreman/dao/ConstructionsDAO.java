@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import ru.goryachev.foreman.entities.Construction;
 import ru.goryachev.foreman.entities.Entity;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ConstructionsDAO implements DataAccessible {
@@ -37,16 +35,22 @@ public class ConstructionsDAO implements DataAccessible {
 
     @Override
     public void save(Entity entity) {
-
+        Construction construction = ((Construction) entity);
+        String sqlQuery = "INSERT  INTO construction (id, codenumber, name, description) VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(sqlQuery, construction.getId(), construction.getCodenumber(), construction.getName(), construction.getDescription());
     }
 
     @Override
     public void update(Entity entity) {
-
+        Construction construction = ((Construction) entity);
+        String sqlQuery = "UPDATE construction SET codenumber=?, name=?, description=? WHERE id=?";
+        jdbcTemplate.update(sqlQuery, construction.getCodenumber(), construction.getName(), construction.getDescription(), construction.getId());
     }
 
     @Override
     public void delete(int id) {
+        String sqlQuery = "DELETE FROM construction WHERE id=?";
+        jdbcTemplate.update(sqlQuery, id);
 
     }
 
@@ -54,4 +58,10 @@ public class ConstructionsDAO implements DataAccessible {
         String sqlQuery = "SELECT * FROM construction WHERE name=?";
         return jdbcTemplate.queryForObject(sqlQuery, new ConstructionMapper(), name);
     }
+
+    public Construction getById(int id) {
+        String sqlQuery = "SELECT * FROM construction WHERE id=?";
+        return jdbcTemplate.queryForObject(sqlQuery, new ConstructionMapper(), id);
+    }
+
 }

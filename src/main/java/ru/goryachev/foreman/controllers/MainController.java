@@ -34,6 +34,7 @@ public class MainController {
         return "registrationpage";
     }
 
+    //read: constructions
     @GetMapping ("/constructions")
     public String constructions (Model model) {
         model.addAttribute("constructionsList", constructionService.getAll());
@@ -51,33 +52,60 @@ public class MainController {
         return "listofconstructions";
     }
 
+    //create: constructions
+    @PostMapping("/constructions/add")
+    public String addConstructions (@ModelAttribute("construction") Construction construction) {
+        constructionService.save(construction);
+        return "redirect:/constructions";
+    }
 
+    //update: constructions
+    @GetMapping ("/constructions/edit/{id}")
+    public String editPageConstruction (@PathVariable("id") int id, Model model) {
+        model.addAttribute("constructionEdit", constructionService.getById(id));
+        return "editconstruction";
+    }
+    @PostMapping ("/constructions/upd")
+    public String updateConstruction (@ModelAttribute ("construction") Construction construction) {
+        constructionService.update(construction);
+        return "redirect:/constructions";
+    }
+
+    //delete: constructions
+    @GetMapping ("/constructions/del/{id}")
+    public String delConstruction (@PathVariable("id") int id) {
+        constructionService.delete(id);
+        return "redirect:/constructions";
+    }
+
+
+    //read: materials
     @GetMapping ("/materials")
     public String materialsGeneral (Model model) {
         model.addAttribute("materialList", materialService.getAll());
-
         return "materialsgeneral";
     }
 
+    //create: materials
     @PostMapping("/materials/add")
     public String addGeneralMaterial (@ModelAttribute("material") Material material) {
         materialService.save(material);
     return "redirect:/materials";
     }
 
-
+    //update: materials
     @GetMapping ("/materials/edit/{id}")
     public String editPageGeneralMaterial (@PathVariable("id") int id, Model model) {
         model.addAttribute("materialEdit", materialService.getById(id));
         return "editmaterial";
     }
-
     @PostMapping ("/materials/upd")
     public String updateGeneralMaterial (@ModelAttribute ("material") Material material) {
         materialService.update(material);
         return "redirect:/materials";
     }
 
+    //delete: materials
     @GetMapping ("/materials/del/{id}")
     public String delGeneralMaterial (@PathVariable("id") int id) {
         materialService.delete(id);
