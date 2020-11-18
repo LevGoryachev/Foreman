@@ -9,12 +9,8 @@ import java.util.List;
 
 public class OrderPositionDAO implements DataAccessible {
 
-    public final JdbcTemplate jdbcTemplate;
-
     @Autowired
-    public OrderPositionDAO(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+    public JdbcTemplate jdbcTemplate;
 
     @Override
     public List<OrderPosition> getAll() {

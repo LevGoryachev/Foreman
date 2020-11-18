@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import ru.goryachev.foreman.dao.ConstructionsDAO;
 import ru.goryachev.foreman.entities.Construction;
 import ru.goryachev.foreman.entities.Entity;
-import ru.goryachev.foreman.entities.Material;
 
 import java.util.List;
 

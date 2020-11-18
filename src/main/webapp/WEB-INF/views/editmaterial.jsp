@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Genaral list of materials</title>
+    <title>Edit material</title>
 </head>
 
 <body>
-<p><h2>General list of materials</h2></p>
+<p><h2>Edit material</h2></p>
 <table border="1" cellpadding="5">
     <tr>
         <td>ID</td>

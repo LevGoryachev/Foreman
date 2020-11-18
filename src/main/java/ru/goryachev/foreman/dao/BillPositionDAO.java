@@ -9,12 +9,8 @@ import java.util.List;
 
 public class BillPositionDAO implements DataAccessible{
 
-    public final JdbcTemplate jdbcTemplate;
-
     @Autowired
-    public BillPositionDAO (JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+    public JdbcTemplate jdbcTemplate;
 
     @Override
     public List<BillPosition> getAll() {

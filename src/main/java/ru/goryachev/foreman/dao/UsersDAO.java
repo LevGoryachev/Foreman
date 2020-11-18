@@ -8,12 +8,8 @@ import java.util.List;
 
 public class UsersDAO implements DataAccessible {
 
-    public final JdbcTemplate jdbcTemplate;
-
     @Autowired
-    public UsersDAO(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+    public JdbcTemplate jdbcTemplate;
 
     @Override
     public List<User> getAll() {

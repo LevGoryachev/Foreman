@@ -8,12 +8,9 @@ import java.util.List;
 
 public class ConstructionsDAO implements DataAccessible {
 
-    public final JdbcTemplate jdbcTemplate;
-
     @Autowired
-    public ConstructionsDAO(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+    public JdbcTemplate jdbcTemplate;
+
 
     @Override
     public List<Construction> getAll() {

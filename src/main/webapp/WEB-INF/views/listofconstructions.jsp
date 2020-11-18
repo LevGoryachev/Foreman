@@ -39,6 +39,8 @@
         </tr>
     </form>
 </table>
+<p>
+<h3><a href="./">Back to main page</a></h3>
+</p>
 </body>
-
 </html>
