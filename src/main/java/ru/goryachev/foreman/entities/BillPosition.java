@@ -2,24 +2,34 @@ package ru.goryachev.foreman.entities;
 
 public class BillPosition implements Entity {
 
-    private int constructionid;
-    private int materialid;
+    private int constructionId;
+    private int materialId;
     private int billqty ;
 
-    public int getConstructionid() {
-        return constructionid;
+    //fields for JOIN (other tables):
+    private int entityConstructionId;    //join with "construction"
+    private String entityConstructionName;    //join with "construction"
+    private String entityConstructionCodeNumber;    //join with "construction"
+
+    private String entityMaterialName;        //join with "material"
+    private String entityMaterialUm;          //join with "material"
+    private int entityMaterialUnitWkg;        //join with "material"
+    private String entityMaterialNotes;       //join with "material"
+
+    public int getConstructionId() {
+        return constructionId;
     }
 
-    public void setConstructionid(int constructionid) {
-        this.constructionid = constructionid;
+    public void setConstructionId(int constructionId) {
+        this.constructionId = constructionId;
     }
 
-    public int getMaterialid() {
-        return materialid;
+    public int getMaterialId() {
+        return materialId;
     }
 
-    public void setMaterialid(int materialid) {
-        this.materialid = materialid;
+    public void setMaterialId(int materialId) {
+        this.materialId = materialId;
     }
 
     public int getBillqty() {
@@ -28,5 +38,61 @@ public class BillPosition implements Entity {
 
     public void setBillqty(int billqty) {
         this.billqty = billqty;
+    }
+
+    public int getEntityConstructionId() {
+        return entityConstructionId;
+    }
+
+    public void setEntityConstructionId(int entityConstructionId) {
+        this.entityConstructionId = entityConstructionId;
+    }
+
+    public String getEntityConstructionName() {
+        return entityConstructionName;
+    }
+
+    public void setEntityConstructionName(String entityConstructionName) {
+        this.entityConstructionName = entityConstructionName;
+    }
+
+    public String getEntityConstructionCodeNumber() {
+        return entityConstructionCodeNumber;
+    }
+
+    public void setEntityConstructionCodeNumber(String entityConstructionCodeNumber) {
+        this.entityConstructionCodeNumber = entityConstructionCodeNumber;
+    }
+
+    public String getEntityMaterialName() {
+        return entityMaterialName;
+    }
+
+    public void setEntityMaterialName(String entityMaterialName) {
+        this.entityMaterialName = entityMaterialName;
+    }
+
+    public String getEntityMaterialUm() {
+        return entityMaterialUm;
+    }
+
+    public void setEntityMaterialUm(String entityMaterialUm) {
+        this.entityMaterialUm = entityMaterialUm;
+    }
+
+    public int getEntityMaterialUnitWkg() {
+        return entityMaterialUnitWkg;
+    }
+
+    public void setEntityMaterialUnitWkg(int entityMaterialUnitWkg) {
+        this.entityMaterialUnitWkg = entityMaterialUnitWkg;
+    }
+
+    public String getEntityMaterialNotes() {
+        return entityMaterialNotes;
+    }
+
+    public void setEntityMaterialNotes(String entityMaterialNotes) {
+        this.entityMaterialNotes = entityMaterialNotes;
     }
 }

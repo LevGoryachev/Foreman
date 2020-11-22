@@ -6,34 +6,42 @@ Spring-Web-MVC, Spring JDBC, Servlet-API
 
 <h2>1. Structure</h2>
 <h3>ru/goryachev/foreman/app</h3>
-<p><b>AppInit.java</b> - organizes ServletContext initialization (extends AbstractAnnotationConfigDispatcherServletInitializer),the method getServletConfigClasses() returns classes WebConfig, JdbcConfig and SpringConfig.</p>
+<p><b>AppInit.java</b> - organizes ServletContext initialization (extends AbstractAnnotationConfigDispatcherServletInitializer), determines the classes of configuration (JdbcConfig, DAOConfig, ServiceConfig, WebConfig).</p>
 <h3>ru/goryachev/foreman/config</h3>
-<p><b>WebConfig.java</b> - configurer that implements WebMvcConfigurer, sets ViewResolver (JSP pages).</p>
-<p><b>JDBCConfig.java</b> - configurer that implements WebMvcConfigurer and configures connection to database, using  beans JdbcTemplate, DataSource (dependency: spring-jdbc).</p>
+<p> The classes of configurations (implementations of WebMvcConfigurer - org.springframework.web.servlet.config.annotation)
+</p>
+
+<p><b>JDBCConfig.java</b> - configures connection to database: beans JdbcTemplate, DataSource (dependency: spring-jdbc).</p>
 <p>Use appropriate driver to connect to your database. In this example -  "org.postgresql.Driver", dependency: compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4' from MavenCentral</p>
 <p><b>Due to the fact that connection uses user name, user password, JDBCConfig.java class is NOT available. You can see JDBCConfigSample.java which is absolutely identical - you can use it and set your properties (take steps to hide confidential information).</b></p>
-<p><b>ServiceConfig.java</b> - configurer that implements WebMvcConfigurer for service configuration (beans of services)</p>
+<p><b>DAOConfig.java</b> - configures data access object layer, contains beans of DAO.</p>
+<p><b>ServiceConfig.java</b> - configures service layer, contains beans of services.</p>
+<p><b>WebConfig.java</b> - sets ViewResolver (JSP pages), bean: InternalResourceViewResolver.</p>
+<p>You can use other tool to generate text output based on templates, e.g. freemarker (dependency: org.freemarker in MavenCentral)</p>
+
 <h3>ru/goryachev/foreman/controllers</h3>
-<p><b>MainController.java</b> - works with: </p>
+<p><b>MainController.java</b> - mapping: </p>
 <p>/login;</p>
 <p>/registration;</p>
 <p>/constructions - page that displays the list of constructions (construction sites, projects).</p>
-<p><b>InternalController.java</b> - works with: </p>
+<p><b>InternalController.java</b> - mapping: </p>
 <p>/construction/main - the main page of construction (general information) with links;</p>
 <p>/construction/materials - page that displays the list of materials which were included in specification of current construction (bill).</p>
 <p>/construction/orders - page that displays the list of orders of current construction.</p>
-<p><b>OrderController.java</b>- works with:</p>
+<p><b>OrderController.java</b>-mapping:</p>
 <p>/construction/order  - page that displays the order form with appropriate information (user, date) and with list of ordered materials.</p>
 <h3>ru/goryachev/foreman/dao</h3>
-<p>Contains:</p>
 <p>interface DataAccessible;</p>
-<p>dao classes (for each entity) - implementations of DataAccessible.</p>
-<p>mappers (for each dao class) - implementations of RowMapper (springframework.jdbc.core.RowMapper)</p>
+<p>implementations of DataAccessible - dao classes (for each entity) contain methods with SQL queries</p>
+<p>implementations of RowMapper (springframework.jdbc.core.RowMapper) - mappers for each dao class</p>
 <h3>ru/goryachev/foreman/entities</h3>
-<p>Contains classes of entities that correspond to the entities of database.
- Include fields, getters, setters. Setters (only for reference types) contain 'if' statement to check a null (get rid of null if that is received from database).</p>
+<p>interface-marker Entity;</p>
+<p>implementations of Entity that correspond to the entities of database</p>
+<p>Setters (only for reference types) contain 'if' statement to check a null (get rid of nulls in case of nulls from database).</p>
 <h3>ru/goryachev/foreman/services</h3>
-<p>Contains classes of service logic. These classes use the data which are obtained from the database.</p>
+<p>interface Applicable;</p>
+<p>implementations of Applicable - classes of service logic (for each entity)</p>
+<p>These classes exchange the data with <b>dao</b> layer and <b>controllers</b>.</p>
 
 <h2>2. Database</h2>
 <p>To create database use the files (you can customize it):</p>

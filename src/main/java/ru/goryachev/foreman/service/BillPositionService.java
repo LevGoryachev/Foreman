@@ -21,17 +21,20 @@ public class BillPositionService implements Applicable {
 
     @Override
     public void save(Entity entity) {
-
+        billPositionDAO.save(entity);
     }
 
     @Override
     public void update(Entity entity) {
-
+        //BillPosition was not supposed to be update for a while
     }
 
     @Override
-    public void delete(int id) {
-
+    public void delete(int material_id) {
+        billPositionDAO.delete(material_id);
     }
 
+    public List<BillPosition> getByConstruction (int id) {
+        return billPositionDAO.getByConstruction(id);
+    }
 }
