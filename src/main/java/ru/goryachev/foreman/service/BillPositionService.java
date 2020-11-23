@@ -30,8 +30,12 @@ public class BillPositionService implements Applicable {
     }
 
     @Override
-    public void delete(int material_id) {
-        billPositionDAO.delete(material_id);
+    public void delete(int id) {
+    }
+
+    //Overloaded. It's better to change delete (int id) delete(int...varargs) later
+    public void delete(int construction_id, int material_id) {
+        billPositionDAO.delete(construction_id, material_id);
     }
 
     public List<BillPosition> getByConstruction (int id) {

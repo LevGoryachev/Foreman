@@ -27,13 +27,16 @@ public class BillPositionDAO implements DataAccessible{
     //
     @Override
     public void update(Entity entity) {
-
     }
-    //
+
     @Override
-    public void delete(int material_id) {
-        String sqlQuery = "DELETE FROM billposition WHERE material_id=?";
-        jdbcTemplate.update(sqlQuery, material_id);
+    public void delete(int id) {
+    }
+
+    //Overloaded. It's better to change delete(int id) delete(int...varargs) later
+    public void delete(int construction_id, int material_id) {
+        String sqlQuery = "DELETE FROM billposition WHERE construction_id=? AND material_id=?";
+        jdbcTemplate.update(sqlQuery, construction_id, material_id);
     }
 
     public List<BillPosition> getByConstruction(int id) {
