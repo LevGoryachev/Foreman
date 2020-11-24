@@ -23,7 +23,7 @@
             <td>${materialList.unitWkg}</td>
             <td>${materialList.notes}</td>
             <form name = "edit" action = "${pageContext.request.contextPath}/materials/edit/${materialList.id}" method="get">
-                <td><input type="submit" value="UPDATE"></td>
+                <td><input type="submit" value="EDIT"></td>
             </form>
             <form name = "delete" action = "${pageContext.request.contextPath}/materials/del/${materialList.id}" method="get" onsubmit="return confirm('Delete this?');">
                 <td><input type="submit" value="DELETE"></td>

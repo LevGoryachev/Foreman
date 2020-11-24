@@ -23,12 +23,13 @@ rank VARCHAR(255) NOT NULL,
 UNIQUE(rank)
 );
 
-CREATE TABLE "user"(
+CREATE TABLE "app_user"(
 id SERIAL PRIMARY KEY,
 firstname VARCHAR(255) NOT NULL,
 middlename VARCHAR(255),
 lastname VARCHAR(255) NOT NULL,
 nickname VARCHAR(255),
+password VARCHAR(255),
 role_id INTEGER REFERENCES "role"(id) ON DELETE SET NULL,
 UNIQUE (nickname)
 );
@@ -38,7 +39,7 @@ id SERIAL,
 construction_id INTEGER NOT NULL REFERENCES construction(id) ON DELETE SET NULL,
 ordertime TIMESTAMP,
 deliveredstatus BOOLEAN NOT NULL DEFAULT false,
-user_id INTEGER NOT NULL REFERENCES "user"(id) ON DELETE SET NULL,
+app_user_id INTEGER NOT NULL REFERENCES "app_user"(id) ON DELETE SET NULL,
 PRIMARY KEY (construction_id, id)
 );
 

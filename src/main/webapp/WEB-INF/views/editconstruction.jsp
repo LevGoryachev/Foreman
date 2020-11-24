@@ -16,7 +16,7 @@
     </tr>
     <form name = "construction" action = "${pageContext.request.contextPath}/constructions/upd" method="post" onsubmit="return confirm('Update this?');">
         <tr>
-            <td><input title="ID" type="text" name="id" value="${constructionEdit.id}"></td>
+            <td><input title="ID" type="text" name="id" value="${constructionEdit.id}" readonly></td>
             <td><input title="CODENUMBER" type="text" name="codenumber" value="${constructionEdit.codenumber}"></td>
             <td><input title="NAME" type="text" name="name" value="${constructionEdit.name}"></td>
             <td><input title="DESCRIPTION" type="text" name="description" value="${constructionEdit.description}"></td>
