@@ -20,6 +20,8 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-jdbc', version: springVersion
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.18'
     compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    compile group: 'org.springframework.security', name: 'spring-security-web', version: '5.3.5.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-config', version: '5.3.5.RELEASE'
 }
 
 war {

@@ -13,7 +13,7 @@ Spring-Web-MVC, Spring JDBC, Servlet-API
 
 <p><b>JDBCConfig.java</b> - configures connection to database: beans JdbcTemplate, DataSource (dependency: spring-jdbc).</p>
 <p>Use appropriate driver to connect to your database. In this example -  "org.postgresql.Driver", dependency: compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4' from MavenCentral</p>
-<p><b>Due to the fact that connection uses user name, user password, JDBCConfig.java class is NOT available. You can see JDBCConfigSample.java which is absolutely identical - you can use it and set your properties (take steps to hide confidential information).</b></p>
+<p><b>Due to the fact that connection uses appUser name, appUser password, JDBCConfig.java class is NOT available. You can see JDBCConfigSample.java which is absolutely identical - you can use it and set your properties (take steps to hide confidential information).</b></p>
 <p><b>DAOConfig.java</b> - configures data access object layer, contains beans of DAO.</p>
 <p><b>ServiceConfig.java</b> - configures service layer, contains beans of services.</p>
 <p><b>WebConfig.java</b> - sets ViewResolver (JSP pages), bean: InternalResourceViewResolver.</p>
@@ -29,7 +29,7 @@ Spring-Web-MVC, Spring JDBC, Servlet-API
 <p>/construction/materials - page that displays the list of materials which were included in specification of current construction (bill).</p>
 <p>/construction/orders - page that displays the list of orders of current construction.</p>
 <p><b>OrderController.java</b>-mapping:</p>
-<p>/construction/order  - page that displays the order form with appropriate information (user, date) and with list of ordered materials.</p>
+<p>/construction/order  - page that displays the order form with appropriate information (appUser, date) and with list of ordered materials.</p>
 <h3>ru/goryachev/foreman/dao</h3>
 <p>interface DataAccessible;</p>
 <p>implementations of DataAccessible - dao classes (for each entity) contain methods with SQL queries</p>
@@ -54,6 +54,6 @@ Spring-Web-MVC, Spring JDBC, Servlet-API
 
 <h3>Database scheme</h3>
 
-![DBscheme_v2 0-db](https://user-images.githubusercontent.com/61917893/98996869-a6b7cf80-2544-11eb-90aa-3e85d40af57d.jpg)
+![DBscheme_v2 0-db](https://appUser-images.githubusercontent.com/61917893/98996869-a6b7cf80-2544-11eb-90aa-3e85d40af57d.jpg)
 <p></p>
 <p>Free software.  Intended for educational purposes. Lev Goryachev.</p>

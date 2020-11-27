@@ -3,18 +3,18 @@ package ru.goryachev.foreman.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import ru.goryachev.foreman.entities.Entity;
-import ru.goryachev.foreman.entities.User;
+import ru.goryachev.foreman.entities.AppUser;
 import java.util.List;
 
-public class UsersDAO implements DataAccessible {
+public class AppUsersDAO implements DataAccessible {
 
     @Autowired
     public JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<User> getAll() {
+    public List<AppUser> getAll() {
         String sqlQuery = "SELECT * FROM user";
-        return jdbcTemplate.query(sqlQuery, new UserMapper());
+        return jdbcTemplate.query(sqlQuery, new AppUserMapper());
     }
 
     @Override
