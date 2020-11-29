@@ -5,7 +5,7 @@ plugins {
 group 'ru.goryachev'
 version '1.1.0'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 def springVersion = '5.2.9.RELEASE'
 def servletVersion = '4.0.1'
