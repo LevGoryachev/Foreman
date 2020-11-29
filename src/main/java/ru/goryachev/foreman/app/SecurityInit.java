@@ -1,4 +1,4 @@
-package ru.goryachev.foreman.config;
+package ru.goryachev.foreman.app;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

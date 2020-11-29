@@ -5,18 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Foreman</h1>
-    <p>
-        <a href="./login">Login</a>
-    </p>
-    <p>
-        <a href="./registration">Registration</a>
-    </p>
+<h1>Welcome to FOREMAN</h1>
+<h2>- remote supplying service for building construction</h2>
     <p>
         <a href="./constructions">Constructions</a>
     </p>
     <p>
         <a href="./materials">Materials</a>
+    </p>
+    <p>
+        <a href="./guidepage">Guide</a>
     </p>
 </body>
 </html>

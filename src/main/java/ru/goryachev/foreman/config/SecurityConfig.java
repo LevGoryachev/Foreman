@@ -16,14 +16,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                     .authorizeRequests()
-                    .antMatchers("/login", "/registration").anonymous()
+                    .antMatchers("/customlogin", "/registration").anonymous()
+                    //.antMatchers("/construction/**/materials").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE", "SUPPLIER")
                     .antMatchers("/construction/orders").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE", "SUPPLIER")
                     .antMatchers("/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
                     .antMatchers("/materials").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
-                    .antMatchers("/materials/**").hasAnyRole("ADMIN", "CHIEF")
-                    .antMatchers("/**").hasRole("ADMIN")
+                    .antMatchers("/**").hasAnyRole("ADMIN", "CHIEF")
+                    //.antMatchers("/materials/**").hasAnyRole("ADMIN", "CHIEF")
+                    //.antMatchers("/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
-                .and().formLogin();
+                .and().formLogin().loginPage("/customlogin")
+                    .defaultSuccessUrl("/", true)
+                    .failureUrl("/customlogin?error=true")
+                .and()
+                    .logout()
+                    .logoutSuccessUrl("/customlogin?logout=true")
+                    .invalidateHttpSession(true)
+                    .permitAll();
     }
 
     @Override
@@ -45,7 +54,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .password("{noop}supplier")
                     .authorities("ROLE_SUPPLIER");
     }
-
 /*
     @Bean
     protected UserDetailsService userDetailsService() {

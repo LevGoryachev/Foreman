@@ -21,17 +21,6 @@ public class MainController {
     @Autowired
     public MaterialService materialService;
 
-
-    /*@GetMapping("/login")
-    public String loginForm () {
-        return "loginpage";
-    }*/
-
-    @GetMapping ("/registration")
-    public String regForm () {
-        return "registrationpage";
-    }
-
     //read: constructions
     @GetMapping ("/constructions")
     public String constructions (Model model) {

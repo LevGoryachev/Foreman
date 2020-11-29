@@ -1,8 +1,8 @@
 # Foreman
 Foreman is a web-application for organizing remote supplying.
 Employees who are located on construction sites can use this web-application to create and send orders on-line. In its turn, construction supply managers are able to recieve the orders and initiate the delivery.
-
-Spring-Web-MVC, Spring JDBC, Servlet-API
+<p><b>Java 11, Spring-Web-MVC, Spring JDBC, Spring Security, JSP</b></p>
+<p><b>DB structure: relational database with stored procedures(PL/pgSQL)</b></p>
 
 <h2>1. Structure</h2>
 <h3>ru/goryachev/foreman/app</h3>

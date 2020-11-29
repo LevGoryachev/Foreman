@@ -1,23 +1,26 @@
-<!DOCTYPE html>
-
-<head>
-     <title>Login</title>
-</head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
 <body>
-<h2>Sign in</h2>
-    <form action="check_user.php" method="post">
-        <!-- check_user.php - is a handler (method "post" sends data from the fields to the page check_user.php) -->
-        <p>
-            <label>Enter your Login:<br></label>
-            <input name="login" type="text" size="15" maxlength="15">
-        </p>
-        <p>
-            <label>Enter your Password:<br></label>
-            <input name="password" type="password" size="15" maxlength="15">
-        </p>
-        <p>
-            <input type="submit" name="submit" value="Sign in">
-        </p>
-    </form>
+<h2>Welcome to FOREMAN!</h2>
+<h3>- please, login</h3>
+
+<c:if test="${not empty errorMessge}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMessge}</div></c:if>
+
+<form name='login' action="${pageContext.request.contextPath}/customlogin" method='POST'>
+    <table>
+        <tr>
+            <td>UserName:</td>
+            <td><input type='text' name='username' value=''></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type='password' name='password' /></td>
+        </tr>
+        <tr>
+            <td colspan='2'><input name="submit" type="submit" value="submit" /></td>
+        </tr>
+    </table>
+    <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />-->
+</form>
 </body>
 </html>
