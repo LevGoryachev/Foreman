@@ -22,10 +22,10 @@ public class MainController {
     public MaterialService materialService;
 
 
-    @GetMapping("/login")
+    /*@GetMapping("/login")
     public String loginForm () {
         return "loginpage";
-    }
+    }*/
 
     @GetMapping ("/registration")
     public String regForm () {

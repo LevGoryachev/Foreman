@@ -1,41 +1,67 @@
 package ru.goryachev.foreman.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends AbstractSecurityWebApplicationInitializer {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    //@Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .httpBasic();
+                    .authorizeRequests()
+                    .antMatchers("/login", "/registration").anonymous()
+                    .antMatchers("/construction/orders").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE", "SUPPLIER")
+                    .antMatchers("/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
+                    .antMatchers("/materials").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
+                    .antMatchers("/materials/**").hasAnyRole("ADMIN", "CHIEF")
+                    .antMatchers("/**").hasRole("ADMIN")
+                    .anyRequest().authenticated()
+                .and().formLogin();
     }
 
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                    .withUser("admin")
+                    .password("{noop}sys")
+                    .authorities("ROLE_ADMIN")
+                .and()
+                    .withUser("chief")
+                    .password("{noop}chief")
+                    .authorities("ROLE_CHIEF")
+                .and()
+                    .withUser("employee")
+                    .password("{noop}employee")
+                    .authorities("ROLE_EMPLOYEE")
+                .and()
+                    .withUser("supplier")
+                    .password("{noop}supplier")
+                    .authorities("ROLE_SUPPLIER");
+    }
+
+/*
     @Bean
-    //@Override
     protected UserDetailsService userDetailsService() {
         //return super.userDetailsService();
         return new InMemoryUserDetailsManager(
                 User.builder()
                     .username("admin")
-                    .password("admin")
+                    .password("{noop}admin")
                     .roles("admin")
                     .build()
         );
-
     }
+*/
+
+    protected PasswordEncoder passwordEncoder () {
+        return new BCryptPasswordEncoder(12);
+    }
+
 }
