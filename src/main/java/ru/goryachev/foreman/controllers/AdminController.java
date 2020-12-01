@@ -19,6 +19,12 @@ public class AdminController {
     @Autowired
     public AppUserService appUserService;
 
+    @GetMapping ("/admin")
+    public String adminPanel () {
+        return "admin_panel";
+    }
+
+
     //CRUD: roles
     //read: roles
     @GetMapping ("/roles-editable")

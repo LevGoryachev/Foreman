@@ -25,14 +25,14 @@ public class InternalController {
     @GetMapping("/{name}")
     public String showByid(@PathVariable("name") String name, Model model) {
     model.addAttribute("showConstruction", constructionService.getByName(name));
-        return "constructionpage";
+        return "construction_page";
     }
 
     //read: billposition (constructionMaterials)
     @GetMapping("/{name}/materials")
     public String constructionMaterials (@PathVariable("name") String name, Model model) {
         model.addAttribute("serviceList", billPositionService.getByConstruction(constructionService.getByName(name).getId()));
-        return "billofmaterials";
+        return "bill_of_materials";
     }
 
     //CRUD: billposition
@@ -40,7 +40,7 @@ public class InternalController {
     public String constructionMaterialsEditable (@PathVariable("name") String name, Model model) {
         model.addAttribute("serviceList", billPositionService.getByConstruction(constructionService.getByName(name).getId()));
         model.addAttribute("allMaterialsList", materialService.getAll());
-        return "billofmaterialsedit";
+        return "bill_edit";
     }
 
     //create: billposition
@@ -61,6 +61,6 @@ public class InternalController {
 
     @GetMapping("/orders")
     public String constructionOrders () {
-        return "listoforders";
+        return "orders_all";
     }
 }

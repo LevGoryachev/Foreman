@@ -53,6 +53,9 @@ public class BillPosition implements Entity {
     }
 
     public void setEntityConstructionName(String entityConstructionName) {
+        if (entityConstructionName == null) {
+            this.entityConstructionName = "";
+        }
         this.entityConstructionName = entityConstructionName;
     }
 
@@ -61,6 +64,9 @@ public class BillPosition implements Entity {
     }
 
     public void setEntityConstructionCodeNumber(String entityConstructionCodeNumber) {
+        if (entityConstructionCodeNumber == null) {
+            this.entityConstructionCodeNumber = "";
+        }
         this.entityConstructionCodeNumber = entityConstructionCodeNumber;
     }
 
@@ -69,6 +75,9 @@ public class BillPosition implements Entity {
     }
 
     public void setEntityMaterialName(String entityMaterialName) {
+        if (entityMaterialName == null) {
+            this.entityMaterialName = "";
+        }
         this.entityMaterialName = entityMaterialName;
     }
 
@@ -77,6 +86,9 @@ public class BillPosition implements Entity {
     }
 
     public void setEntityMaterialUm(String entityMaterialUm) {
+        if (entityMaterialUm == null) {
+            this.entityMaterialUm = "";
+        }
         this.entityMaterialUm = entityMaterialUm;
     }
 
@@ -93,6 +105,9 @@ public class BillPosition implements Entity {
     }
 
     public void setEntityMaterialNotes(String entityMaterialNotes) {
+        if (entityMaterialNotes == null) {
+            this.entityMaterialNotes = "";
+        }
         this.entityMaterialNotes = entityMaterialNotes;
     }
 }

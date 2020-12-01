@@ -43,7 +43,7 @@
 
 </table>
     <p><a href="../${currentName}/materials/editable">Edit list</a></p>
-    <h3><a href="../${currentName}">Back to list of constructions</a></h3>
+    <h3><a href="../${currentName}">Back to construction page</a></h3>
 
 </body>
 </html>

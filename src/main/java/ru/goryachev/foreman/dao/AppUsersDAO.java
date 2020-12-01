@@ -13,7 +13,7 @@ public class AppUsersDAO implements DataAccessible {
 
     @Override
     public List<AppUser> getAll() {
-        String sqlQuery = "SELECT * FROM user";
+        String sqlQuery = "SELECT * FROM app_user";
         return jdbcTemplate.query(sqlQuery, new AppUserMapper());
     }
 
@@ -30,5 +30,10 @@ public class AppUsersDAO implements DataAccessible {
     @Override
     public void delete(int id) {
 
+    }
+
+    public AppUser getById(int id) {
+        String sqlQuery = "SELECT * FROM app_user WHERE id=?";
+        return jdbcTemplate.queryForObject(sqlQuery, new AppUserMapper(), id);
     }
 }

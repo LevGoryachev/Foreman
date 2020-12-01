@@ -14,7 +14,7 @@
         <a href="./materials">Materials</a>
     </p>
     <p>
-        <a href="./guidepage">Guide</a>
+        <a href="./guide">Guide</a>
     </p>
 </body>
 </html>

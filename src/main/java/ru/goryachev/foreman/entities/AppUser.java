@@ -8,7 +8,7 @@ public class AppUser implements Entity {
     private String lastName;
     private String nickName;
     private String password;
-    private String role;
+    private int roleId;
     private String status = "ACTIVE";
 
     public int getId() {
@@ -74,15 +74,12 @@ public class AppUser implements Entity {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public int getRoleId() {
+        return roleId;
     }
 
-    public void setRole(String role) {
-        if (role == null) {
-            this.role = "";
-        }
-        this.role = role;
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
     }
 
     public String getStatus() {

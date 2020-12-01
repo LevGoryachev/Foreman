@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import ru.goryachev.foreman.dao.AppUsersDAO;
 import ru.goryachev.foreman.entities.AppUser;
 import ru.goryachev.foreman.entities.Entity;
-
 import java.util.List;
 
 @Service
@@ -32,6 +31,10 @@ public class AppUserService implements Applicable {
     @Override
     public void delete(int id) {
 
+    }
+
+    public AppUser getById(int id) {
+        return appUsersDAO.getById(id);
     }
 
 }

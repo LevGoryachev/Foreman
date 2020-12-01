@@ -6,7 +6,7 @@
 
 <body>
 
-<p>Order</p>
+<p>Create an order and edit its options</p>
 
 </body>
 

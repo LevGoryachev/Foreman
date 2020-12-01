@@ -70,7 +70,7 @@
     </form>
 </table>
 
-    <h3><a href="../materials">Back to list of constructions</a></h3>
+    <h3><a href="../materials">Back to bill of materials</a></h3>
 
 </body>
 </html>

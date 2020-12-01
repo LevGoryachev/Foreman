@@ -10,7 +10,7 @@ public class OrderController {
 
     @GetMapping("/order")
     public String Order () {
-        return "order";
+        return "orders_edit";
     }
 
 }
