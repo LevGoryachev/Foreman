@@ -18,9 +18,9 @@
         <td>ROLE</td>
         <!--<td>STATUS</td>-->
     </tr>
-    <form name = "appuser" action = "${pageContext.request.contextPath}/users/upd" method="post" onsubmit="return confirm('Update this?');">
+    <form name = "appUserAttr" action = "${pageContext.request.contextPath}/users/upd" method="post" onsubmit="return confirm('Update this?');">
         <tr>
-            <td><input title="ID" type="text" name="id" value="${userEdit.id}"></td>
+            <td><input title="ID" type="text" name="id" value="${userEdit.id}" readonly></td>
             <td><input title="FIRST NAME" type="text" name="firstName" value="${userEdit.firstName}"></td>
             <td><input title="MIDDLE NAME" type="text" name="middleName" value="${userEdit.middleName}"></td>
             <td><input title="LAST NAME" type="text" name="lastName" value="${userEdit.lastName}"></td>

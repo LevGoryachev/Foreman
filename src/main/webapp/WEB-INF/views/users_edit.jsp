@@ -36,7 +36,7 @@
             </form>
         </tr>
     </c:forEach>
-    <form name = "appuser" action = "${pageContext.request.contextPath}/users/add" method="post" onsubmit="return confirm('Add new?');">
+    <form name = "appUserAttr" action = "${pageContext.request.contextPath}/users/add" method="post" onsubmit="return confirm('Add new?');">
         <tr>
             <td><input title="ID" type="text" name="id"></td>
             <td><input title="FIRST NAME" type="text" name="firstName"></td>

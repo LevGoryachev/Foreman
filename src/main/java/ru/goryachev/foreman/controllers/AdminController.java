@@ -58,7 +58,7 @@ public class AdminController {
 
     //create: users
     @PostMapping("/users/add")
-    public String addUsers (@ModelAttribute("appUser") AppUser appUser) {
+    public String addUsers (@ModelAttribute("appUserAttr") AppUser appUser) {
         appUserService.save(appUser);
     return "redirect:/users-editable";
     }
@@ -70,7 +70,7 @@ public class AdminController {
         return "user_edit";
     }
     @PostMapping ("/users/upd")
-    public String updateUser (@ModelAttribute ("appUser") AppUser appUser) {
+    public String updateUser (@ModelAttribute ("appUserAttr") AppUser appUser) {
         appUserService.update(appUser);
         return "redirect:/users-editable";
     }

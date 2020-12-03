@@ -20,17 +20,17 @@ public class AppUserService implements Applicable {
 
     @Override
     public void save(Entity entity) {
-
+        appUsersDAO.save(entity);
     }
 
     @Override
     public void update(Entity entity) {
-
+        appUsersDAO.update(entity);
     }
 
     @Override
     public void delete(int id) {
-
+        appUsersDAO.delete(id);
     }
 
     public AppUser getById(int id) {

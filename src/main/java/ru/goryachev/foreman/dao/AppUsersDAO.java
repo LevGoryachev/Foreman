@@ -19,17 +19,23 @@ public class AppUsersDAO implements DataAccessible {
 
     @Override
     public void save(Entity entity) {
+        AppUser appUser = ((AppUser)entity);
+        String sqlQuery = "INSERT INTO app_user (id, firstname, middlename, lastname, nickname, password, role_id) values (?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sqlQuery, appUser.getId(), appUser.getFirstName(), appUser.getMiddleName(), appUser.getLastName(), appUser.getNickName(), appUser.getPassword(), appUser.getRoleId());
 
     }
 
     @Override
     public void update(Entity entity) {
-
+        AppUser appUser = ((AppUser) entity);
+        String sqlQuery = "UPDATE app_user SET firstname=?, middlename=?, lastname=?, nickname=?, password=?, role_id=? WHERE id=?";
+        jdbcTemplate.update(sqlQuery, appUser.getFirstName(), appUser.getMiddleName(), appUser.getLastName(), appUser.getNickName(), appUser.getPassword(), appUser.getRoleId(), appUser.getId());
     }
 
     @Override
     public void delete(int id) {
-
+        String sqlQuery = "DELETE FROM app_user WHERE id=?";
+        jdbcTemplate.update(sqlQuery, id);
     }
 
     public AppUser getById(int id) {
