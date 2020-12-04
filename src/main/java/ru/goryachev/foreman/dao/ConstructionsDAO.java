@@ -17,8 +17,11 @@ public class ConstructionsDAO implements DataAccessible {
         final char dm = (char) 34; // double mark, just in case
         String sqlQuery = "SELECT * FROM construction";
 
-        //Check List<>
-         List <Construction> co = jdbcTemplate.query(sqlQuery, new ConstructionMapper());
+
+         //List <Construction> co = jdbcTemplate.query(sqlQuery, new ConstructionMapper());
+
+
+        /*
         System.out.println("DAO check: ready");
         for(Construction stroyka : co) {
             System.out.println("DAO check: " + stroyka);
@@ -26,7 +29,7 @@ public class ConstructionsDAO implements DataAccessible {
         if (co.isEmpty()){
             System.out.println("DAO check: LIST IS EMPTY");
         }
-
+*/
         return jdbcTemplate.query(sqlQuery, new ConstructionMapper());
     }
 

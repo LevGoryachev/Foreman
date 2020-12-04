@@ -6,10 +6,9 @@ public class AppUser implements Entity {
     private String firstName;
     private String middleName;
     private String lastName;
-    private String nickName;
+    private String login;
     private String password;
     private int roleId;
-    private String status = "ACTIVE";
 
     public int getId() {
         return id;
@@ -52,15 +51,15 @@ public class AppUser implements Entity {
         this.lastName = lastName;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getLogin() {
+        return login;
     }
 
-    public void setNickName(String nickName) {
-        if (nickName == null) {
-            this.nickName = "";
+    public void setLogin(String login) {
+        if (login == null) {
+            this.login = "";
         }
-        this.nickName = nickName;
+        this.login = login;
     }
 
     public String getPassword() {
@@ -82,11 +81,4 @@ public class AppUser implements Entity {
         this.roleId = roleId;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }

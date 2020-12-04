@@ -1,31 +1,6 @@
-package ru.goryachev.foreman.config;
+package ru.goryachev.foreman.smpls;
 
 public class UsualJDBC {
-
-  /*  String str = "12343213";
-    int digits;
-    int superline;
-
-    public static void main(String[] args) {
-
-        NotUsedStJDBC cl = new NotUsedStJDBC();
-        System.out.println(cl.check());
-
-    }
-
-        private boolean check() {
-            str = str.toLowerCase();
-            str = str.replace(" ", "");
-            int strLen = str.length();
-
-            for(int i = 0; i < strLen / 2; i++)
-                if(str.charAt(i) != str.charAt(strLen - i - 1))
-                    return false;
-            return true;
-        }*/
-
-
-
 
     //classic JDBC connection is not used in this project, just for example
     //work with table of this project "construction"

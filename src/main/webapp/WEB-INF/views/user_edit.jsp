@@ -13,10 +13,9 @@
         <td>FIRST NAME</td>
         <td>MIDDLE NAME</td>
         <td>LAST NAME</td>
-        <td>NICK NAME</td>
+        <td>LOGIN</td>
         <td>PASSWORD</td>
         <td>ROLE</td>
-        <!--<td>STATUS</td>-->
     </tr>
     <form name = "appUserAttr" action = "${pageContext.request.contextPath}/users/upd" method="post" onsubmit="return confirm('Update this?');">
         <tr>
@@ -24,7 +23,7 @@
             <td><input title="FIRST NAME" type="text" name="firstName" value="${userEdit.firstName}"></td>
             <td><input title="MIDDLE NAME" type="text" name="middleName" value="${userEdit.middleName}"></td>
             <td><input title="LAST NAME" type="text" name="lastName" value="${userEdit.lastName}"></td>
-            <td><input title="NICK NAME" type="text" name="nickName" value="${userEdit.nickName}"></td>
+            <td><input title="LOGIN" type="text" name="login" value="${userEdit.login}"></td>
             <td><input title="PASSWORD" type="text" name="password" value="${userEdit.password}"></td>
             <td><input title="ROLE" type="text" name="roleId" value="${userEdit.roleId}"></td>
             <td></td>

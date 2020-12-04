@@ -54,11 +54,12 @@ public class MainController {
     }
 
     //delete: constructions
-    @GetMapping ("/constructions/del/{id}")
+    @PostMapping ("/constructions/del/{id}")
     public String delConstruction (@PathVariable("id") int id) {
         constructionService.delete(id);
         return "redirect:/constructions-editable";
     }
+
 
     //CRUD: materials
     //read: materials
@@ -95,7 +96,7 @@ public class MainController {
     }
 
     //delete: materials
-    @GetMapping ("/materials/del/{id}")
+    @PostMapping ("/materials/del/{id}")
     public String delGeneralMaterial (@PathVariable("id") int id) {
         materialService.delete(id);
         return "redirect:/materials-editable";

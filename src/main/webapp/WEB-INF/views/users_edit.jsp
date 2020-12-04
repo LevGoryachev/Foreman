@@ -13,10 +13,9 @@
         <td>FIRST NAME</td>
         <td>MIDDLE NAME</td>
         <td>LAST NAME</td>
-        <td>NICK NAME</td>
+        <td>LOGIN</td>
         <td>PASSWORD</td>
         <td>ROLE</td>
-        <!--<td>STATUS</td>-->
     </tr>
     <c:forEach items="${userList}" var="userList">
         <tr>
@@ -24,14 +23,13 @@
             <td>${userList.firstName}</td>
             <td>${userList.middleName}</td>
             <td>${userList.lastName}</td>
-            <td>${userList.nickName}</td>
+            <td>${userList.login}</td>
             <td>${userList.password}</td>
             <td>${userList.roleId}</td>
-            <!--<td>${userList.status}</td>-->
             <form name = "edit" action = "${pageContext.request.contextPath}/users/edit/${userList.id}" method="get">
                 <td><input type="submit" value="EDIT"></td>
             </form>
-            <form name = "delete" action = "${pageContext.request.contextPath}/users/del/${userList.id}" method="get" onsubmit="return confirm('Delete this?');">
+            <form name = "delete" action = "${pageContext.request.contextPath}/users/del/${userList.id}" method="post" onsubmit="return confirm('Delete this?');">
                 <td><input type="submit" value="DELETE"></td>
             </form>
         </tr>
@@ -42,7 +40,7 @@
             <td><input title="FIRST NAME" type="text" name="firstName"></td>
             <td><input title="MIDDLE NAME" type="text" name="middleName"></td>
             <td><input title="LAST NAME" type="text" name="lastName"></td>
-            <td><input title="NICK NAME" type="text" name="nickName"></td>
+            <td><input title="LOGIN" type="text" name="login"></td>
             <td><input title="PASSWORD" type="text" name="password"></td>
             <td><input title="ROLE" type="text" name="roleId"></td>
             <td></td>

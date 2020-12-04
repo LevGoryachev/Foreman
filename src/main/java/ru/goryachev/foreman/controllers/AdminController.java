@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.goryachev.foreman.entities.AppUser;
-import ru.goryachev.foreman.entities.Role;
 import ru.goryachev.foreman.service.AppUserService;
 import ru.goryachev.foreman.service.RoleService;
 
@@ -24,27 +23,11 @@ public class AdminController {
         return "admin_panel";
     }
 
-
-    //CRUD: roles
     //read: roles
-    @GetMapping ("/roles-editable")
+    @GetMapping ("/roles")
     public String rolesEditable (Model model) {
         model.addAttribute("rolesList", roleService.getAll());
-        return "roles_edit";
-    }
-
-    //create: roles
-    @PostMapping("/roles/add")
-    public String addroles (@ModelAttribute("role") Role role) {
-        roleService.save(role);
-        return "redirect:/roles-editable";
-    }
-
-    //delete: roles
-    @GetMapping ("/roles/del/{id}")
-    public String delroles (@PathVariable("id") int id) {
-        roleService.delete(id);
-        return "redirect:/roles-editable";
+        return "roles_all";
     }
 
 
@@ -76,7 +59,7 @@ public class AdminController {
     }
 
     //delete: users
-    @GetMapping ("/users/del/{id}")
+    @PostMapping ("/users/del/{id}")
     public String delUsers (@PathVariable("id") int id) {
         appUserService.delete(id);
         return "redirect:/users-editable";

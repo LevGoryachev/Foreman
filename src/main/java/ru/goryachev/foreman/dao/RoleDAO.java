@@ -3,6 +3,7 @@ package ru.goryachev.foreman.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import ru.goryachev.foreman.entities.Entity;
+import ru.goryachev.foreman.entities.Role;
 
 import java.util.List;
 
@@ -12,8 +13,9 @@ public class RoleDAO implements DataAccessible {
     public JdbcTemplate jdbcTemplate;
 
     @Override
-    public List getAll() {
-        return null;
+    public List<Role> getAll() {
+        String sqlQuery = "SELECT * FROM role";
+        return jdbcTemplate.query(sqlQuery, new RoleMapper());
     }
 
     @Override

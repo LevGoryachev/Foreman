@@ -13,7 +13,7 @@ public class AppUserMapper implements RowMapper<AppUser> {
         appUser.setFirstName(rs.getString("firstname"));
         appUser.setMiddleName(rs.getString("middlename"));
         appUser.setLastName(rs.getString("lastname"));
-        appUser.setNickName(rs.getString("nickname"));
+        appUser.setLogin(rs.getString("login"));
         appUser.setPassword(rs.getString("password"));
         appUser.setRoleId(rs.getInt("role_id"));
         return appUser;

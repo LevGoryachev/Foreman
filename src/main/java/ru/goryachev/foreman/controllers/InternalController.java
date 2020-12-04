@@ -51,7 +51,7 @@ public class InternalController {
     }
 
     //delete: billposition
-    @GetMapping ("/{name}/materials/editable/del/{materialId}")
+    @PostMapping ("/{name}/materials/editable/del/{materialId}")
     public String delBillPosition (@PathVariable("name") String name, @PathVariable("materialId") int materialId) {
         billPositionService.delete(constructionService.getByName(name).getId(), materialId);
         return "redirect:/construction/{name}/materials/editable";

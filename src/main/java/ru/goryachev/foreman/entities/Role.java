@@ -23,4 +23,5 @@ public class Role implements Entity {
         }
         this.rank = rank;
     }
+
 }

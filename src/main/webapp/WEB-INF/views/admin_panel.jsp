@@ -12,7 +12,7 @@
     <a href="./">APP main page</a>
 </p>
 <p>
-    <a href="./roles-editable">Roles</a>
+    <a href="./roles">Roles</a>
 </p>
 <p>
     <a href="./users-editable">Users</a>

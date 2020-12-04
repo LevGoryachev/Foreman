@@ -32,7 +32,7 @@
             <td>${attributeList.entityMaterialUnitWkg}</td>
             <td>${attributeList.billqty}</td>
             <td>${attributeList.entityMaterialNotes}</td>
-            <form name = "delete" action = "${pageContext.request.contextPath}/construction/${currentName}/materials/editable/del/${attributeList.materialId}" method="get" onsubmit="return confirm('Delete this?');">
+            <form name = "delete" action = "${pageContext.request.contextPath}/construction/${currentName}/materials/editable/del/${attributeList.materialId}" method="post" onsubmit="return confirm('Delete this?');">
                 <td><input type="submit" value="DELETE"></td>
             </form>
 

@@ -25,13 +25,13 @@ public class ServiceConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public RoleService getRoleService () {
-        return new RoleService();
+    public AppUserService getAppUser () {
+        return new AppUserService();
     }
 
     @Bean
-    public AppUserService getAppUser () {
-        return new AppUserService();
+    public RoleService getRoleService () {
+        return new RoleService();
     }
 
 }

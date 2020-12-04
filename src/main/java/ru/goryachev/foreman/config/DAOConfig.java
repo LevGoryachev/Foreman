@@ -37,4 +37,9 @@ public class DAOConfig implements WebMvcConfigurer {
     public AppUsersDAO getUsersDAO () {
         return new AppUsersDAO();
     }
+
+    @Bean
+    public RoleDAO getRoleDAO () {
+        return new RoleDAO();
+    }
 }
