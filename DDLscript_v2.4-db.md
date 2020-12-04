@@ -28,10 +28,10 @@ id SERIAL PRIMARY KEY,
 firstname VARCHAR(255) NOT NULL,
 middlename VARCHAR(255),
 lastname VARCHAR(255) NOT NULL,
-nickname VARCHAR(255),
+login VARCHAR(255),
 password VARCHAR(255),
 role_id INTEGER REFERENCES "role"(id) ON DELETE SET NULL,
-UNIQUE (nickname)
+UNIQUE (login)
 );
 
 CREATE TABLE "order"(
