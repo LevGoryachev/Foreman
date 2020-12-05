@@ -45,8 +45,8 @@ Employees who are located on construction sites can use this web-application to 
 
 <h2>2. Database</h2>
 <p>To create database use the files (you can customize it):</p>
-<p>DDLscript_v2.0-db.md</p>
-<p>SPscript_v2.0-db.md (plpgsql stored procedures)</p>
+<p>DDLscript_v2.4-db.md</p>
+<p>SPscript_v2.4-db.md (plpgsql stored procedures)</p>
 <p>The database contains:</p>
 <p>tables: 7</p>
 <p>stored procedures: 2</p>
@@ -54,6 +54,6 @@ Employees who are located on construction sites can use this web-application to 
 
 <h3>Database scheme</h3>
 
-![DBscheme_v2 0-db](https://appUser-images.githubusercontent.com/61917893/98996869-a6b7cf80-2544-11eb-90aa-3e85d40af57d.jpg)
+![DBscheme_v2 4-db](https://user-images.githubusercontent.com/61917893/101266326-e39b6e80-375e-11eb-8531-b345af66acd7.jpg)
 <p></p>
 <p>Free software.  Intended for educational purposes. Lev Goryachev.</p>
