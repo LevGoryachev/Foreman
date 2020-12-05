@@ -14,6 +14,7 @@
         <td>UNIT MEASURE</td>
         <td>UNIT WEIGHT, KG</td>
         <td>NOTES</td>
+        <td>Confirm</td>
     </tr>
     <form name = "material" action = "${pageContext.request.contextPath}/materials/upd" method="post" onsubmit="return confirm('Update this?');">
         <tr>
@@ -22,8 +23,6 @@
             <td><input title="UNIT MEASURE" type="text" name="um" value="${materialEdit.um}"></td>
             <td><input title="UNIT WEIGHT, KG" type="text" name="unitWkg" value="${materialEdit.unitWkg}"></td>
             <td><input title="NOTES" type="text" name="notes" value="${materialEdit.notes}"></td>
-        </tr>
-        <tr>
             <td><input type="submit" value="UPDATE"></td>
         </tr>
     </form>

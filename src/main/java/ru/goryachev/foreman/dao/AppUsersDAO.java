@@ -13,7 +13,8 @@ public class AppUsersDAO implements DataAccessible {
 
     @Override
     public List<AppUser> getAll() {
-        String sqlQuery = "SELECT * FROM app_user";
+        //String sqlQuery = "SELECT * FROM app_user";
+        String sqlQuery = "SELECT au.*, r.rank AS r_rank FROM app_user au LEFT JOIN  role r ON au.role_id=r.id";
         return jdbcTemplate.query(sqlQuery, new AppUserMapper());
     }
 
@@ -39,7 +40,8 @@ public class AppUsersDAO implements DataAccessible {
     }
 
     public AppUser getById(int id) {
-        String sqlQuery = "SELECT * FROM app_user WHERE id=?";
+        //String sqlQuery = "SELECT * FROM app_user WHERE id=?";
+        String sqlQuery = "SELECT au.*, r.rank AS r_rank FROM app_user au LEFT JOIN  role r ON au.role_id=r.id WHERE au.id=?";
         return jdbcTemplate.queryForObject(sqlQuery, new AppUserMapper(), id);
     }
 

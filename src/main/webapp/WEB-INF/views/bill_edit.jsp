@@ -24,6 +24,7 @@
         <td>UNIT WEIGHT, KG</td>
         <td>QUANTITY</td>
         <td>NOTES</td>
+        <td>Remove</td>
     </tr>
     <c:forEach items="${serviceList}" var="attributeList">
         <tr>

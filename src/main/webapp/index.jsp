@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Welcome to FOREMAN</h1>
-<h2>- remote supplying service for building construction</h2>
+<h2>- supplying service for building construction -</h2>
     <p>
         <a href="./constructions">Constructions</a>
     </p>

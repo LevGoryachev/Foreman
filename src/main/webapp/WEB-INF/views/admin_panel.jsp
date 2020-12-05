@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>FOREMAN: admin</h1>
-<p>Roles have a type "enum" (only ADMIN, CHIEF, EMPLOYEE, SUPPLIER)</p>
+<p>Roles: only ADMIN, CHIEF, EMPLOYEE, SUPPLIER</p>
 <p>Add and remove only available.</p>
 <p>
     <a href="./">APP main page</a>

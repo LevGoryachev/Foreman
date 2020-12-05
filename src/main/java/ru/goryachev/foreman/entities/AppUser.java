@@ -10,6 +10,10 @@ public class AppUser implements Entity {
     private String password;
     private int roleId;
 
+    //fields for JOIN (other tables):
+    private String entityRoleRank; //join with "Role"
+
+
     public int getId() {
         return id;
     }
@@ -81,4 +85,11 @@ public class AppUser implements Entity {
         this.roleId = roleId;
     }
 
+    public String getEntityRoleRank() {
+        return entityRoleRank;
+    }
+
+    public void setEntityRoleRank(String entityRoleRank) {
+        this.entityRoleRank = entityRoleRank;
+    }
 }

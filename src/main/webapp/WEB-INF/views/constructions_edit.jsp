@@ -13,6 +13,7 @@
             <td>CODE-NUMBER</td>
             <td>Name of project</td>
             <td>Description</td>
+            <td colspan="2">EDIT DATA</td>
         </tr>
     <c:forEach items="${constructionsList}" var="constructionsList">
         <tr>
@@ -34,8 +35,7 @@
             <td><input title="CODENUMBER" type="text" name="codenumber"></td>
             <td><input title="NAME" type="text" name="name"></td>
             <td><input title="DESCRIPTION" type="text" name="description"></td>
-            <td></td>
-            <td><input type="submit" value="ADD NEW"></td>
+            <td colspan="2"><input type="submit" value="ADD NEW"></td>
         </tr>
     </form>
 </table>

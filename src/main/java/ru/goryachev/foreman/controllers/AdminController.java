@@ -36,6 +36,7 @@ public class AdminController {
     @GetMapping ("/users-editable")
     public String usersEditable (Model model) {
         model.addAttribute("userList", appUserService.getAll());
+        model.addAttribute("allRolesList", roleService.getAll());
         return "users_edit";
     }
 
@@ -50,6 +51,7 @@ public class AdminController {
     @GetMapping ("/users/edit/{id}")
     public String editUser (@PathVariable("id") int id, Model model) {
         model.addAttribute("userEdit", appUserService.getById(id));
+        model.addAttribute("changeRoles", roleService.getAll());
         return "user_edit";
     }
     @PostMapping ("/users/upd")

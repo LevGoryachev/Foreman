@@ -14,8 +14,9 @@
         <td>MIDDLE NAME</td>
         <td>LAST NAME</td>
         <td>LOGIN</td>
-        <td>PASSWORD</td>
+        <td>PASSWORD (To generate password use <a href="https://bcrypt-generator.com/" target="_blank">BCrypt generator</a>)</td>
         <td>ROLE</td>
+        <td colspan="2">EDIT DATA</td>
     </tr>
     <c:forEach items="${userList}" var="userList">
         <tr>
@@ -25,7 +26,7 @@
             <td>${userList.lastName}</td>
             <td>${userList.login}</td>
             <td>${userList.password}</td>
-            <td>${userList.roleId}</td>
+            <td>${userList.entityRoleRank}</td>
             <form name = "edit" action = "${pageContext.request.contextPath}/users/edit/${userList.id}" method="get">
                 <td><input type="submit" value="EDIT"></td>
             </form>
@@ -42,9 +43,14 @@
             <td><input title="LAST NAME" type="text" name="lastName"></td>
             <td><input title="LOGIN" type="text" name="login"></td>
             <td><input title="PASSWORD" type="text" name="password"></td>
-            <td><input title="ROLE" type="text" name="roleId"></td>
-            <td></td>
-            <td><input type="submit" value="ADD NEW"></td>
+            <td>
+                <select name="roleId">
+                    <c:forEach items="${allRolesList}" var="allRolesList">
+                        <option value="${allRolesList.id}">${allRolesList.rank}</option>
+                    </c:forEach>
+                </select>
+            </td>
+            <td colspan="2"><input type="submit" value="ADD NEW"></td>
         </tr>
     </form>
 </table>

@@ -14,6 +14,7 @@
         <td>UNIT MEASURE</td>
         <td>UNIT WEIGHT, KG</td>
         <td>NOTES</td>
+        <td colspan="2">EDIT DATA</td>
     </tr>
     <c:forEach items="${materialList}" var="materialList">
         <tr>
@@ -37,8 +38,7 @@
             <td> <input title="UNIT MEASURE" type="text" name="um"></td>
             <td><input title="UNIT WEIGHT, KG" type="text" name="unitWkg"></td>
             <td><input title="NOTES" type="text" name="notes"></td>
-            <td></td>
-            <td><input type="submit" value="ADD NEW"></td>
+            <td colspan="2"><input type="submit" value="ADD NEW"></td>
         </tr>
     </form>
 </table>

@@ -16,6 +16,9 @@ public class AppUserMapper implements RowMapper<AppUser> {
         appUser.setLogin(rs.getString("login"));
         appUser.setPassword(rs.getString("password"));
         appUser.setRoleId(rs.getInt("role_id"));
+
+        //field from JOIN query:
+        appUser.setEntityRoleRank(rs.getString("r_rank"));//r_rank - is an alias of field of table "role"
         return appUser;
     }
 }
