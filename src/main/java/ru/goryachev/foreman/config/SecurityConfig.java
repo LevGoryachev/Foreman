@@ -22,25 +22,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                    .authorizeRequests()
-                    .antMatchers("/customlogin", "/registration").anonymous()
-                    //.antMatchers("/construction/**/materials").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE", "SUPPLIER")
-                    .antMatchers("/construction/orders").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE", "SUPPLIER")
-                    //.antMatchers("/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
-                    .antMatchers(HttpMethod.GET,"/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
-                    .antMatchers(HttpMethod.POST, "/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF")
-                    .antMatchers("/materials").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
-                    .antMatchers("/admin").hasAnyRole("ADMIN")
-                    .antMatchers("/**").hasAnyRole("ADMIN", "CHIEF")
-                    .anyRequest().authenticated()
+                .authorizeRequests()
+                .antMatchers("/customlogin", "/registration").anonymous()
+                //.antMatchers("/construction/**/materials").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE", "SUPPLIER")
+                .antMatchers("/construction/orders").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE", "SUPPLIER")
+                //.antMatchers("/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
+                .antMatchers(HttpMethod.GET,"/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
+                .antMatchers(HttpMethod.POST, "/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF")
+                .antMatchers("/materials").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
+                .antMatchers("/admin").hasAnyRole("ADMIN")
+                .antMatchers("/**").hasAnyRole("ADMIN", "CHIEF")
+                .anyRequest().authenticated()
                 .and().formLogin().loginPage("/customlogin")
-                    .defaultSuccessUrl("/", true)
-                    .failureUrl("/customlogin?error=true")
+                .defaultSuccessUrl("/", true)
+                .failureUrl("/customlogin?error=true")
                 .and()
-                    .logout()
-                    .logoutSuccessUrl("/customlogin?logout=true")
-                    .invalidateHttpSession(true)
-                    .permitAll();
+                .logout()
+                .logoutSuccessUrl("/customlogin?logout=true")
+                .invalidateHttpSession(true)
+                .permitAll();
     }
 
     @Override
@@ -63,4 +63,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected PasswordEncoder passwordEncoder () {
         return new BCryptPasswordEncoder(12);
     }
+
 }
