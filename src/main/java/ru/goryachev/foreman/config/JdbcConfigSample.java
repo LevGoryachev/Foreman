@@ -26,9 +26,9 @@ public class JdbcConfigSample implements WebMvcConfigurer {
 
     public DataSource getDataSource () {
 
-        String databaseUrl = env.getRequiredProperty("database.url");
-        String username = env.getRequiredProperty("database.username");
-        String password = env.getRequiredProperty("database.password");
+        String databaseUrl = env.getRequiredProperty("spring.datasource.url");
+        String username = env.getRequiredProperty("spring.datasource.username");
+        String password = env.getRequiredProperty("spring.datasource.password");
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUrl(databaseUrl);

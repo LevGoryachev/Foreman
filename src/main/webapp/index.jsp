@@ -16,5 +16,9 @@
     <p>
         <a href="./guide">Guide</a>
     </p>
+
+<p style="position:absolute; bottom:200px;">
+    Created by Lev Goryachev
+</p>
 </body>
 </html>
