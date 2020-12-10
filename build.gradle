@@ -5,7 +5,7 @@ plugins {
 group 'ru.goryachev'
 version '1.1.0'
 
-sourceCompatibility = 11
+sourceCompatibility = 8
 
 def springVersion = '5.2.9.RELEASE'
 def servletVersion = '4.0.1'
@@ -22,6 +22,7 @@ dependencies {
     compile group: 'javax.servlet', name: 'jstl', version: '1.2'
     compile group: 'org.springframework.security', name: 'spring-security-web', version: '5.3.5.RELEASE'
     compile group: 'org.springframework.security', name: 'spring-security-config', version: '5.3.5.RELEASE'
+    compile 'com.github.jsimone:webapp-runner:8.5.11.3'
 }
 
 war {
@@ -31,3 +32,17 @@ war {
 wrapper {
     gradleVersion = '5.2.1'
 }
+
+task stage() {
+    dependsOn clean, war
+}
+war.mustRunAfter clean
+
+task copyToLib(type: Copy) {
+    into "$buildDir/server"
+    from(configurations.compile) {
+        include "webapp-runner*"
+    }
+}
+
+stage.dependsOn(copyToLib)
