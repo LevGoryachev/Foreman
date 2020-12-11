@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<html>
 
 <head>
-    <title>$Construction</title>
+    <title>Guide</title>
+    <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="presentational">
 
 <h1>Welcome to FOREMAN</h1>
 <h2>remote supplying service for building construction</h2>

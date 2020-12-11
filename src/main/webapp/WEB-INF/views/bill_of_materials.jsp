@@ -1,8 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<html>
 
 <head>
-    <title></title>
+    <title>Bill</title>
+    <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -46,4 +48,5 @@
     <h3><a href="../${currentName}">Back to construction page</a></h3>
 
 </body>
+
 </html>

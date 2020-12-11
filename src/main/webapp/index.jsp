@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
+    <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+
+<body class="presentational">
 <h1>Welcome to FOREMAN</h1>
 <h2>- supplying service for building construction -</h2>
     <p>
@@ -16,9 +18,6 @@
     <p>
         <a href="./guide">Guide</a>
     </p>
-
-<p style="position:absolute; bottom:200px;">
-    Created by Lev Goryachev
-</p>
 </body>
+
 </html>

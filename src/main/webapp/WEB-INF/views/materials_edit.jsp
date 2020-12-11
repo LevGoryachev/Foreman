@@ -1,8 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<html>
 
 <head>
-    <title>Genaral list of materials</title>
+    <title>Edit list of materials</title>
+    <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -42,7 +44,9 @@
         </tr>
     </form>
 </table>
-<p>
+
 <h3><a href="./">Back to main page</a></h3>
-</p>
+
 </body>
+
+</html>

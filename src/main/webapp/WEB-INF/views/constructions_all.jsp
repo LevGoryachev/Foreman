@@ -1,8 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<html>
 
 <head>
     <title>Constructions</title>
+    <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -26,8 +28,8 @@
 <form name = "construction" action = "${pageContext.request.contextPath}/constructions-editable" method="get">
     <input type="submit" value="EDIT CONSTRUCTIONS">
 </form>
-<p>
+
 <h3><a href="./">Back to main page</a></h3>
-</p>
 </body>
+
 </html>

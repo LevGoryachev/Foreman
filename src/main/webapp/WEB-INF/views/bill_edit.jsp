@@ -1,8 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<html>
 
 <head>
-    <title></title>
+    <title>Bill edit</title>
+    <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -70,8 +72,7 @@
         <td><input type="submit" value="ADD NEW"></td>
     </form>
 </table>
-
     <h3><a href="../materials">Back to bill of materials</a></h3>
-
 </body>
+
 </html>
