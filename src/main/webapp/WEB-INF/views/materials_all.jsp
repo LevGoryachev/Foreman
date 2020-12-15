@@ -1,8 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<html>
 
 <head>
     <title>Genaral list of materials</title>
+    <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -28,7 +30,9 @@
 <form name = "construction" action = "${pageContext.request.contextPath}/materials-editable" method="get">
     <input type="submit" value="EDIT MATERIALS">
 </form>
-<p>
+
 <h3><a href="./">Back to main page</a></h3>
-</p>
+
 </body>
+
+</html>

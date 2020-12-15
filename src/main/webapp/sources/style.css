@@ -1,0 +1,167 @@
+
+
+body{
+    background-image: url(foreman_background_clear.jpg);
+    background-color: #78a2b7;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 0%
+}
+
+.presentational{
+    background-image: url(foreman_background_fullcircle.jpg);
+    background-color: #78a2b7;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 0%
+}
+
+a {
+    color: darkgreen;
+}
+
+.header {
+    position : fixed;
+    width: 100%;
+    height: 150px;
+    top: 0;
+    background-image: url(foreman_background_header.jpg);
+    background-color: #78a2b7;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+    filter: alpha(Opacity=85);
+    opacity: 0.85;
+}
+
+.mainer {
+    width: 100%;
+    padding-top: 150px;
+    padding-bottom: 200px;
+    text-align: center;
+}
+
+.footer {
+    position : fixed;
+    width: 100%;
+    height : 200px;
+    bottom : 0;
+    background-image: url(foreman_background_footer.jpg);
+    background-color: #78a2b7;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+    filter: alpha(Opacity=85);
+    opacity: 0.85;
+}
+
+
+
+.linearbutton {
+    display:inline-block;
+    margin-top: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
+    float: left;
+}
+
+
+
+.mainearbutton {
+    display:inline-block;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.mainearblock {
+    display:inline-block;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: left;
+}
+
+.maineartableinfo {
+    margin-top: 100px;
+    margin-left: 100px;
+    text-align: left;
+}
+
+.smallfield {
+    width: 100px;
+}
+
+.averagefield {
+    width: 200px;
+}
+
+.widefield {
+    width: 400px;
+}
+
+.textareafield {
+    width: 400px;
+    height: 75px;
+    text-align: start;
+
+}
+
+
+
+.headerleftinfo {
+    display:inline-block;
+    position: absolute;
+    margin-left: 50px;
+    margin-right: 50px;
+    bottom: 0px;
+}
+
+.headerightbtns {
+    display:inline-block;
+    margin-left: 15px;
+    margin-right: 50px;
+    float: right;
+}
+
+
+
+.footerleftbtns {
+    display:inline-block;
+    margin-left: 50px;
+    margin-right: 15px;
+    float: left;
+}
+
+.footerightbtns {
+    display:inline-block;
+    margin-left: 15px;
+    margin-right: 50px;
+    float: right;
+}
+
+
+
+.buttonblick {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+    padding: .6em 1em;
+    outline: none;
+    /*background-color: #008B8B; - alternative*/
+    background-color: #008080;
+    background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+    border-radius: 8px;
+}
+.buttonblack:active {
+    top: 1px;
+    box-shadow: none;
+}
+

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Admin</title>
+    <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
 <h1>FOREMAN: admin</h1>
 <p>Roles: only ADMIN, CHIEF, EMPLOYEE, SUPPLIER</p>
@@ -18,4 +20,5 @@
     <a href="./users-editable">Users</a>
 </p>
 </body>
+
 </html>

@@ -1,8 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<html>
 
 <head>
     <title>Users</title>
+    <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -58,3 +60,5 @@
 <h3><a href="./admin">Back to admin panel</a></h3>
 </p>
 </body>
+
+</html>

@@ -1,6 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
-<body>
+
+<head>
+    <title>Constructions</title>
+    <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="presentational">
 <h2>Welcome to FOREMAN!</h2>
 <h3>- please, login</h3>
 
@@ -23,4 +29,5 @@
     <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />-->
 </form>
 </body>
+
 </html>

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+<html>
 
 <head>
-    <title>$Construction</title>
+    <title>Edit list of orders</title>
+    <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
