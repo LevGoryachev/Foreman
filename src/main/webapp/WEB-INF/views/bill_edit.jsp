@@ -8,33 +8,49 @@
 </head>
 
 <body>
-<p>EDIT BILL OF MATERIALS</p>
+
 <c:forEach items="${serviceList}" var="constructionList">
     <c:set var="currentCodeNumber" value="${constructionList.entityConstructionCodeNumber}" scope="page"/>
     <c:set var="currentName" value="${constructionList.entityConstructionName}" scope="page"/>
     <!--<c:set var="currentID" value="${constructionList.entityConstructionId}" scope="page"/>-->
 </c:forEach>
-<p>
-    Construction site - ${currentName}, codenumber: ${currentCodeNumber}
-</p>
 
-</p>
-<table border="1" cellpadding="5">
-    <tr>
-        <td>MATERIAL</td>
-        <td>UNIT MEASURE</td>
-        <td>UNIT WEIGHT, KG</td>
-        <td>QUANTITY</td>
-        <td>NOTES</td>
-        <td>Remove</td>
-    </tr>
-    <c:forEach items="${serviceList}" var="attributeList">
+<div class="header">
+    <div class="headerleftinfo">
+        <div>
+            <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+            <a class="buttonblick" href="${pageContext.request.contextPath}/construction/${currentName}">Back to ${currentName}</a>
+        </div>
+        <div>
+            <h3>Bill of materials (specification) of construction site - ${currentName}, codenumber: ${currentCodeNumber}</h3>
+        </div>
+    </div>
+    <div class="headerightbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide">Guide</a>
+    </div>
+</div>
+
+<p><a name="top"></a></p>
+
+<div class="mainer">
+    <table border="1" cellpadding="5">
         <tr>
-            <td>${attributeList.entityMaterialName}</td>
-            <td>${attributeList.entityMaterialUm}</td>
-            <td>${attributeList.entityMaterialUnitWkg}</td>
-            <td>${attributeList.billqty}</td>
-            <td>${attributeList.entityMaterialNotes}</td>
+            <td width="400px">MATERIAL</td>
+            <td width="100px">UNIT MEASURE</td>
+            <td width="100px">UNIT WEIGHT, KG</td>
+            <td width="100px">QUANTITY</td>
+            <td width="400px">NOTES</td>
+            <td>Action</td>
+        </tr>
+        <c:forEach items="${serviceList}" var="attributeList">
+            <tr>
+                <td width="400px">${attributeList.entityMaterialName}</td>
+                <td width="100px">${attributeList.entityMaterialUm}</td>
+                <td width="100px">${attributeList.entityMaterialUnitWkg}</td>
+                <td width="100px">${attributeList.billqty}</td>
+                <td width="400px">${attributeList.entityMaterialNotes}</td>
             <form name = "delete" action = "${pageContext.request.contextPath}/construction/${currentName}/materials/editable/del/${attributeList.materialId}" method="post" onsubmit="return confirm('Delete this?');">
                 <td><input type="submit" value="DELETE"></td>
             </form>
@@ -44,35 +60,42 @@
             <!--<td>${attributeList.materialId}</td>-->
             <!--<td>${attributeList.entityConstructionName}</td>-->
             <!--<td>${attributeList.entityConstructionId}</td>-->
-        </tr>
-    </c:forEach>
-</table>
-<p>
-    Add new material to specification
-</p>
+            </tr>
+        </c:forEach>
+            <tr>
+                <form name = "billposition" action = "${pageContext.request.contextPath}/construction/${currentName}/materials/editable/add" method="post" onsubmit="return confirm('Add new?');">
+                    <input title="C_ID" type="text" name="constructionId" value="${currentID}" readonly hidden>
+                    <td>
+                        <select class="widefield" name="materialId">
+                            <c:forEach items="${allMaterialsList}" var="materialList">
+                                <option value="${materialList.id}">${materialList.name}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td><input title="BILLQTY" type="text" name="billqty"></td>
+                    <td></td>
+                    <td><input type="submit" value="ADD NEW"></td>
+                </form>
+            </tr>
+    </table>
+</div>
 
-<table border="1" cellpadding="5">
-    <tr>
-        <td>technical info: id</td>
-        <td>CHOOSE MATERIAL</td>
-        <td>SET QUANTITY</td>
-    </tr>
-    <form name = "billposition" action = "${pageContext.request.contextPath}/construction/${currentName}/materials/editable/add" method="post" onsubmit="return confirm('Add new?');">
-        <tr>
-            <td><input title="C_ID" type="text" name="constructionId" value="${currentID}" readonly></td>
-            <td>
-                <select name="materialId">
-                    <c:forEach items="${allMaterialsList}" var="materialList">
-                        <option value="${materialList.id}">${materialList.name}</option>
-                    </c:forEach>
-                </select>
-            </td>
-            <td><input title="BILLQTY" type="text" name="billqty"></td>
-        </tr>
-        <td><input type="submit" value="ADD NEW"></td>
-    </form>
-</table>
-    <h3><a href="../materials">Back to bill of materials</a></h3>
+<p><a name="bottom"></a></p>
+
+<div  class="footer">
+    <div class="footerleftbtns">
+        <a class="linearbutton buttonblick" href="#top">PageUP</a>
+        <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${currentName}/materials">Back to Bill</a>
+    </div>
+    <div class="footerightbtns">
+        <a class="linearbutton buttonblick" href="#">Account info</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
+    </div>
+</div>
+
 </body>
 
 </html>

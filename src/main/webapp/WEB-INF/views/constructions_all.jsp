@@ -8,28 +8,54 @@
 </head>
 
 <body>
-<p><h2>List of constructions</h2></p>
-<table border="1" cellpadding="5">
-        <tr>
-            <td>ID</td>
-            <td>CODE-NUMBER</td>
-            <td>Name of project</td>
-            <td>Description</td>
-        </tr>
-    <c:forEach items="${constructionsList}" var="constructionsList">
-        <tr>
-            <td>${constructionsList.id}</td>
-            <td>${constructionsList.codenumber}</td>
-            <td><a href="./construction/${constructionsList.name}">${constructionsList.name}</a></td>
-            <td>${constructionsList.description}</td>
-        </tr>
-    </c:forEach>
-</table>
-<form name = "construction" action = "${pageContext.request.contextPath}/constructions-editable" method="get">
-    <input type="submit" value="EDIT CONSTRUCTIONS">
-</form>
 
-<h3><a href="./">Back to main page</a></h3>
+<div class="header">
+    <div class="headerleftinfo">
+        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+        <h3>List of constructions. Click on the appropriate construction.</h3>
+    </div>
+    <div class="headerightbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide">Guide</a>
+    </div>
+</div>
+
+<p><a name="top"></a></p>
+
+<div class="mainer">
+    <table border="1" cellpadding="5">
+            <tr>
+                <td width="100px">ID</td>
+                <td width="200px">CODE-NUMBER</td>
+                <td width="200px">Name of project</td>
+                <td width="400px">Description</td>
+            </tr>
+        <c:forEach items="${constructionsList}" var="constructionsList">
+            <tr>
+                <td width="100px">${constructionsList.id}</td>
+                <td width="200px">${constructionsList.codenumber}</td>
+                <td width="200px"><a href="./construction/${constructionsList.name}">${constructionsList.name}</a></td>
+                <td width="400px">${constructionsList.description}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
+
+<p><a name="bottom"></a></p>
+
+<div  class="footer">
+    <div class="footerleftbtns">
+        <a class="linearbutton buttonblick" href="#top">PageUP</a>
+        <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions-editable">EDIT LIST</a>
+    </div>
+    <div class="footerightbtns">
+        <a class="linearbutton buttonblick" href="#">Account info</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
+    </div>
+</div>
+
 </body>
 
 </html>

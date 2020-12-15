@@ -7,17 +7,31 @@
 </head>
 
 <body class="presentational">
-<h1>Welcome to FOREMAN</h1>
-<h2>- supplying service for building construction -</h2>
+
+<div>
+    <h1>Welcome to FOREMAN!</h1>
+    <h3>supply service for building construction</h3>
+</div>
+
+<div class="mainer">
+
     <p>
-        <a href="./constructions">Constructions</a>
+        <a class="mainearbutton buttonblick" href="./constructions">Constructions</a>
+        <a class="mainearbutton buttonblick" href="./materials">Materials</a>
+        <a class="mainearbutton buttonblick" href="./guide">Guide</a>
     </p>
-    <p>
-        <a href="./materials">Materials</a>
-    </p>
-    <p>
-        <a href="./guide">Guide</a>
-    </p>
+</div>
+
+<div>
+    <div class="footerightbtns">
+        <a class="linearbutton buttonblick" href="#">Account info</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
+    </div>
+</div>
+
+
+
 </body>
+
 
 </html>
