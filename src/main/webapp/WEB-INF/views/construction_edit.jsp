@@ -22,7 +22,7 @@
 </div>
 
 <div class="mainer">
-    <p><h3>Edit construction</h3></p>
+    <p><h3 class="maineartableinfo">Edit construction</h3></p>
     <table border="1" cellpadding="5">
         <tr>
             <td width="100px">ID</td>
@@ -36,8 +36,7 @@
                 <td width="100px"><input class="smallfield" title="ID" type="text" name="id" value="${constructionEdit.id}" readonly></td>
                 <td width="200px"><input class="averagefield" title="CODENUMBER" type="text" name="codenumber" value="${constructionEdit.codenumber}"></td>
                 <td width="200px"><input class="averagefield" title="NAME" type="text" name="name" value="${constructionEdit.name}"></td>
-                <td width="400px"><input class="textareafield" title="DESCRIPTION" type="text" name="description" value="${constructionEdit.description}"></td>
-                <!--<td width="400px"><textarea cols="50" rows="5" title="DESCRIPTION" type="text" name="description" value=""></textarea></td>-->
+                <td width="400px"><textarea cols="50" rows="5" title="DESCRIPTION" type="text" name="description">${constructionEdit.description}</textarea></td>
                 <td><input type="submit" value="UPDATE"></td>
             </tr>
         </form>

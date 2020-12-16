@@ -8,27 +8,53 @@
 </head>
 
 <body>
-<p><h2>Edit material</h2></p>
-<table border="1" cellpadding="5">
-    <tr>
-        <td>ID</td>
-        <td>NAME</td>
-        <td>UNIT MEASURE</td>
-        <td>UNIT WEIGHT, KG</td>
-        <td>NOTES</td>
-        <td>Confirm</td>
-    </tr>
-    <form name = "material" action = "${pageContext.request.contextPath}/materials/upd" method="post" onsubmit="return confirm('Update this?');">
+
+<div class="header">
+    <div class="headerleftinfo">
+        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+        <h3>Be careful! Changed data will be saved in database after confirmation.</h3>
+    </div>
+    <div class="headerightbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide">Guide</a>
+    </div>
+</div>
+
+<div class="mainer">
+    <p><h3 class="maineartableinfo">Edit material</h3></p>
+    <table border="1" cellpadding="5">
         <tr>
-            <td><input title="ID" type="text" name="id" value="${materialEdit.id}" readonly></td>
-            <td><input title="NAME" type="text" name="name" value="${materialEdit.name}"></td>
-            <td><input title="UNIT MEASURE" type="text" name="um" value="${materialEdit.um}"></td>
-            <td><input title="UNIT WEIGHT, KG" type="text" name="unitWkg" value="${materialEdit.unitWkg}"></td>
-            <td><input title="NOTES" type="text" name="notes" value="${materialEdit.notes}"></td>
-            <td><input type="submit" value="UPDATE"></td>
+            <td  width="100px">ID</td>
+            <td  width="400px">NAME</td>
+            <td  width="100px">UNIT MEASURE</td>
+            <td  width="100px">UNIT WEIGHT, KG</td>
+            <td  width="400px">NOTES</td>
+            <td>Confirm</td>
         </tr>
-    </form>
-</table>
+        <form name = "material" action = "${pageContext.request.contextPath}/materials/upd" method="post" onsubmit="return confirm('Update this?');">
+            <tr>
+                <td width="100px"><input class="smallfield" title="ID" type="text" name="id" value="${materialEdit.id}" readonly></td>
+                <td width="400px"><input class="widefield" title="NAME" type="text" name="name" value="${materialEdit.name}"></td>
+                <td width="100px"><input class="smallfield" title="UNIT MEASURE" type="text" name="um" value="${materialEdit.um}"></td>
+                <td width="100px"><input class="smallfield" title="UNIT WEIGHT, KG" type="text" name="unitWkg" value="${materialEdit.unitWkg}"></td>
+                <td width="400px"><textarea cols="50" rows="5" title="NOTES" type="text" name="notes">${materialEdit.notes}</textarea></td>
+                <td><input type="submit" value="UPDATE"></td>
+            </tr>
+        </form>
+    </table>
+</div>
+
+<div  class="footer">
+    <div class="footerleftbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials-editable">Back to List</a>
+    </div>
+    <div class="footerightbtns">
+        <a class="linearbutton buttonblick" href="#">Account info</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
+    </div>
+</div>
+
 </body>
 
 </html>

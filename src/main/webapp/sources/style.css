@@ -67,6 +67,14 @@ a {
     float: left;
 }
 
+#copyrightline {
+    position: absolute;
+    margin-left: 75px;
+    margin-bottom: 10px;
+    float: left;
+    bottom: 0%;
+}
+
 
 
 .mainearbutton {

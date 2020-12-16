@@ -8,30 +8,55 @@
 </head>
 
 <body>
-<p><h2>General list of materials</h2></p>
-<table border="1" cellpadding="5">
-    <tr>
-        <td>ID</td>
-        <td>NAME</td>
-        <td>UNIT MEASURE</td>
-        <td>UNIT WEIGHT, KG</td>
-        <td>NOTES</td>
-    </tr>
-    <c:forEach items="${materialList}" var="materialList">
-        <tr>
-            <td>${materialList.id}</td>
-            <td>${materialList.name}</td>
-            <td>${materialList.um}</td>
-            <td>${materialList.unitWkg}</td>
-            <td>${materialList.notes}</td>
-        </tr>
-    </c:forEach>
-</table>
-<form name = "construction" action = "${pageContext.request.contextPath}/materials-editable" method="get">
-    <input type="submit" value="EDIT MATERIALS">
-</form>
 
-<h3><a href="./">Back to main page</a></h3>
+<div class="header">
+    <div class="headerleftinfo">
+        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+        <h3>Materials (general types). The materials contained in here can be added to the bills.</h3>
+    </div>
+    <div class="headerightbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide">Guide</a>
+    </div>
+</div>
+
+<p><a name="top"></a></p>
+
+<div class="mainer">
+    <table border="1" cellpadding="5">
+        <tr>
+            <td width="100px">ID</td>
+            <td width="400px">NAME</td>
+            <td width="100px">UNIT MEASURE</td>
+            <td width="100px">UNIT WEIGHT, KG</td>
+            <td width="400px">NOTES</td>
+        </tr>
+        <c:forEach items="${materialList}" var="materialList">
+            <tr>
+                <td width="100px">${materialList.id}</td>
+                <td width="400px">${materialList.name}</td>
+                <td width="100px">${materialList.um}</td>
+                <td width="100px">${materialList.unitWkg}</td>
+                <td width="400px">${materialList.notes}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
+
+<p><a name="bottom"></a></p>
+
+<div  class="footer">
+    <div class="footerleftbtns">
+        <a class="linearbutton buttonblick" href="#top">PageUP</a>
+        <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials-editable">EDIT LIST</a>
+    </div>
+    <div class="footerightbtns">
+        <a class="linearbutton buttonblick" href="#">Account info</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
+    </div>
+</div>
 
 </body>
 
