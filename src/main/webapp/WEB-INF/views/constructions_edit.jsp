@@ -51,7 +51,7 @@
                 <td width="100px"><input class="smallfield" title="ID" type="text" name="id"></td>
                 <td width="200px"><input class="averagefield" title="CODENUMBER" type="text" name="codenumber"></td>
                 <td width="200px"><input class="averagefield" title="NAME" type="text" name="name"></td>
-                <td width="400px"><input class="textareafield" title="DESCRIPTION" type="text" name="description"></td>
+                <td width="400px"><textarea cols="50" rows="5" title="DESCRIPTION" type="text" name="description"></textarea></td>
                 <td colspan="2"><input type="submit" value="ADD NEW"></td>
             </tr>
         </form>

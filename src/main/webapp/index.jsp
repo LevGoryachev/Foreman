@@ -22,12 +22,18 @@
     </p>
 </div>
 
+
+
 <div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="#">Account info</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
     </div>
 </div>
+<div id="copyrightline">
+    <p>Foreman createdByLevGoryachev();</p>
+</div>
+
 
 
 
