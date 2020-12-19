@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @PropertySource("classpath:/jdbc.properties")
-public class JdbcConfigSample implements WebMvcConfigurer {
+public class JdbcConfig implements WebMvcConfigurer {
 
     @Autowired
     private Environment env;

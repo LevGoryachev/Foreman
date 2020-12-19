@@ -13,7 +13,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[]{
-                WebConfig.class, ServiceConfig.class, JdbcConfigSample.class, DAOConfig.class, SecurityConfig.class
+                WebConfig.class, ServiceConfig.class, JdbcConfig.class, DAOConfig.class, SecurityConfig.class
         };
     }
 
