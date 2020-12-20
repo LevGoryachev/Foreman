@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Genaral list of materials</title>
+    <title>Types of materials</title>
     <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
 
