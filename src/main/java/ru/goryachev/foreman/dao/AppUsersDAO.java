@@ -2,10 +2,12 @@ package ru.goryachev.foreman.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 import ru.goryachev.foreman.entities.Entity;
 import ru.goryachev.foreman.entities.AppUser;
 import java.util.List;
 
+@Repository
 public class AppUsersDAO implements DataAccessible {
 
     @Autowired

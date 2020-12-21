@@ -1,13 +1,13 @@
 package ru.goryachev.foreman.config;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import ru.goryachev.foreman.dao.*;
 
 @Configuration
+@ComponentScan(basePackages = "ru.goryachev.foreman.dao")
 public class DAOConfig implements WebMvcConfigurer {
-
+/*
     @Bean
     public ConstructionsDAO getConstructionsDAO () {
         return new ConstructionsDAO();
@@ -42,4 +42,5 @@ public class DAOConfig implements WebMvcConfigurer {
     public RoleDAO getRoleDAO () {
         return new RoleDAO();
     }
+    */
 }

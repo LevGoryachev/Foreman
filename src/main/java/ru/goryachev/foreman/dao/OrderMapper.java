@@ -10,9 +10,12 @@ public class OrderMapper implements RowMapper<Order> {
     public Order mapRow(ResultSet rs, int rowNum) throws SQLException {
         Order order = new Order();
         order.setId(rs.getInt("id"));
+        order.setConstructionId(rs.getInt("construction_id"));
         order.setOrdertime(rs.getTimestamp("ordertime"));
-        order.setStatus(rs.getString("status"));
-        order.setUserid(rs.getInt("user_id"));
+        order.setPosted(rs.getBoolean("posted"));
+        order.setSent(rs.getBoolean("sent"));
+        order.setStatusExecuted(rs.getBoolean("status_executed"));
+        order.setAppUserId(rs.getInt("app_user_id"));
         return order;
     }
 }
