@@ -8,6 +8,7 @@ public class AppUser implements Entity {
     private String lastName;
     private String login;
     private String password;
+    private String email;
     private int roleId;
 
     //fields for JOIN (other tables):
@@ -75,6 +76,17 @@ public class AppUser implements Entity {
             this.password = "";
         }
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        if (email == null) {
+            this.email = "";
+        }
+        this.email = email;
     }
 
     public int getRoleId() {
