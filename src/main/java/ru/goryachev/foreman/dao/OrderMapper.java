@@ -11,7 +11,7 @@ public class OrderMapper implements RowMapper<Order> {
         Order order = new Order();
         order.setId(rs.getInt("id"));
         order.setConstructionId(rs.getInt("construction_id"));
-        order.setOrdertime(rs.getTimestamp("ordertime"));
+        order.setOrdertime(rs.getTimestamp("ordertime").toLocalDateTime());
         order.setPosted(rs.getBoolean("posted"));
         order.setSent(rs.getBoolean("sent"));
         order.setStatusExecuted(rs.getBoolean("status_executed"));

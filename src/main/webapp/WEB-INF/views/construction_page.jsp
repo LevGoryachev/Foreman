@@ -55,7 +55,7 @@
 </div>
 <div  class="footer">
     <div class="footerleftbtns">
-        <a class="linearbutton buttonblick" href="./orders">ORDERS</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-editable">ORDERS</a>
         <a class="linearbutton buttonblick" href="../construction/${showConstruction.name}/materials">BILL of materials</a>
     </div>
     <div class="footerightbtns">

@@ -23,42 +23,44 @@ public class OrdersDAO implements DataAccessible {
     @Override
     public void save(Entity entity) {
         Order order = ((Order) entity);
-        String sqlQuery = "INSERT  INTO order (id, construction_id, ordertime, posted, sent, status_executed, app_user_id) VALUES (?, ?, ?, false, false, false, ?)";
-        jdbcTemplate.update(sqlQuery, order.getId(), order.getConstructionId(), order.getOrdertime(), order.getAppUserId());
+        char dm = 34;
+        String sqlQuery = "INSERT  INTO " + dm + "order" + dm + " (construction_id, ordertime, posted, sent, status_executed, app_user_id) VALUES (?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sqlQuery, order.getConstructionId(), order.getOrdertime(), order.isPosted(), order.isSent(), order.isStatusExecuted(), order.getAppUserId());
     }
 
     @Override
     public void update(Entity entity) {
-        Order order = ((Order) entity);
-        String sqlQuery = "UPDATE order SET posted=?, sent=?, status_executed=? WHERE id=?";
-        jdbcTemplate.update(sqlQuery, order.isPosted(), order.isSent(), order.isStatusExecuted(), order.getId());
+
     }
 
     @Override
     public void delete(int id) {
-        String sqlQuery = "DELETE FROM order WHERE id=?";
+        char dm = 34;
+        String sqlQuery = "DELETE FROM " + dm + "order" + dm + " WHERE id=?";
         jdbcTemplate.update(sqlQuery, id);
     }
 
     //lists for employers
     public List<Order> getChangeable(int constructionId) {
-        String sqlQuery = "SELECT * FROM order WHERE posted = false AND sent = false AND status_executed = false AND construction_id = ?";
-        return jdbcTemplate.query(sqlQuery, new OrderMapper());
+        char dm = 34;
+        String sqlQuery = "SELECT * FROM " + dm + "order" + dm + " WHERE posted = false AND sent = false AND status_executed = false AND construction_id = ?";
+        return jdbcTemplate.query(sqlQuery, new OrderMapper(), constructionId);
     }
 
     public List<Order> getPosted(int constructionId) {
-        String sqlQuery = "SELECT * FROM order WHERE posted = true AND sent = false AND status_executed = false AND construction_id = ?";
-        return jdbcTemplate.query(sqlQuery, new OrderMapper());
+        char dm = 34;
+        String sqlQuery = "SELECT * FROM " + dm + "order" + dm + " WHERE posted = true AND sent = false AND status_executed = false AND construction_id = ?";
+        return jdbcTemplate.query(sqlQuery, new OrderMapper(), constructionId);
     }
 
     public List<Order> getSent(int constructionId) {
         String sqlQuery = "SELECT * FROM order WHERE posted = true AND sent = true AND status_executed = false AND construction_id = ?";
-        return jdbcTemplate.query(sqlQuery, new OrderMapper());
+        return jdbcTemplate.query(sqlQuery, new OrderMapper(), constructionId);
     }
 
     public List<Order> getExecuted(int constructionId) {
         String sqlQuery = "SELECT * FROM order WHERE status_executed = true AND construction_id = ?";
-        return jdbcTemplate.query(sqlQuery, new OrderMapper());
+        return jdbcTemplate.query(sqlQuery, new OrderMapper(), constructionId);
     }
 
 

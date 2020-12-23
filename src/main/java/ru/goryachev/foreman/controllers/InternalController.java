@@ -28,6 +28,7 @@ public class InternalController {
         return "construction_page";
     }
 
+    //CRUD: billposition
     //read: billposition (constructionMaterials)
     @GetMapping("/{name}/materials")
     public String constructionMaterials (@PathVariable("name") String name, Model model) {
@@ -35,8 +36,8 @@ public class InternalController {
         return "bill_of_materials";
     }
 
-    //CRUD: billposition
-    @GetMapping("/{name}/materials/editable")
+    //mapping for admins and c-level
+    @GetMapping("/{name}/materials-editable")
     public String constructionMaterialsEditable (@PathVariable("name") String name, Model model) {
         model.addAttribute("serviceList", billPositionService.getByConstruction(constructionService.getByName(name).getId()));
         model.addAttribute("allMaterialsList", materialService.getAll());
@@ -47,20 +48,15 @@ public class InternalController {
     @PostMapping("/{name}/materials/editable/add")
     public String addBillPosition (@PathVariable("name") String name, @ModelAttribute("billposition") BillPosition billPosition) {
         billPositionService.save(billPosition);
-        return "redirect:/construction/{name}/materials/editable";
+        return "redirect:/construction/{name}/materials-editable";
     }
 
     //delete: billposition
     @PostMapping ("/{name}/materials/editable/del/{materialId}")
     public String delBillPosition (@PathVariable("name") String name, @PathVariable("materialId") int materialId) {
         billPositionService.delete(constructionService.getByName(name).getId(), materialId);
-        return "redirect:/construction/{name}/materials/editable";
+        return "redirect:/construction/{name}/materials-editable";
     }
 
 
-
-    @GetMapping("/orders")
-    public String constructionOrders () {
-        return "orders_all";
-    }
 }

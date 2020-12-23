@@ -73,7 +73,7 @@
     <div class="footerleftbtns">
         <a class="linearbutton buttonblick" href="#top">PageUP</a>
         <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
-        <a class="linearbutton buttonblick" href="../${currentName}/materials/editable">EDIT LIST</a>
+        <a class="linearbutton buttonblick" href="../${currentName}/materials-editable">EDIT LIST</a>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="#">Account info</a>

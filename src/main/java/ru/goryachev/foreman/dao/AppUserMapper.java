@@ -15,6 +15,7 @@ public class AppUserMapper implements RowMapper<AppUser> {
         appUser.setLastName(rs.getString("lastname"));
         appUser.setLogin(rs.getString("login"));
         appUser.setPassword(rs.getString("password"));
+        appUser.setEmail(rs.getString("email"));
         appUser.setRoleId(rs.getInt("role_id"));
 
         //field from JOIN query:
