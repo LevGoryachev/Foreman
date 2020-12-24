@@ -40,23 +40,23 @@
 
     <div class="mainearblock">
         <p>
-            <a class="mainearbutton buttonblick" href="#">NEW ORDER</a>
+            <a class="mainearbutton buttonblick" href="../construction/${showConstruction.name}/materials">BILL of materials</a>
         </p>
         <p>
-            Click to create a new order.
+            <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-editable">ORDERS</a>
         </p>
         <p>
-            Creating new orders is also available in "Orders".
+            <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-acceptable">ACCEPTANCE</a>
         </p>
-
+        <p>
+            Click to ACCEPTANCE to check the materials which have been delivered and to confirm the order.
+        </p>
     </div>
-
 
 </div>
 <div  class="footer">
     <div class="footerleftbtns">
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-editable">ORDERS</a>
-        <a class="linearbutton buttonblick" href="../construction/${showConstruction.name}/materials">BILL of materials</a>
+        <a class="linearbutton buttonblick" href="">EDIT CONSTRUCTION</a>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="#">Account info</a>

@@ -16,7 +16,8 @@ public class OrdersDAO implements DataAccessible {
 
     @Override
     public List<Order> getAll() {
-        String sqlQuery = "SELECT * FROM order";
+        char dm = 34;
+        String sqlQuery = "SELECT * FROM " + dm + "order" + dm;
         return jdbcTemplate.query(sqlQuery, new OrderMapper());
     }
 
@@ -40,28 +41,14 @@ public class OrdersDAO implements DataAccessible {
         jdbcTemplate.update(sqlQuery, id);
     }
 
-    //lists for employers
+    /* //sample
     public List<Order> getChangeable(int constructionId) {
         char dm = 34;
         String sqlQuery = "SELECT * FROM " + dm + "order" + dm + " WHERE posted = false AND sent = false AND status_executed = false AND construction_id = ?";
         return jdbcTemplate.query(sqlQuery, new OrderMapper(), constructionId);
     }
+     */
 
-    public List<Order> getPosted(int constructionId) {
-        char dm = 34;
-        String sqlQuery = "SELECT * FROM " + dm + "order" + dm + " WHERE posted = true AND sent = false AND status_executed = false AND construction_id = ?";
-        return jdbcTemplate.query(sqlQuery, new OrderMapper(), constructionId);
-    }
-
-    public List<Order> getSent(int constructionId) {
-        String sqlQuery = "SELECT * FROM order WHERE posted = true AND sent = true AND status_executed = false AND construction_id = ?";
-        return jdbcTemplate.query(sqlQuery, new OrderMapper(), constructionId);
-    }
-
-    public List<Order> getExecuted(int constructionId) {
-        String sqlQuery = "SELECT * FROM order WHERE status_executed = true AND construction_id = ?";
-        return jdbcTemplate.query(sqlQuery, new OrderMapper(), constructionId);
-    }
 
 
     //lists for suppliers

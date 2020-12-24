@@ -88,12 +88,14 @@ a {
 
 .mainearbutton {
     display:inline-block;
+    margin-top: 20px;
     margin-left: 50px;
     margin-right: 50px;
 }
 
 .mainearblock {
     display:inline-block;
+    margin-top: 100px;
     margin-left: 50px;
     margin-right: 50px;
     text-align: left;
@@ -177,7 +179,7 @@ a {
     box-shadow: rgba(0,0,0,.3) 0 2px 5px;
     border-radius: 8px;
 }
-.buttonblack:active {
+.buttonblick:active {
     top: 1px;
     box-shadow: none;
 }

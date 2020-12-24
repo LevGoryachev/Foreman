@@ -65,7 +65,7 @@
 
 </table>
 
-</div>>
+</div>
 
 <p><a name="bottom"></a></p>
 
