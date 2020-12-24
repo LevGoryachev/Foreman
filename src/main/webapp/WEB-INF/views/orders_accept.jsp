@@ -34,43 +34,43 @@
                 <td width="100px">ORDER ID</td>
                 <td width="200px">DATE, TIME</td>
                 <td width="200px">AUTHOR</td>
-                <td colspan="2">ACTION</td>
+                <td colspan="2">STATUS</td>
             </tr>
-            <c:forEach items="${changeableList}" var="changeableList">
+            <c:forEach items="${sentList}" var="sentList">
                 <tr>
-                    <td width="100px">${changeableList.id}</td>
-                    <td width="200px">${changeableList.orderTime}</td>
-                    <td width="200px">${changeableList.appUserLastName}</td>
-                    <form name = "delete" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/orders/${changeableList.id}/del" method="post" onsubmit="return confirm('Delete this?');">
+                    <td width="100px">${sentList.id}</td>
+                    <td width="200px">${sentList.orderTime}</td>
+                    <td width="200px">${sentList.appUserLastName}</td>
+                    <td width="200px">Materials are expected</td>
+                    <!--<form name = "delete" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/orders/${changeableList.id}/del" method="post" onsubmit="return confirm('Delete this?');">
                         <td><input type="submit" value="DELETE"></td>
-                    </form>
+                    </form>-->
                 </tr>
             </c:forEach>
-            <form name = "order" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/orders/add" method="post" onsubmit="return confirm('Add new?');">
-                <tr>
-                    <td colspan="4"><input type="submit" value="ADD NEW"></td>
-                </tr>
-            </form>
         </table>
     </div>
 
     <div class="doubledash">
-        <p class="maineartableinfo">Construction: ${showConstruction.name}, status: posted (to supplier)</p>
+        <div class="maineartableinfo">
+            <p>Materials (specification) of ${showConstruction.name}.</p>
+        </div>
+
         <table border="1" cellpadding="5">
             <tr>
-                <td width="100px">ORDER ID</td>
-                <td width="200px">DATE, TIME</td>
-                <td width="200px">AUTHOR</td>
-                <td colspan="2">Status</td>
+                <td width="400px">MATERIAL</td>
+                <td width="100px">UNIT MEASURE</td>
+                <td width="100px">UNIT WEIGHT, KG</td>
+                <td width="100px">QUANTITY</td>
             </tr>
-            <c:forEach items="${postedList}" var="postedList">
+            <c:forEach items="${billpositionList}" var="billpositionList">
                 <tr>
-                    <td width="100px">${postedList.id}</td>
-                    <td width="200px">${postedList.orderTime}</td>
-                    <td width="200px">${postedList.appUserLastName}</td>
-                    <td width="100px">Posted to supplier</td>
+                    <td width="400px">${billpositionList.entityMaterialName}</td>
+                    <td width="100px">${billpositionList.entityMaterialUm}</td>
+                    <td width="100px">${billpositionList.entityMaterialUnitWkg}</td>
+                    <td width="100px">${billpositionList.billqty}</td>
                 </tr>
             </c:forEach>
+
         </table>
     </div>
 

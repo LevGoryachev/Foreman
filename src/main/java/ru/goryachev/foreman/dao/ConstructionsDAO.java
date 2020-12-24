@@ -2,10 +2,12 @@ package ru.goryachev.foreman.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 import ru.goryachev.foreman.entities.Construction;
 import ru.goryachev.foreman.entities.Entity;
 import java.util.List;
 
+@Repository
 public class ConstructionsDAO implements DataAccessible {
 
     @Autowired
@@ -19,8 +21,6 @@ public class ConstructionsDAO implements DataAccessible {
 
 
          //List <Construction> co = jdbcTemplate.query(sqlQuery, new ConstructionMapper());
-
-
         /*
         System.out.println("DAO check: ready");
         for(Construction stroyka : co) {

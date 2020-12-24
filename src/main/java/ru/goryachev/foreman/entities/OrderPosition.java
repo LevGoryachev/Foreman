@@ -5,6 +5,7 @@ public class OrderPosition implements Entity {
     private int constructionid;
     private int materialid;
     private int orderid;
+    private boolean statusDelivered;
     private int orderqty;
 
     public int getConstructionid() {
@@ -29,6 +30,14 @@ public class OrderPosition implements Entity {
 
     public void setOrderid(int orderid) {
         this.orderid = orderid;
+    }
+
+    public boolean isStatusDelivered() {
+        return statusDelivered;
+    }
+
+    public void setStatusDelivered(boolean statusDelivered) {
+        this.statusDelivered = statusDelivered;
     }
 
     public int getOrderqty() {

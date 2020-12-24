@@ -2,10 +2,12 @@ package ru.goryachev.foreman.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 import ru.goryachev.foreman.entities.Entity;
 import ru.goryachev.foreman.entities.AppUser;
 import java.util.List;
 
+@Repository
 public class AppUsersDAO implements DataAccessible {
 
     @Autowired
@@ -21,16 +23,16 @@ public class AppUsersDAO implements DataAccessible {
     @Override
     public void save(Entity entity) {
         AppUser appUser = ((AppUser)entity);
-        String sqlQuery = "INSERT INTO app_user (id, firstname, middlename, lastname, login, password, role_id) values (?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sqlQuery, appUser.getId(), appUser.getFirstName(), appUser.getMiddleName(), appUser.getLastName(), appUser.getLogin(), appUser.getPassword(), appUser.getRoleId());
+        String sqlQuery = "INSERT INTO app_user (id, firstname, middlename, lastname, login, password, email, role_id) values (?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sqlQuery, appUser.getId(), appUser.getFirstName(), appUser.getMiddleName(), appUser.getLastName(), appUser.getLogin(), appUser.getPassword(), appUser.getEmail(), appUser.getRoleId());
 
     }
 
     @Override
     public void update(Entity entity) {
         AppUser appUser = ((AppUser) entity);
-        String sqlQuery = "UPDATE app_user SET firstname=?, middlename=?, lastname=?, login=?, password=?, role_id=? WHERE id=?";
-        jdbcTemplate.update(sqlQuery, appUser.getFirstName(), appUser.getMiddleName(), appUser.getLastName(), appUser.getLogin(), appUser.getPassword(), appUser.getRoleId(), appUser.getId());
+        String sqlQuery = "UPDATE app_user SET firstname=?, middlename=?, lastname=?, login=?, password=?, email=?, role_id=? WHERE id=?";
+        jdbcTemplate.update(sqlQuery, appUser.getFirstName(), appUser.getMiddleName(), appUser.getLastName(), appUser.getLogin(), appUser.getPassword(), appUser.getEmail(), appUser.getRoleId(), appUser.getId());
     }
 
     @Override
@@ -46,7 +48,7 @@ public class AppUsersDAO implements DataAccessible {
     }
 
     public AppUser getByLogin(String login) {
-        String sqlQuery = "SELECT * FROM app_user WHERE login=?";
+        String sqlQuery = "SELECT au.*, r.rank AS r_rank FROM app_user au LEFT JOIN  role r ON au.role_id=r.id WHERE login=?";
         return jdbcTemplate.queryForObject(sqlQuery, new AppUserMapper(), login);
     }
 

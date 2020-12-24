@@ -25,7 +25,7 @@ a {
 .header {
     position : fixed;
     width: 100%;
-    height: 150px;
+    height: 125px;
     top: 0;
     background-image: url(foreman_background_header.jpg);
     background-color: #78a2b7;
@@ -39,14 +39,14 @@ a {
 .mainer {
     width: 100%;
     padding-top: 150px;
-    padding-bottom: 200px;
+    padding-bottom: 150px;
     text-align: center;
 }
 
 .footer {
     position : fixed;
     width: 100%;
-    height : 200px;
+    height : 125px;
     bottom : 0;
     background-image: url(foreman_background_footer.jpg);
     background-color: #78a2b7;
@@ -57,6 +57,15 @@ a {
     opacity: 0.85;
 }
 
+.doubledash {
+    display:inline-block;
+    width: 50%;
+    height: 550px;
+    margin-top: 0px;
+    margin-bottom: 200px;
+    float: left;
+    overflow-y: scroll;
+}
 
 
 .linearbutton {
@@ -79,12 +88,14 @@ a {
 
 .mainearbutton {
     display:inline-block;
+    margin-top: 20px;
     margin-left: 50px;
     margin-right: 50px;
 }
 
 .mainearblock {
     display:inline-block;
+    margin-top: 100px;
     margin-left: 50px;
     margin-right: 50px;
     text-align: left;
@@ -168,7 +179,7 @@ a {
     box-shadow: rgba(0,0,0,.3) 0 2px 5px;
     border-radius: 8px;
 }
-.buttonblack:active {
+.buttonblick:active {
     top: 1px;
     box-shadow: none;
 }

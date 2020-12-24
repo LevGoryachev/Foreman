@@ -1,13 +1,14 @@
 package ru.goryachev.foreman.config;
 
-
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import ru.goryachev.foreman.service.*;
+
 
 @Configuration
+@ComponentScan(basePackages = "ru.goryachev.foreman.service")
 public class ServiceConfig implements WebMvcConfigurer {
+/*
 
     @Bean
     public ConstructionService getConstructionService () {
@@ -29,9 +30,19 @@ public class ServiceConfig implements WebMvcConfigurer {
         return new AppUserService();
     }
 
-    @Bean
-    public RoleService getRoleService () {
+
+      @Bean
+      public RoleService getRoleService () {
         return new RoleService();
+    }*//*
+
+
+
+
+    @Bean
+    public OrderService getOrderService () {
+        return new OrderService();
     }
+*/
 
 }

@@ -28,6 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.antMatchers("/construction/**/materials").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE", "SUPPLIER")
                 .antMatchers("/construction/orders").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE", "SUPPLIER")
                 //.antMatchers("/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
+                //.antMatchers(HttpMethod.POST, "/construction/**/materials/**").hasAnyRole("ADMIN", "CHIEF")
                 .antMatchers(HttpMethod.GET,"/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
                 .antMatchers(HttpMethod.POST, "/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF")
                 .antMatchers("/materials").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
@@ -50,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //To get 3 fields from DB: user name (login), encrypted password, boolean (enabled) - enabled the user or not
         String userQuery = "SELECT login, password, 'true' FROM app_user WHERE login=?";
 
-        //Also to get 2 fields from DB: user name (login), authorities
+        //Also to get 2 fields from DB: user name (login), authorities; the values in database must be with "ROLE_", e.g. "ROLE_ADMIN"
         String autoritiesQuery = "SELECT au.login, r.rank FROM app_user au LEFT JOIN role r ON au.role_id=r.id WHERE login=?";
 
         auth.jdbcAuthentication()

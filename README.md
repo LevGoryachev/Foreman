@@ -59,16 +59,16 @@ Employees who are located on construction sites can use this web-application to 
 <h2>2. Database</h2>
 <p>Database structure in files:</p>
 <ul>
-<li><b>DDLscript_v2.4-db.md</b> - tables (SQL)
-<li><b>SPscript_v2.4-db.md</b> - stored procedures(PL/pgSQL)
+<li><b>Foreman_DDL_v3.1-db.md</b> - tables (SQL)
+<li><b>Foreman_SP_v3.1-db.md</b> - stored procedures(PL/pgSQL)
 </ul>
 <p>The database contains:</p>
 <p>tables: 7</p>
-<p>stored procedures: 2</p>
+<p>stored procedures: 6</p>
 <p>For connection to database use an appropriate driver. In this example - "org.postgresql.Driver", PostgreSQL version 13 (see <b>1.Structure: ru/goryachev/foreman/config - about JDBCConfig.java).</b></p>
 
 <h3>Database scheme</h3>
 
-![DBscheme_v2 4-db](https://user-images.githubusercontent.com/61917893/101266326-e39b6e80-375e-11eb-8531-b345af66acd7.jpg)
+![DBscheme_v3 1-db](https://user-images.githubusercontent.com/61917893/102700566-a4d9de00-425f-11eb-9d41-bf3f5d1ff1f1.jpg)
 <p></p>
 <p>Free software for educational purposes. Lev Goryachev.</p>
