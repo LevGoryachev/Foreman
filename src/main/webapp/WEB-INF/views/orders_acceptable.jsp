@@ -9,6 +9,8 @@
 
 <body>
 
+
+
 <div class="header">
     <div class="headerleftinfo">
         <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
@@ -26,40 +28,50 @@
 <div class="mainer">
 
     <div class="doubledash">
-        <p class="maineartableinfo">Status: POSTED. Please, send these materials to construction site and click SEND.</p>
+        <p class="maineartableinfo">Construction: ${showConstruction.name}; Status: SENT. Materials have been sent to this construction site.</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>
-                <td width="300px">CONSTRUCTION</td>
                 <td width="200px">DATE, TIME</td>
                 <td width="200px">AUTHOR</td>
-                <td colspan="2">Status</td>
+                <td colspan="2">STATUS</td>
             </tr>
-            <c:forEach items="${postedAllList}" var="postedAllList">
+            <c:forEach items="${sentList}" var="sentList">
                 <tr>
-                    <td width="100px">${postedAllList.id}</td>
-                    <td width="300px">${postedAllList.constructionName}</td>
-                    <td width="200px">${postedAllList.orderTime}</td>
-                    <td width="200px">${postedAllList.appUserLastName}</td>
-                    <td width="100px">Recieved from construction site</td>
-                    <form name = "sending" action = "${pageContext.request.contextPath}/orders/${postedAllList.id}/sent" method="post" onsubmit="return confirm('Have the materials of order been sent?');">
-                        <td><input type="submit" value="SEND"></td>
+                    <td width="100px">${sentList.id}</td>
+                    <td width="200px">${sentList.orderTime}</td>
+                    <td width="200px">${sentList.appUserLastName}</td>
+                    <td width="200px">Materials are expected</td>
+                    <form name = "executing" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/orders/${sentList.id}/executed" method="post" onsubmit="return confirm('Have the materials been delivered?');">
+                        <td><input type="submit" value="CONFIRM"></td>
                     </form>
                 </tr>
             </c:forEach>
         </table>
+        <p>Set instead this button link-button to the orderposition_check page, and move this button to orderposition_check page (and add chkbox)</p>
     </div>
 
     <div class="doubledash">
-        <p class="maineartableinfo">Positions of order: </p>
+        <div class="maineartableinfo">
+            <p>Materials (specification) of ${showConstruction.name}.</p>
+        </div>
+
         <table border="1" cellpadding="5">
             <tr>
-                <td width="100px">ORDER ID</td>
-                <td width="200px">DATE, TIME</td>
-                <td width="200px">AUTHOR</td>
-                <td colspan="2">Status</td>
+                <td width="400px">MATERIAL</td>
+                <td width="100px">UNIT MEASURE</td>
+                <td width="100px">UNIT WEIGHT, KG</td>
+                <td width="100px">QUANTITY</td>
             </tr>
-            <!-- place for orderpositions-->
+            <c:forEach items="${billpositionList}" var="billpositionList">
+                <tr>
+                    <td width="400px">${billpositionList.entityMaterialName}</td>
+                    <td width="100px">${billpositionList.entityMaterialUm}</td>
+                    <td width="100px">${billpositionList.entityMaterialUnitWkg}</td>
+                    <td width="100px">${billpositionList.billqty}</td>
+                </tr>
+            </c:forEach>
+
         </table>
     </div>
 

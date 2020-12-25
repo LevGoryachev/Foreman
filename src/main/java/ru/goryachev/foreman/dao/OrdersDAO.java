@@ -31,7 +31,10 @@ public class OrdersDAO implements DataAccessible {
 
     @Override
     public void update(Entity entity) {
-
+        Order order = ((Order) entity);
+        char dm = 34;
+        String sqlQuery = "UPDATE " + dm + "order" + dm + " SET posted=?, sent=?, status_executed=? WHERE id=?";
+        jdbcTemplate.update(sqlQuery, order.isPosted(), order.isSent(), order.isStatusExecuted(), order.getId());
     }
 
     @Override
@@ -41,6 +44,13 @@ public class OrdersDAO implements DataAccessible {
         jdbcTemplate.update(sqlQuery, id);
     }
 
+    public Order getById(int id) {
+        char dm = 34;
+        String sqlQuery = "SELECT * FROM " + dm + "order" + dm + " WHERE id=?";
+        return jdbcTemplate.queryForObject(sqlQuery, new OrderMapper(), id);
+    }
+
+
     /* //sample
     public List<Order> getChangeable(int constructionId) {
         char dm = 34;
@@ -48,22 +58,4 @@ public class OrdersDAO implements DataAccessible {
         return jdbcTemplate.query(sqlQuery, new OrderMapper(), constructionId);
     }
      */
-
-
-
-    //lists for suppliers
-    public List<Order> getPostedAll() {
-        String sqlQuery = "SELECT * FROM order WHERE posted = true AND sent = false AND status_executed = false";
-        return jdbcTemplate.query(sqlQuery, new OrderMapper());
-    }
-
-    public List<Order> getSentAll() {
-        String sqlQuery = "SELECT * FROM order WHERE posted = true AND sent = true AND status_executed = false";
-        return jdbcTemplate.query(sqlQuery, new OrderMapper());
-    }
-
-    public List<Order> getExecutedAll() {
-        String sqlQuery = "SELECT * FROM order WHERE status_executed = true";
-        return jdbcTemplate.query(sqlQuery, new OrderMapper());
-    }
 }

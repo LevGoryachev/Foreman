@@ -9,6 +9,8 @@
 
 <body>
 
+
+
 <div class="header">
     <div class="headerleftinfo">
         <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
@@ -26,40 +28,40 @@
 <div class="mainer">
 
     <div class="doubledash">
-        <p class="maineartableinfo">Status: POSTED. Please, send these materials to construction site and click SEND.</p>
+        <p class="maineartableinfo">Construction: ${showConstruction.name}; status: in progress (not ready)</p>
+        <p class="maineartableinfo">Check if delivered materials correspond to positions of order. If it is OK, click ACCEPT.</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>
-                <td width="300px">CONSTRUCTION</td>
                 <td width="200px">DATE, TIME</td>
                 <td width="200px">AUTHOR</td>
-                <td colspan="2">Status</td>
+                <td colspan="2">STATUS</td>
             </tr>
-            <c:forEach items="${postedAllList}" var="postedAllList">
-                <tr>
-                    <td width="100px">${postedAllList.id}</td>
-                    <td width="300px">${postedAllList.constructionName}</td>
-                    <td width="200px">${postedAllList.orderTime}</td>
-                    <td width="200px">${postedAllList.appUserLastName}</td>
-                    <td width="100px">Recieved from construction site</td>
-                    <form name = "sending" action = "${pageContext.request.contextPath}/orders/${postedAllList.id}/sent" method="post" onsubmit="return confirm('Have the materials of order been sent?');">
-                        <td><input type="submit" value="SEND"></td>
-                    </form>
-                </tr>
-            </c:forEach>
+
         </table>
     </div>
 
     <div class="doubledash">
-        <p class="maineartableinfo">Positions of order: </p>
+        <div class="maineartableinfo">
+            <p>Materials (specification) of ${showConstruction.name}.</p>
+        </div>
+
         <table border="1" cellpadding="5">
             <tr>
-                <td width="100px">ORDER ID</td>
-                <td width="200px">DATE, TIME</td>
-                <td width="200px">AUTHOR</td>
-                <td colspan="2">Status</td>
+                <td width="400px">MATERIAL</td>
+                <td width="100px">UNIT MEASURE</td>
+                <td width="100px">UNIT WEIGHT, KG</td>
+                <td width="100px">QUANTITY</td>
             </tr>
-            <!-- place for orderpositions-->
+            <c:forEach items="${billpositionList}" var="billpositionList">
+                <tr>
+                    <td width="400px">${billpositionList.entityMaterialName}</td>
+                    <td width="100px">${billpositionList.entityMaterialUm}</td>
+                    <td width="100px">${billpositionList.entityMaterialUnitWkg}</td>
+                    <td width="100px">${billpositionList.billqty}</td>
+                </tr>
+            </c:forEach>
+
         </table>
     </div>
 

@@ -48,13 +48,31 @@ public class OrderService implements Applicable {
     public void setParameters (int currentConstructionID) {
         this.currentConstructionID = currentConstructionID;
         this.currentOrderTime = LocalDateTime.now();
-        this.currentUserID = 3; //temporary for debug
+        this.currentUserID = 5; //temporary for debug
         //this.currentUserID = appUsersService.getCurrentUser().getId(); // extrsct user from session
     }
 
     @Override
     public void update(Entity entity) {
         ordersDAO.update(entity);
+    }
+
+    public void updateSetPosted(int id) {
+        Order order = ordersDAO.getById(id);
+        order.setPosted(true);
+        ordersDAO.update(order);
+    }
+
+    public void updateSetSent(int id) {
+        Order order = ordersDAO.getById(id);
+        order.setSent(true);
+        ordersDAO.update(order);
+    }
+
+    public void updateSetExecuted(int id) {
+        Order order = ordersDAO.getById(id);
+        order.setStatusExecuted(true);
+        ordersDAO.update(order);
     }
 
     @Override
