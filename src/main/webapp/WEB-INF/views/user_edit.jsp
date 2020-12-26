@@ -21,7 +21,7 @@
         <td>ROLE</td>
         <td>Confirm</td>
     </tr>
-    <form name = "appUserAttr" action = "${pageContext.request.contextPath}/users/upd" method="post" onsubmit="return confirm('Update this?');">
+    <form name = "appUserAttr" action = "${pageContext.request.contextPath}/admin/users/upd" method="post" onsubmit="return confirm('Update this?');">
         <tr>
             <td><input title="ID" type="text" name="id" value="${userEdit.id}" readonly></td>
             <td><input title="FIRST NAME" type="text" name="firstName" value="${userEdit.firstName}"></td>

@@ -22,7 +22,7 @@
     </c:forEach>
 </table>
 
-<h3><a href="./admin">Back to admin panel</a></h3>
+<h3><a href="${pageContext.request.contextPath}/admin">Back to admin panel</a></h3>
 
 </body>
 </html>

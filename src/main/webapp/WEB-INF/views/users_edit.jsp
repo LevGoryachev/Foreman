@@ -29,15 +29,15 @@
             <td>${userList.login}</td>
             <td>${userList.password}</td>
             <td>${userList.entityRoleRank}</td>
-            <form name = "edit" action = "${pageContext.request.contextPath}/users/edit/${userList.id}" method="get">
+            <form name = "edit" action = "${pageContext.request.contextPath}/admin/users/edit/${userList.id}" method="get">
                 <td><input type="submit" value="EDIT"></td>
             </form>
-            <form name = "delete" action = "${pageContext.request.contextPath}/users/del/${userList.id}" method="post" onsubmit="return confirm('Delete this?');">
+            <form name = "delete" action = "${pageContext.request.contextPath}/admin/users/del/${userList.id}" method="post" onsubmit="return confirm('Delete this?');">
                 <td><input type="submit" value="DELETE"></td>
             </form>
         </tr>
     </c:forEach>
-    <form name = "appUserAttr" action = "${pageContext.request.contextPath}/users/add" method="post" onsubmit="return confirm('Add new?');">
+    <form name = "appUserAttr" action = "${pageContext.request.contextPath}/admin/users/add" method="post" onsubmit="return confirm('Add new?');">
         <tr>
             <td><input title="ID" type="text" name="id"></td>
             <td><input title="FIRST NAME" type="text" name="firstName"></td>
@@ -57,7 +57,7 @@
     </form>
 </table>
 <p>
-<h3><a href="./admin">Back to admin panel</a></h3>
+<h3><a href="${pageContext.request.contextPath}/admin">Back to admin panel</a></h3>
 </p>
 </body>
 
