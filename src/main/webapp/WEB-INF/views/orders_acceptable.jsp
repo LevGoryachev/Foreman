@@ -34,21 +34,21 @@
                 <td width="100px">ORDER ID</td>
                 <td width="200px">DATE, TIME</td>
                 <td width="200px">AUTHOR</td>
-                <td colspan="2">STATUS</td>
+                <td width="100px">STATUS</td>
+                <td>ACTION</td>
             </tr>
             <c:forEach items="${sentList}" var="sentList">
                 <tr>
                     <td width="100px">${sentList.id}</td>
                     <td width="200px">${sentList.orderTime}</td>
                     <td width="200px">${sentList.appUserLastName}</td>
-                    <td width="200px">Materials are expected</td>
-                    <form name = "executing" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/orders/${sentList.id}/executed" method="post" onsubmit="return confirm('Have the materials been delivered?');">
-                        <td><input type="submit" value="CONFIRM"></td>
+                    <td width="100px">Materials are expected</td>
+                    <form name = "open" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/order/${sentList.id}/orderpositions-check" method="get">
+                        <td><input type="submit" value="OPEN"></td>
                     </form>
                 </tr>
             </c:forEach>
         </table>
-        <p>Set instead this button link-button to the orderposition_check page, and move this button to orderposition_check page (and add chkbox)</p>
     </div>
 
     <div class="doubledash">

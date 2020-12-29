@@ -28,17 +28,28 @@
 <div class="mainer">
 
     <div class="doubledash">
-        <p class="maineartableinfo">Construction: ${showConstruction.name}; Status: SENT (3). Materials have been sent to this construction site.</p>
-        <p class="maineartableinfo">Check if delivered materials correspond to positions of order. If it is OK, click ACCEPT.</p>
+        <p class="maineartableinfo">ORDER-ID: ${orderAttributes.id}, Status: SENT (3), author:  ${orderAttributes.appUserLastName}, construction site: ${orderAttributes.constructionName}</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>
-                <td width="200px">DATE, TIME</td>
-                <td width="200px">AUTHOR</td>
-                <td colspan="2">STATUS</td>
+                <td width="300px">MATERIAL</td>
+                <td width="100px">QUANTITY</td>
             </tr>
+            <c:forEach items="${orderpositionsList}" var="orderpositionsList">
+                <tr>
+                    <td width="100px">${orderpositionsList.orderId}</td>
+                    <td width="300px">${orderpositionsList.materialName}</td>
+                    <td width="100px">${orderpositionsList.orderqty}</td>
 
+                </tr>
+            </c:forEach>
+            <tr>
+                <form name = "executing" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/orders/${orderAttributes.id}/executed" method="post" onsubmit="return confirm('Have the materials been delivered?');">
+                    <td colspan="3"><input type="submit" value="CONFIRM"></td>
+                </form>
+            </tr>
         </table>
+        <p>Materials have been sent to this construction site. Check if delivered materials correspond to positions of order. If it is OK, click CONFIRM.</p>
     </div>
 
     <div class="doubledash">

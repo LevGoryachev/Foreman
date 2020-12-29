@@ -33,7 +33,8 @@
                 <td width="300px">CONSTRUCTION</td>
                 <td width="200px">DATE, TIME</td>
                 <td width="200px">AUTHOR</td>
-                <td colspan="2">Status</td>
+                <td width="100px">Status</td>
+                <td colspan="2">Action</td>
             </tr>
             <c:forEach items="${postedAllList}" var="postedAllList">
                 <tr>
@@ -42,6 +43,9 @@
                     <td width="200px">${postedAllList.orderTime}</td>
                     <td width="200px">${postedAllList.appUserLastName}</td>
                     <td width="100px">Recieved from construction site</td>
+                    <form name = "open" action = "${pageContext.request.contextPath}/supplier/${postedAllList.id}/orderpositions" method="get">
+                        <td><input type="submit" value="OPEN"></td>
+                    </form>
                     <form name = "sending" action = "${pageContext.request.contextPath}/orders/${postedAllList.id}/sent" method="post" onsubmit="return confirm('Have the materials of order been sent?');">
                         <td><input type="submit" value="SEND"></td>
                     </form>
@@ -51,15 +55,20 @@
     </div>
 
     <div class="doubledash">
-        <p class="maineartableinfo">Positions of order: </p>
+        <p class="maineartableinfo">ORDER-ID: ${orderAttributes.id}, Status: POSTED (2), author:  ${orderAttributes.appUserLastName}, construction site: ${orderAttributes.constructionName}</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>
-                <td width="200px">DATE, TIME</td>
-                <td width="200px">AUTHOR</td>
-                <td colspan="2">Status</td>
+                <td width="300px">MATERIAL</td>
+                <td width="100px">QUANTITY</td>
             </tr>
-            <!-- place for orderpositions-->
+            <c:forEach items="${orderpositionsList}" var="orderpositionsList">
+                <tr>
+                    <td width="100px">${orderpositionsList.orderId}</td>
+                    <td width="300px">${orderpositionsList.materialName}</td>
+                    <td width="100px">${orderpositionsList.orderqty}</td>
+                </tr>
+            </c:forEach>
         </table>
     </div>
 

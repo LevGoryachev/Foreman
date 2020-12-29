@@ -26,14 +26,15 @@
 <div class="mainer">
 
     <div class="doubledash">
-        <p class="maineartableinfo">Archive. Status: EXECUTED (4). Confirmed orders, materials are in the construction site.</p>
+        <p class="maineartableinfo">Archive. Orders with status: EXECUTED (4). Materials are in the construction site and confirmed.</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>
                 <td width="300px">CONSTRUCTION</td>
                 <td width="200px">DATE, TIME</td>
                 <td width="200px">AUTHOR</td>
-                <td colspan="2">Status</td>
+                <td width="100px">Status</td>
+                <td>Action</td>
             </tr>
             <c:forEach items="${executedAllList}" var="executedAllList">
                 <tr>
@@ -41,22 +42,30 @@
                     <td width="300px">${executedAllList.constructionName}</td>
                     <td width="200px">${executedAllList.orderTime}</td>
                     <td width="200px">${executedAllList.appUserLastName}</td>
-                    <td width="100px">Recieved from construction site</td>
+                    <td width="100px">Confirmed</td>
+                    <form name = "open" action = "${pageContext.request.contextPath}/archive/${executedAllList.id}/orderpositions" method="get">
+                        <td><input type="submit" value="OPEN"></td>
+                    </form>
                 </tr>
             </c:forEach>
         </table>
     </div>
 
     <div class="doubledash">
-        <p class="maineartableinfo">Positions of order: </p>
+        <p class="maineartableinfo">ORDER-ID: ${orderAttributes.id}, Status: EXECUTED (4), author:  ${orderAttributes.appUserLastName}, construction site: ${orderAttributes.constructionName}</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>
-                <td width="200px">DATE, TIME</td>
-                <td width="200px">AUTHOR</td>
-                <td colspan="2">Status</td>
+                <td width="300px">MATERIAL</td>
+                <td width="100px">QUANTITY</td>
             </tr>
-            <!-- place for orderpositions-->
+            <c:forEach items="${orderpositionsList}" var="orderpositionsList">
+                <tr>
+                    <td width="100px">${orderpositionsList.orderId}</td>
+                    <td width="300px">${orderpositionsList.materialName}</td>
+                    <td width="100px">${orderpositionsList.orderqty}</td>
+                </tr>
+            </c:forEach>
         </table>
     </div>
 

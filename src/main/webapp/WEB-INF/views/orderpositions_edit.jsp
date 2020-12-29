@@ -28,14 +28,13 @@
 <div class="mainer">
 
     <div class="doubledash">
-        <p class="maineartableinfo">Construction: ${showConstruction.name}; status: EDITABLE (1). Please, add, delete materials or edit quantities</p>
-        <p class="maineartableinfo">Edit positions of order</p>
+        <p class="maineartableinfo">ORDER-ID: ${orderAttributes.id}, Status: EDITABLE (1), author:  ${orderAttributes.appUserLastName}, construction site: ${orderAttributes.constructionName}</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>
                 <td width="300px">MATERIAL</td>
                 <td width="100px">QUANTITY</td>
-                <td colspan="2">ACTION</td>
+                <td>ACTION</td>
             </tr>
             <c:forEach items="${orderpositionsList}" var="orderpositionsList">
                 <tr>
@@ -60,7 +59,7 @@
                     </td>
                     <input title="statusDelivered" type="text" name="statusDelivered" value="false" readonly hidden>
                     <td><input title="ORDERQTY" type="text" name="orderqty"></td>
-                    <td><input type="submit" value="ADD NEW"></td>
+                    <td><input type="submit" value="ADD"></td>
                 </tr>
             </form>
 

@@ -90,6 +90,18 @@ public class OrderService implements Applicable {
         return ordersDAO.getById(id);
     }
 
+    public OrderPresentable getByIdPresentable(int id) {
+
+        OrderPresentable orderPresentable = new OrderPresentable();
+        Order order = ordersDAO.getById(id);
+
+        orderPresentable.setId(order.getId());
+        orderPresentable.setOrderTime(order.getOrdertime());
+        orderPresentable.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
+        orderPresentable.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
+        return orderPresentable;
+    }
+
 
     //get by construction ID for EMPLOYEE pages, orders with STATUS 1 (edit)
     public List<OrderPresentable> getChangeablePresentable(int currentConstructionID) {
