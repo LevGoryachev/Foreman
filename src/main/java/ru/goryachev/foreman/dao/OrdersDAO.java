@@ -50,7 +50,6 @@ public class OrdersDAO implements DataAccessible {
         return jdbcTemplate.queryForObject(sqlQuery, new OrderMapper(), id);
     }
 
-
     /* //sample
     public List<Order> getChangeable(int constructionId) {
         char dm = 34;

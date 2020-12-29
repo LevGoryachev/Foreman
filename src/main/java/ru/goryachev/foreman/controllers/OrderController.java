@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.goryachev.foreman.entities.Order;
+import ru.goryachev.foreman.entities.OrderPosition;
 import ru.goryachev.foreman.service.BillPositionService;
 import ru.goryachev.foreman.service.ConstructionService;
+import ru.goryachev.foreman.service.OrderPositionService;
 import ru.goryachev.foreman.service.OrderService;
 
 @Controller
@@ -22,6 +24,9 @@ public class OrderController {
     @Autowired
     public BillPositionService billPositionService;
 
+    @Autowired
+    public OrderPositionService orderPositionService;
+
     //CRUD for orders, orderpositions:
     //read: orders for employees, the first page:
     @GetMapping("/{name}/orders-editable")
@@ -32,14 +37,34 @@ public class OrderController {
         return "orders_editable";
     }
 
-    //read: sub-page of first :
-    @GetMapping("/{name}/orderpositions/edit")
-    public String orderPositionsEdit (@PathVariable("name") String name, Model model) {
-        //+ also model: add OrderPositions
-        model.addAttribute("postedList", orderService.getPostedPresentable(constructionService.getByName(name).getId()));
-        model.addAttribute("showConstruction", constructionService.getByName(name));
-        return "orderpositions_edit";
-    }
+            //read: sub-page FIRST (edit order positions):
+            @GetMapping("/{name}/order/{orderId}/orderpositions-edit")
+            public String orderPositionsEdit (@PathVariable("name") String name, @PathVariable("orderId") int orderId, Model model) {
+                model.addAttribute("orderpositionsList", orderPositionService.getByOrderIdPresentable(orderId));
+                model.addAttribute("postedList", orderService.getPostedPresentable(constructionService.getByName(name).getId()));
+
+                //getDeductionOfList: if current ORDER already contains these positions (materials) - they should NOT be available in the current ORDER
+                model.addAttribute("billpositionList", billPositionService.getDeductionOfList(constructionService.getByName(name).getId(), orderId));
+
+                model.addAttribute("showConstruction", constructionService.getByName(name));
+                model.addAttribute("showOrderId", orderId);
+                return "orderpositions_edit";
+            }
+
+            //create: orderposition
+            @PostMapping("/{name}/order/{orderId}/orderposition/add")
+            public String addBillPosition (@PathVariable("name") String name, @ModelAttribute("orderposition") OrderPosition orderPosition, @PathVariable("orderId") int orderId) {
+                orderPositionService.save(orderPosition);
+                return "redirect:/construction/{name}/order/{orderId}/orderpositions-edit";
+            }
+
+            //delete: orderposition
+            @PostMapping ("/{name}/order/{orderId}/orderposition/del/{materialId}")
+            public String delBillPosition (@PathVariable("name") String name, @PathVariable("materialId") int materialId, @PathVariable("orderId") int orderId) {
+                orderPositionService.delete(constructionService.getByName(name).getId(), materialId, orderId);
+                return "redirect:/construction/{name}/order/{orderId}/orderpositions-edit";
+            }
+
 
     //read: orders for employees, the second page:
     @GetMapping("/{name}/orders-acceptable")
@@ -50,14 +75,14 @@ public class OrderController {
         return "orders_acceptable";
     }
 
-    //read: sub-page of second :
-    @GetMapping("/{name}/orderpositions/check")
-    public String orderPositionsCheck (@PathVariable("name") String name, Model model) {
-        //+ alsomodel: add OrderPositions
-        model.addAttribute("billpositionList", billPositionService.getByConstruction(constructionService.getByName(name).getId()));
-        model.addAttribute("showConstruction", constructionService.getByName(name));
-        return "orderpositions_check";
-    }
+            //read: sub-page SECOND (read and check order positions):
+            @GetMapping("/{name}/order/{orderId}/orderpositions-check")
+            public String orderPositionsCheck (@PathVariable("name") String name, @PathVariable("orderId") String orderId, Model model) {
+                //+ alsomodel: add OrderPositions
+                model.addAttribute("billpositionList", billPositionService.getByConstruction(constructionService.getByName(name).getId()));
+                model.addAttribute("showConstruction", constructionService.getByName(name));
+                return "orderpositions_check";
+            }
 
     //create order:
     @PostMapping("{name}/orders/add")

@@ -57,30 +57,41 @@ public class OrderService implements Applicable {
         ordersDAO.update(entity);
     }
 
+    //to set order's STATUS 2
     public void updateSetPosted(int id) {
-        Order order = ordersDAO.getById(id);
+        Order order = this.getById(id);
         order.setPosted(true);
         ordersDAO.update(order);
     }
 
+    //to set order's STATUS 3
     public void updateSetSent(int id) {
-        Order order = ordersDAO.getById(id);
+        Order order = this.getById(id);
         order.setSent(true);
         ordersDAO.update(order);
     }
 
+    //to set order's STATUS 4
     public void updateSetExecuted(int id) {
-        Order order = ordersDAO.getById(id);
+        Order order = this.getById(id);
         order.setStatusExecuted(true);
         ordersDAO.update(order);
     }
 
     @Override
     public void delete(int id) {
-        ordersDAO.delete(id);
+        //"IF statement" to avoid any changes with orders (and positions) that have STATUS 2 or 3 or 4
+        if (!this.getById(id).isPosted() && !this.getById(id).isSent() && !this.getById(id).isStatusExecuted()) {
+            ordersDAO.delete(id);
+        }
     }
 
-    //get by construction ID for EMPLOYEE pages
+    public Order getById(int id) {
+        return ordersDAO.getById(id);
+    }
+
+
+    //get by construction ID for EMPLOYEE pages, orders with STATUS 1 (edit)
     public List<OrderPresentable> getChangeablePresentable(int currentConstructionID) {
         List<OrderPresentable> list = new ArrayList<>();
 
@@ -98,6 +109,7 @@ public class OrderService implements Applicable {
         return list;
     }
 
+    //get by construction ID for EMPLOYEE pages, orders with STATUS 2 (posted to supply)
     public List<OrderPresentable> getPostedPresentable(int currentConstructionID) {
         List<OrderPresentable> list = new ArrayList<>();
 
@@ -114,6 +126,7 @@ public class OrderService implements Applicable {
         return list;
     }
 
+    //get by construction ID for EMPLOYEE pages, orders with STATUS 3 (when supplier sent the materials)
     public List<OrderPresentable> getSentPresentable(int currentConstructionID) {
         List<OrderPresentable> list = new ArrayList<>();
 
@@ -130,6 +143,8 @@ public class OrderService implements Applicable {
         return list;
     }
 
+    //get by construction ID for EMPLOYEE pages, orders with STATUS 4 (when the employee received the materials on construction site)
+    //method is not used in the current version
     public List<OrderPresentable> getExecutedPresentable(int currentConstructionID) {
         List<OrderPresentable> list = new ArrayList<>();
 
@@ -147,7 +162,7 @@ public class OrderService implements Applicable {
     }
 
 
-    //get all (all constructions) for SUPPLIER pages
+    //get all (all constructions) for SUPPLIER pages, orders with STATUS 2
     public List<OrderPresentable> getPostedAllPresentable() {
         List<OrderPresentable> list = new ArrayList<>();
 
@@ -164,6 +179,8 @@ public class OrderService implements Applicable {
         return list;
     }
 
+    //get all (all constructions) for SUPPLIER pages, orders with STATUS 3
+    //method is not used in the current version
     public List<OrderPresentable> getSentAllPresentable() {
         List<OrderPresentable> list = new ArrayList<>();
 
@@ -180,6 +197,7 @@ public class OrderService implements Applicable {
         return list;
     }
 
+    //get all (all constructions) for SUPPLIER pages, orders with STATUS 4 (archive of orders)
     public List<OrderPresentable> getExecutedAllPresentable() {
         List<OrderPresentable> list = new ArrayList<>();
 

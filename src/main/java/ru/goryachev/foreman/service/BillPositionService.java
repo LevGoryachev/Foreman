@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import ru.goryachev.foreman.dao.BillPositionDAO;
 import ru.goryachev.foreman.entities.BillPosition;
 import ru.goryachev.foreman.entities.Entity;
+import ru.goryachev.foreman.entities.OrderPosition;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,6 +15,10 @@ public class BillPositionService implements Applicable {
 
     @Autowired
     public BillPositionDAO billPositionDAO;
+
+    @Autowired
+    public OrderPositionService orderPositionService;
+
 
     @Override
     public List<BillPosition> getAll() {
@@ -40,5 +46,25 @@ public class BillPositionService implements Applicable {
 
     public List<BillPosition> getByConstruction (int id) {
         return billPositionDAO.getByConstruction(id);
+    }
+
+    //the method for fill out ORDER (drop-down list): gets only the billpositions that are not used in current ORDER
+    //(if current ORDER already contains these positions (materials) - they should not be available (when filling out ORDER)
+    public List<BillPosition> getDeductionOfList (int constructionId, int orderId) {
+        List<BillPosition> list = new ArrayList<>();
+        boolean ordContains;
+
+        for (BillPosition billPosition : this.getByConstruction(constructionId)) {
+            ordContains = false;
+            for (OrderPosition orderPosition: orderPositionService.getAll()) {
+                if (orderPosition.getOrderid() == orderId && billPosition.getMaterialId() == orderPosition.getMaterialid() && billPosition.getConstructionId() == orderPosition.getConstructionid()) {
+                    ordContains = true;
+                }
+            }
+            if (!ordContains) {
+                list.add(billPosition);
+            }
+        }
+        return list;
     }
 }

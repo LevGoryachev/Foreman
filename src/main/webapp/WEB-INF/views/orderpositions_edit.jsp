@@ -28,35 +28,47 @@
 <div class="mainer">
 
     <div class="doubledash">
-        <p class="maineartableinfo">Construction: ${showConstruction.name}; status: in progress (not ready)</p>
+        <p class="maineartableinfo">Construction: ${showConstruction.name}; status: EDITABLE (1). Please, add, delete materials or edit quantities</p>
         <p class="maineartableinfo">Edit positions of order</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>
-                <td width="200px">DATE, TIME</td>
-                <td width="200px">AUTHOR</td>
+                <td width="300px">MATERIAL</td>
+                <td width="100px">QUANTITY</td>
                 <td colspan="2">ACTION</td>
             </tr>
-        <!--<c:forEach items="${changeableList}" var="changeableList">
+            <c:forEach items="${orderpositionsList}" var="orderpositionsList">
                 <tr>
-                    <td width="100px">${changeableList.id}</td>
-                    <td width="200px">${changeableList.orderTime}</td>
-                    <td width="200px">${changeableList.appUserLastName}</td>
-                    <form name = "delete" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/orders/${changeableList.id}/del" method="post" onsubmit="return confirm('Delete this?');">
+                    <td width="100px">${orderpositionsList.orderId}</td>
+                    <td width="300px">${orderpositionsList.materialName}</td>
+                    <td width="100px">${orderpositionsList.orderqty}</td>
+                    <form name = "delete" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/order/${orderpositionsList.orderId}/orderposition/del/${orderpositionsList.materialId}" method="post" onsubmit="return confirm('Delete this?');">
                         <td><input type="submit" value="DELETE"></td>
                     </form>
                 </tr>
-            </c:forEach> -->
-            <form name = "order" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/orders/add" method="post" onsubmit="return confirm('Add new?');">
+            </c:forEach>
+            <form name = "orderposition" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/order/${showOrderId}/orderposition/add" method="post" onsubmit="return confirm('Add new?');">
                 <tr>
-                    <td colspan="4"><input type="submit" value="ADD NEW"></td>
+                    <input title="construction_id" type="text" name="constructionid" value="${showConstruction.id}" readonly hidden>
+                    <td><input title="order_id" type="text" name="orderid" value="${showOrderId}" readonly></td>
+                    <td>
+                        <select class="widefield" name="materialid">
+                            <c:forEach items="${billpositionList}" var="materialList">
+                                <option value="${materialList.materialId}">${materialList.entityMaterialName}, <b>available: ${materialList.billqty} ${materialList.entityMaterialUm}</b></option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                    <input title="statusDelivered" type="text" name="statusDelivered" value="false" readonly hidden>
+                    <td><input title="ORDERQTY" type="text" name="orderqty"></td>
+                    <td><input type="submit" value="ADD NEW"></td>
                 </tr>
             </form>
+
         </table>
     </div>
 
     <div class="doubledash">
-        <p class="maineartableinfo">Construction: ${showConstruction.name}, status: posted (to supplier)</p>
+        <p class="maineartableinfo">Construction: ${showConstruction.name}, status: POSTED to supplier (2)</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>

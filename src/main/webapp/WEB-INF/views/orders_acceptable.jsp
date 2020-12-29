@@ -28,7 +28,7 @@
 <div class="mainer">
 
     <div class="doubledash">
-        <p class="maineartableinfo">Construction: ${showConstruction.name}; Status: SENT. Materials have been sent to this construction site.</p>
+        <p class="maineartableinfo">Construction: ${showConstruction.name}; Status: SENT (3). Materials have been sent to this construction site.</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>

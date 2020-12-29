@@ -26,7 +26,7 @@
 <div class="mainer">
 
     <div class="doubledash">
-        <p class="maineartableinfo">Status: POSTED. Please, send these materials to construction site and click SEND.</p>
+        <p class="maineartableinfo">Archive. Status: EXECUTED (4). Confirmed orders, materials are in the construction site.</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>
