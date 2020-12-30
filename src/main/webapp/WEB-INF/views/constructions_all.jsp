@@ -10,12 +10,14 @@
 <body>
 
 <div class="header">
+    <div class="headerleftbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+    </div>
     <div class="headerleftinfo">
-        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
-        <h3>List of constructions. Click on the appropriate construction.</h3>
+        <h3>List of constructions. Click on the construction to enter.</h3>
     </div>
     <div class="headerightbtns">
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
+        <a class="linearbutton buttonblickdimmed" href="${pageContext.request.contextPath}/constructions">Constructions</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide">Guide</a>
     </div>

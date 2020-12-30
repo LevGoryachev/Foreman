@@ -10,8 +10,10 @@
 <body>
 
 <div class="header">
+    <div class="headerleftbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+    </div>
     <div class="headerleftinfo">
-        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
         <h3>Be careful! Changed data will be saved in database after confirmation.</h3>
     </div>
     <div class="headerightbtns">
@@ -32,19 +34,19 @@
                 <td width="100px">ORDER ID</td>
                 <td width="300px">CONSTRUCTION</td>
                 <td width="200px">DATE, TIME</td>
-                <td width="200px">AUTHOR</td>
-                <td width="100px">Status</td>
-                <td colspan="2">Action</td>
+                <td width="100px">AUTHOR</td>
+                <td width="100px">CONDITION</td>
+                <td colspan="2">ACTION</td>
             </tr>
             <c:forEach items="${postedAllList}" var="postedAllList">
                 <tr>
                     <td width="100px">${postedAllList.id}</td>
                     <td width="300px">${postedAllList.constructionName}</td>
                     <td width="200px">${postedAllList.orderTime}</td>
-                    <td width="200px">${postedAllList.appUserLastName}</td>
-                    <td width="100px">Recieved from construction site</td>
+                    <td width="100px">${postedAllList.appUserLastName}</td>
+                    <td width="100px">Materials required</td>
                     <form name = "open" action = "${pageContext.request.contextPath}/supplier/${postedAllList.id}/orderpositions" method="get">
-                        <td><input type="submit" value="OPEN"></td>
+                        <td><input type="submit" value="SHOW"></td>
                     </form>
                     <form name = "sending" action = "${pageContext.request.contextPath}/orders/${postedAllList.id}/sent" method="post" onsubmit="return confirm('Have the materials of order been sent?');">
                         <td><input type="submit" value="SEND"></td>
@@ -78,9 +80,7 @@
 
 <div  class="footer">
     <div class="footerleftbtns">
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-editable">ORDERS</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-acceptable">ACCEPTANCE</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}">Construction page</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/archive">ARCHIVE</a>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="#">Account info</a>

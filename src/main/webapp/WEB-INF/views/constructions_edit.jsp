@@ -10,8 +10,10 @@
 <body>
 
 <div class="header">
+    <div class="headerleftbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+    </div>
     <div class="headerleftinfo">
-        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
         <h3>Be careful! Changed data will be saved in database after confirmation.</h3>
     </div>
     <div class="headerightbtns">
@@ -64,7 +66,7 @@
     <div class="footerleftbtns">
         <a class="linearbutton buttonblick" href="#top">PageUP</a>
         <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Back to Constructions</a>
+        <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/constructions">Back to Constructions</a>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="#">Account info</a>

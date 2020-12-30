@@ -15,14 +15,14 @@
 </c:forEach>
 
 <div class="header">
+    <div class="headerleftbtns">
+        <div>
+            <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+            <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/construction/${currentName}">Construction main page</a>
+        </div>
+    </div>
     <div class="headerleftinfo">
-        <div>
-            <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
-            <a class="buttonblick" href="${pageContext.request.contextPath}/construction/${currentName}">Back to ${currentName}</a>
-        </div>
-        <div>
-            <h3>Bill of materials (specification) of construction site - ${currentName}, codenumber: ${currentCodeNumber}</h3>
-        </div>
+        <h3 >Bill of materials (specification) of construction site - ${currentName}, codenumber: ${currentCodeNumber}</h3>
     </div>
     <div class="headerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>

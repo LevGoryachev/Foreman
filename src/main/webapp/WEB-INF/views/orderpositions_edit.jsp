@@ -9,11 +9,12 @@
 
 <body>
 
-
-
 <div class="header">
+    <div class="headerleftbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+        <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/construction/${showConstruction.name}">Construction main page</a>
+    </div>
     <div class="headerleftinfo">
-        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
         <h3>Be careful! Changed data will be saved in database after confirmation.</h3>
     </div>
     <div class="headerightbtns">
@@ -73,14 +74,14 @@
                 <td width="100px">ORDER ID</td>
                 <td width="200px">DATE, TIME</td>
                 <td width="200px">AUTHOR</td>
-                <td colspan="2">Status</td>
+                <td width="200px">CONDITION</td>
             </tr>
             <c:forEach items="${postedList}" var="postedList">
                 <tr>
                     <td width="100px">${postedList.id}</td>
                     <td width="200px">${postedList.orderTime}</td>
                     <td width="200px">${postedList.appUserLastName}</td>
-                    <td width="100px">Posted to supplier</td>
+                    <td width="200px">Posted to supplier</td>
                 </tr>
             </c:forEach>
         </table>
@@ -92,9 +93,8 @@
 
 <div  class="footer">
     <div class="footerleftbtns">
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-editable">ORDERS</a>
+        <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-editable">ORDERS</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-acceptable">ACCEPTANCE</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}">Construction page</a>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="#">Account info</a>

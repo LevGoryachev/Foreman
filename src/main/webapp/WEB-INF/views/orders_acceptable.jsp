@@ -9,11 +9,12 @@
 
 <body>
 
-
-
 <div class="header">
+    <div class="headerleftbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+        <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/construction/${showConstruction.name}">Construction main page</a>
+    </div>
     <div class="headerleftinfo">
-        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
         <h3>Be careful! Changed data will be saved in database after confirmation.</h3>
     </div>
     <div class="headerightbtns">
@@ -34,7 +35,7 @@
                 <td width="100px">ORDER ID</td>
                 <td width="200px">DATE, TIME</td>
                 <td width="200px">AUTHOR</td>
-                <td width="100px">STATUS</td>
+                <td width="200px">CONDITION</td>
                 <td>ACTION</td>
             </tr>
             <c:forEach items="${sentList}" var="sentList">
@@ -42,7 +43,7 @@
                     <td width="100px">${sentList.id}</td>
                     <td width="200px">${sentList.orderTime}</td>
                     <td width="200px">${sentList.appUserLastName}</td>
-                    <td width="100px">Materials are expected</td>
+                    <td width="200px">Materials are expected</td>
                     <form name = "open" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/order/${sentList.id}/orderpositions-check" method="get">
                         <td><input type="submit" value="OPEN"></td>
                     </form>
@@ -82,8 +83,7 @@
 <div  class="footer">
     <div class="footerleftbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-editable">ORDERS</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-acceptable">ACCEPTANCE</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}">Construction page</a>
+        <a class="linearbutton buttonblickdimmed" href="#">ACCEPTANCE</a>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="#">Account info</a>

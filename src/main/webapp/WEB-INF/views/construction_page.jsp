@@ -9,9 +9,12 @@
 <body>
 
 <div class="header">
+    <div class="headerleftbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+        <a class="linearbutton buttonblickdimmed" href="#">Construction main page</a>
+    </div>
     <div class="headerleftinfo">
-        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
-        <h3>You are in ${showConstruction.name} construction</h3>
+        <h3>Construction main page (${showConstruction.name})</h3>
     </div>
     <div class="headerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
@@ -25,15 +28,15 @@
 
     <div class="mainearblock">
         <h3>General information:</h3>
-        <table border="1" cellpadding="5">
+        <table align="center" border="1" cellpadding="5">
             <tr>
-                <td width="200px">Construction site - ${showConstruction.name}</td>
+                <td width="300px">Construction site - ${showConstruction.name}</td>
                 <td width="200px">code-number: ${showConstruction.codenumber}</td>
             </tr>
         </table>
         <h3>Description:</h3>
-        <table>
-            <td width="400px">${showConstruction.description}</td>
+        <table align="center">
+            <td  align="left" width="500px">${showConstruction.description}</td>
         </table>
 
     </div>
@@ -41,15 +44,17 @@
     <div class="mainearblock">
         <p>
             <a class="mainearbutton buttonblick" href="../construction/${showConstruction.name}/materials">BILL of materials</a>
-        </p>
-        <p>
             <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-editable">ORDERS</a>
-        </p>
-        <p>
             <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-acceptable">ACCEPTANCE</a>
         </p>
         <p>
-            Click to ACCEPTANCE to check the materials which have been delivered and to confirm the order.
+            BILL - is a specification of this construction (provided by <b>project</b>)
+        </p>
+        <p>
+            ORDERS - to order the materials (materials are provided by <b>specification</b>)
+        </p>
+        <p>
+            ACCEPTANCE - to confirm the delivered materials (which are provided by <b>orders</b>)
         </p>
     </div>
 

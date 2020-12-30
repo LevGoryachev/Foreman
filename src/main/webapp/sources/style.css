@@ -94,11 +94,9 @@ a {
 }
 
 .mainearblock {
-    display:inline-block;
-    margin-top: 100px;
-    margin-left: 50px;
-    margin-right: 50px;
-    text-align: left;
+
+
+    text-align: center;
 }
 
 .maineartableinfo {
@@ -133,7 +131,15 @@ a {
     position: absolute;
     margin-left: 50px;
     margin-right: 50px;
-    bottom: 0px;
+    bottom: -10px;
+}
+
+.headerleftbtns {
+    display:inline-block;
+    position: absolute;
+    margin-left: 50px;
+    margin-right: 50px;
+
 }
 
 .headerightbtns {
@@ -179,8 +185,54 @@ a {
     box-shadow: rgba(0,0,0,.3) 0 2px 5px;
     border-radius: 8px;
 }
+
 .buttonblick:active {
     top: 1px;
     box-shadow: none;
 }
 
+
+.buttonblicklighted {
+    position: relative;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    /*text-shadow: -1px -1px #000;*/
+    user-select: none;
+    padding: .6em 1em;
+    outline: none;
+    /*better #00FA9A with black*/
+    /*better #20B2AA*/
+    background-color: #00FA9A;
+    background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+    border-radius: 8px;
+}
+
+.buttonblicklighted:active {
+    top: 1px;
+    box-shadow: none;
+}
+
+
+.buttonblickdimmed {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+    padding: .6em 1em;
+    outline: none;
+    /*was #696969*/
+    background-color: #A9A9A9;
+    background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+    border-radius: 8px;
+}

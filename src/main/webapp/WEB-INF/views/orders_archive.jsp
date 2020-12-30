@@ -10,9 +10,11 @@
 <body>
 
 <div class="header">
+    <div class="headerleftbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+    </div>
     <div class="headerleftinfo">
-        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
-        <h3>Be careful! Changed data will be saved in database after confirmation.</h3>
+        <h3>Archive</h3>
     </div>
     <div class="headerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
@@ -33,7 +35,7 @@
                 <td width="300px">CONSTRUCTION</td>
                 <td width="200px">DATE, TIME</td>
                 <td width="200px">AUTHOR</td>
-                <td width="100px">Status</td>
+                <td width="100px">Condition</td>
                 <td>Action</td>
             </tr>
             <c:forEach items="${executedAllList}" var="executedAllList">
@@ -44,7 +46,7 @@
                     <td width="200px">${executedAllList.appUserLastName}</td>
                     <td width="100px">Confirmed</td>
                     <form name = "open" action = "${pageContext.request.contextPath}/archive/${executedAllList.id}/orderpositions" method="get">
-                        <td><input type="submit" value="OPEN"></td>
+                        <td><input type="submit" value="SHOW"></td>
                     </form>
                 </tr>
             </c:forEach>
@@ -75,9 +77,8 @@
 
 <div  class="footer">
     <div class="footerleftbtns">
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-editable">ORDERS</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-acceptable">ACCEPTANCE</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}">Construction page</a>
+        <a class="linearbutton buttonblick" href="#top">PageUP</a>
+        <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="#">Account info</a>
