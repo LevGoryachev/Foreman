@@ -10,20 +10,23 @@
 <body>
 
 <div class="header">
+    <div class="headerleftbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+    </div>
     <div class="headerleftinfo">
-        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
-        <h3>Materials (general types). The materials contained in here can be added to the bills.</h3>
+        <h3>Materials (catalog). These materials can be added to the bills (specification).</h3>
     </div>
     <div class="headerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide">Guide</a>
+        <a class="linearbutton buttonblickdimmed" href="${pageContext.request.contextPath}/materials">Materials</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide" target="_blank">Guide</a>
     </div>
 </div>
 
 <p><a name="top"></a></p>
 
 <div class="mainer">
+    <p class="maineartableinfo">To add materials to the bill (specification) go to: Constructions -> Your construction -> Bill of materials -> Edit list</p>
     <table border="1" cellpadding="5">
         <tr>
             <td width="100px">ID</td>

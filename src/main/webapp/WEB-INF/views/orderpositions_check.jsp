@@ -9,17 +9,18 @@
 
 <body>
 
-
-
 <div class="header">
+    <div class="headerleftbtns">
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+        <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/construction/${showConstruction.name}">Construction main page</a>
+    </div>
     <div class="headerleftinfo">
-        <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
         <h3>Be careful! Changed data will be saved in database after confirmation.</h3>
     </div>
     <div class="headerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide">Guide</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide" target="_blank">Guide</a>
     </div>
 </div>
 
@@ -28,26 +29,28 @@
 <div class="mainer">
 
     <div class="doubledash">
-        <p class="maineartableinfo">Construction: ${showConstruction.name}; status: in progress (not ready)</p>
+        <p class="maineartableinfo">ORDER-ID: ${orderAttributes.id}, Status: SENT (3), author:  ${orderAttributes.appUserLastName}, construction site: ${orderAttributes.constructionName}</p>
         <table border="1" cellpadding="5">
             <tr>
                 <td width="100px">ORDER ID</td>
-                <td width="200px">DATE, TIME</td>
-                <td width="200px">AUTHOR</td>
-                <td colspan="2">STATUS</td>
+                <td width="300px">MATERIAL</td>
+                <td width="100px">QUANTITY</td>
             </tr>
-            <c:forEach items="${sentList}" var="sentList">
+            <c:forEach items="${orderpositionsList}" var="orderpositionsList">
                 <tr>
-                    <td width="100px">${sentList.id}</td>
-                    <td width="200px">${sentList.orderTime}</td>
-                    <td width="200px">${sentList.appUserLastName}</td>
-                    <td width="200px">Materials are expected</td>
-                    <!--<form name = "delete" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/orders/${changeableList.id}/del" method="post" onsubmit="return confirm('Delete this?');">
-                        <td><input type="submit" value="DELETE"></td>
-                    </form>-->
+                    <td width="100px">${orderpositionsList.orderId}</td>
+                    <td width="300px">${orderpositionsList.materialName}</td>
+                    <td width="100px">${orderpositionsList.orderqty}</td>
+
                 </tr>
             </c:forEach>
+            <tr>
+                <form name = "executing" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/orders/${orderAttributes.id}/executed" method="post" onsubmit="return confirm('Have the materials been delivered?');">
+                    <td colspan="3"><input type="submit" value="CONFIRM"></td>
+                </form>
+            </tr>
         </table>
+        <p>Materials have been sent to this construction site. Check if delivered materials correspond to positions of order. If it is OK, click CONFIRM.</p>
     </div>
 
     <div class="doubledash">
@@ -81,8 +84,8 @@
 <div  class="footer">
     <div class="footerleftbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-editable">ORDERS</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-acceptable">ACCEPTANCE</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}">Construction page</a>
+        <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-acceptable">ACCEPTANCE</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/archive" target="_blank">ARCHIVE</a>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="#">Account info</a>

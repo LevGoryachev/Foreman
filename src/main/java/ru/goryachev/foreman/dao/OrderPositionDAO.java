@@ -3,6 +3,7 @@ package ru.goryachev.foreman.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import ru.goryachev.foreman.entities.BillPosition;
 import ru.goryachev.foreman.entities.Entity;
 import ru.goryachev.foreman.entities.OrderPosition;
 
@@ -22,7 +23,9 @@ public class OrderPositionDAO implements DataAccessible {
 
     @Override
     public void save(Entity entity) {
-
+        OrderPosition orderPosition = ((OrderPosition) entity);
+        String sqlQuery = "INSERT INTO orderposition (construction_id, material_id, order_id, status_delivered, orderqty) VALUES (?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sqlQuery, orderPosition.getConstructionid(), orderPosition.getMaterialid(), orderPosition.getOrderid(), orderPosition.isStatusDelivered(), orderPosition.getOrderqty());
     }
 
     @Override
@@ -32,6 +35,12 @@ public class OrderPositionDAO implements DataAccessible {
 
     @Override
     public void delete(int id) {
-
     }
+
+    //Overloaded. It's better to change delete(int id) delete(int...varargs) later
+    public void delete(int construction_id, int material_id, int order_id) {
+        String sqlQuery = "DELETE FROM orderposition WHERE construction_id=? AND material_id=? AND order_id=?";
+        jdbcTemplate.update(sqlQuery, construction_id, material_id, order_id);
+    }
+
 }

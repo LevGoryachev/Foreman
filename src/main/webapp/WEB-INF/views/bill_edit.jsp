@@ -16,19 +16,19 @@
 </c:forEach>
 
 <div class="header">
+    <div class="headerleftbtns">
+        <div>
+            <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
+            <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/construction/${currentName}">Construction main page</a>
+        </div>
+    </div>
     <div class="headerleftinfo">
-        <div>
-            <a class="buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
-            <a class="buttonblick" href="${pageContext.request.contextPath}/construction/${currentName}">Back to ${currentName}</a>
-        </div>
-        <div>
-            <h3>Bill of materials (specification) of construction site - ${currentName}, codenumber: ${currentCodeNumber}</h3>
-        </div>
+        <h3>Bill of materials (specification) of construction site - ${currentName}, codenumber: ${currentCodeNumber}</h3>
     </div>
     <div class="headerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide">Guide</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide" target="_blank">Guide</a>
     </div>
 </div>
 
@@ -88,7 +88,7 @@
     <div class="footerleftbtns">
         <a class="linearbutton buttonblick" href="#top">PageUP</a>
         <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${currentName}/materials">Back to Bill</a>
+        <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/construction/${currentName}/materials">Back to Bill</a>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="#">Account info</a>

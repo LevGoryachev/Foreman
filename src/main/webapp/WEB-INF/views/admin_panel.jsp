@@ -11,13 +11,13 @@
 <p>Roles: only ADMIN, CHIEF, EMPLOYEE, SUPPLIER</p>
 <p>Add and remove only available.</p>
 <p>
-    <a href="./">APP main page</a>
+    <a href="${pageContext.request.contextPath}/">APP main page</a>
 </p>
 <p>
-    <a href="./roles">Roles</a>
+    <a href="${pageContext.request.contextPath}/admin/roles">Roles</a>
 </p>
 <p>
-    <a href="./users-editable">Users</a>
+    <a href="${pageContext.request.contextPath}/admin/users-editable">Users</a>
 </p>
 </body>
 

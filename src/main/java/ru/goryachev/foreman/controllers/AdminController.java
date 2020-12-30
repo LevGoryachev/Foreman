@@ -9,7 +9,7 @@ import ru.goryachev.foreman.service.AppUserService;
 import ru.goryachev.foreman.service.RoleService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
@@ -18,7 +18,7 @@ public class AdminController {
     @Autowired
     public AppUserService appUserService;
 
-    @GetMapping ("/admin")
+    @GetMapping ("")
     public String adminPanel () {
         return "admin_panel";
     }
@@ -44,7 +44,7 @@ public class AdminController {
     @PostMapping("/users/add")
     public String addUsers (@ModelAttribute("appUserAttr") AppUser appUser) {
         appUserService.save(appUser);
-    return "redirect:/users-editable";
+    return "redirect:/admin/users-editable";
     }
 
     //update: users
@@ -57,13 +57,13 @@ public class AdminController {
     @PostMapping ("/users/upd")
     public String updateUser (@ModelAttribute ("appUserAttr") AppUser appUser) {
         appUserService.update(appUser);
-        return "redirect:/users-editable";
+        return "redirect:/admin/users-editable";
     }
 
     //delete: users
     @PostMapping ("/users/del/{id}")
     public String delUsers (@PathVariable("id") int id) {
         appUserService.delete(id);
-        return "redirect:/users-editable";
+        return "redirect:/admin/users-editable";
     }
 }
