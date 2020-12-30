@@ -19,7 +19,7 @@
     <div class="headerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide">Guide</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide" target="_blank">Guide</a>
     </div>
 </div>
 
@@ -61,7 +61,7 @@
 </div>
 <div  class="footer">
     <div class="footerleftbtns">
-        <a class="linearbutton buttonblick" href="">EDIT CONSTRUCTION</a>
+        <a class="linearbutton buttonblickdimmed" href="">EDIT CONSTRUCTION</a>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="#">Account info</a>

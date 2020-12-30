@@ -27,7 +27,7 @@
     <div class="headerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide">Guide</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/guide" target="_blank">Guide</a>
     </div>
 </div>
 

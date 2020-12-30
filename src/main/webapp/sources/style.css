@@ -233,6 +233,6 @@ a {
     background-repeat: no-repeat;
     background-size: 200% 100%, auto;
     background-position: 200% 0, 0 0;
-    box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+    /*box-shadow: rgba(0,0,0,.3) 0 2px 5px;*/
     border-radius: 8px;
 }

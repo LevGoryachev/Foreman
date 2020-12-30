@@ -3,6 +3,7 @@
 
 <head>
     <title>Title</title>
+    <meta charset="UTF-8" />
     <link href="${pageContext.request.contextPath}/sources/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -18,7 +19,7 @@
     <p>
         <a class="mainearbutton buttonblick" href="./constructions">Constructions</a>
         <a class="mainearbutton buttonblick" href="./materials">Materials</a>
-        <a class="mainearbutton buttonblick" href="./guide">Guide</a>
+        <a class="mainearbutton buttonblick" href="./guide" target="_blank">Guide</a>
     </p>
 </div>
 
