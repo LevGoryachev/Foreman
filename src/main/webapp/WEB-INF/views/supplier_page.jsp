@@ -14,7 +14,7 @@
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/index.jsp">Main page</a>
     </div>
     <div class="headerleftinfo">
-        <h3>Be careful! Changed data will be saved in database after confirmation.</h3>
+        <h3>Supplier (Supply Department)</h3>
     </div>
     <div class="headerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
