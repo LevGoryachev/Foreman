@@ -30,28 +30,24 @@
 </div>
 
 <div class="mainer">
-
     <p>
-        <a class="mainearbutton buttonblick" href="./constructions">Constructions</a>
-        <a class="mainearbutton buttonblick" href="./materials">Materials</a>
-        <a class="mainearbutton buttonblick" href="./guide" target="_blank">Guide</a>
+        <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
+        <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
+        <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/guide" target="_blank">Guide</a>
     </p>
+    <p>
+        <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/supplier">SUPPLIER</a>
+        <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/archive">ARCHIVE</a>
+    </p>
+    <p>
+        <a class="mainearbutton buttonblick" href="#">Logout</a>
+    </p>
+
 </div>
 
-
-
-<div>
-    <div class="footerightbtns">
-        <a class="linearbutton buttonblick" href="#">Account info</a>
-        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
-    </div>
-</div>
 <div id="copyrightline">
     <p>Foreman createdByLevGoryachev();</p>
 </div>
-
-
-
 
 </body>
 
