@@ -4,6 +4,8 @@ Employees who are located on construction sites can use this web-application to 
 <p><b>Java 11, Spring-Web-MVC, Spring JDBC, Spring Security, JSP</b></p>
 <p><b>DB: relational database with stored procedures(PostgreSQL)</b></p>
 
+<p>An example launched on: <a href="https://foreman-one.herokuapp.com/" target="_blank">https://foreman-one.herokuapp.com/</a></p>
+
 <h2>1. Structure</h2>
 <h3>ru/goryachev/foreman/app</h3>
 <ul>
@@ -23,7 +25,7 @@ Employees who are located on construction sites can use this web-application to 
 <li><p><b>DAOConfig.java</b> - data access object layer configuration (DAO beans, scan components @Repository).</p>
 <li><p><b>ServiceConfig.java</b> - service layer configuration (beans of Service, scan components @Service).</p>
 <li><p><b>WebConfig.java</b> - web configuration (ViewResolver (InternalResourceViewResolver) and scan components @Controller).</p>
-<li><p><b>SecurityConfig.java</b> - security configuration (extends WebSecurityConfigurerAdapter) - jdbc authentication (from DB), permissions, passwordencoder</p>
+<li><p><b>SecurityConfig.java</b> - security configuration (extends WebSecurityConfigurerAdapter) - jdbc authentication (from DB), permissions, passwordencoder.</p>
 </ul>
 
 <h3>ru/goryachev/foreman/controllers</h3>
@@ -48,12 +50,19 @@ Employees who are located on construction sites can use this web-application to 
 <li><p>interface-marker Entity;</p>
 <li><p>Entity-classes (implement Entity)</p>
 <p>Setters in Entities (only for reference types) contain 'if' statement to check a null (get rid of nulls, in case of nulls from database).</p>
+<li><p>Entity-presentable classes (for views);</p>
 </ul>
 
 <h3>ru/goryachev/foreman/services</h3>
 <ul>
 <li><p>interface Applicable;</p>
-<li><p>implementations of Applicable - classes of service logic (for each entity)</p>
+<li><p>Classes of services (implementations of Applicable) have the following functionality:</p>
+<ul><p>conversion from entities to entities-presentable (either using standard selections from DAO or doing custom selections without SQL queries from full selection);</p>
+<li><p>getting data from sessions;</p>
+<li><p>automatic setting of parameters (current time, current names);</p>
+<li><p>conversion data to entities (for tables) and transmitting them to DAO</p>
+</ul>
+<li><p>Classes of services running for third-party services or applications.</p>
 </ul>
 
 <h2>2. Database</h2>
@@ -69,6 +78,7 @@ Employees who are located on construction sites can use this web-application to 
 
 <h3>Database scheme</h3>
 
-![DBscheme_v3 1-db](https://user-images.githubusercontent.com/61917893/102700566-a4d9de00-425f-11eb-9d41-bf3f5d1ff1f1.jpg)
+![DBscheme_v3 2-db](https://user-images.githubusercontent.com/61917893/103481402-dae49980-4deb-11eb-812c-399686a56309.jpg)
+
 <p></p>
 <p>Free software for educational purposes. Lev Goryachev.</p>
