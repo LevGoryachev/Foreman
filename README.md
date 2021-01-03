@@ -31,8 +31,8 @@ Employees who are located on construction sites can use this web-application to 
 <li><p><b>AdminController.java</b></p>
 <li><p><b>LoginController.java</b></p>
 <li><p><b>MainController.java</b></p>
-<li><p><b>InternalController.java</b></p>
-<li><p><b>OrderController.java</b></p>
+<li><p><b>ConstructionSiteController.java</b></p>
+<li><p><b>SupplyDepController.java</b></p>
 </ul>
 
 <h3>ru/goryachev/foreman/dao</h3>
@@ -59,8 +59,8 @@ Employees who are located on construction sites can use this web-application to 
 <h2>2. Database</h2>
 <p>Database structure in files:</p>
 <ul>
-<li><b>Foreman_DDL_v3.1-db.md</b> - tables (SQL)
-<li><b>Foreman_SP_v3.1-db.md</b> - stored procedures(PL/pgSQL)
+<li><b>Foreman_DDL_v3.2-db.md</b> - tables (SQL)
+<li><b>Foreman_SP_v3.2-db.md</b> - stored procedures(PL/pgSQL)
 </ul>
 <p>The database contains:</p>
 <p>tables: 7</p>
