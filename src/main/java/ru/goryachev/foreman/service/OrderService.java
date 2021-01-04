@@ -48,8 +48,7 @@ public class OrderService implements Applicable {
     public void setParameters (int currentConstructionID) {
         this.currentConstructionID = currentConstructionID;
         this.currentOrderTime = LocalDateTime.now();
-        this.currentUserID = 5; //temporary for debug
-        //this.currentUserID = appUsersService.getCurrentUser().getId(); // extrsct user from session
+        this.currentUserID = appUsersService.getCurrentUser().getId(); // extract user from session
     }
 
     @Override

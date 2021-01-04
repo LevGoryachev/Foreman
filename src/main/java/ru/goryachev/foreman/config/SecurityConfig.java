@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
 import javax.sql.DataSource;
 
 @Configuration
@@ -43,6 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/customlogin")
                 .defaultSuccessUrl("/", true)
+                .successHandler(securityAuthHandler())
                 .failureUrl("/customlogin?error=true")
                 .and()
                 .logout()
@@ -74,6 +77,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/sources/**");
     }
 
+    @Bean
+    public AuthenticationSuccessHandler securityAuthHandler(){
+        return new SecurityAuthHandler();
+    }
 
     @Bean
     protected PasswordEncoder passwordEncoder () {
