@@ -32,11 +32,11 @@ public class OrderPositionService implements Applicable {
     }
 
     @Override
-    public void save(Entity entity) {
+    public void create(Entity entity) {
         OrderPosition orderPosition = ((OrderPosition) entity);
         //"IF statement" to avoid any changes with orders (and positions) that have STATUS 2 or 3 or 4
         if (!orderService.getById(orderPosition.getOrderid()).isPosted() && !orderService.getById(orderPosition.getOrderid()).isSent() && !orderService.getById(orderPosition.getOrderid()).isStatusExecuted()) {
-            orderPositionDAO.save(entity);
+            orderPositionDAO.create(entity);
         }
     }
 

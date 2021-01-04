@@ -33,7 +33,7 @@ public class OrderService implements Applicable {
     }
 
     @Override
-    public void save(Entity entity) {
+    public void create(Entity entity) {
         Order order = ((Order) entity);
         order.setConstructionId(currentConstructionID);
         order.setOrdertime(currentOrderTime);
@@ -41,7 +41,7 @@ public class OrderService implements Applicable {
         order.setSent(false);
         order.setStatusExecuted(false);
         order.setAppUserId(currentUserID);
-        ordersDAO.save(order);
+        ordersDAO.create(order);
     }
 
     //automatically set fields when saving an order (save(Entity entity))

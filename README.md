@@ -4,7 +4,7 @@ Employees who are located on construction sites can use this web-application to 
 <p><b>Java 11, Spring-Web-MVC, Spring JDBC, Spring Security, JSP</b></p>
 <p><b>DB: relational database with stored procedures(PostgreSQL)</b></p>
 
-<p>An example launched on: <a href="https://foreman-one.herokuapp.com/" target="_blank">https://foreman-one.herokuapp.com/</a></p>
+<p>An example launched on: <a href="https://foreman-one.herokuapp.com" target="_blank">https://foreman-one.herokuapp.com</a></p>
 
 <h2>1. Structure</h2>
 <h3>ru/goryachev/foreman/app</h3>
@@ -39,7 +39,14 @@ Employees who are located on construction sites can use this web-application to 
 
 <h3>ru/goryachev/foreman/dao</h3>
 <ul>
-<li><p>interface DataAccessible;</p>
+<li><p>interface DataAccessible includes 5 methods (CRUD operations and to get one entity by ID):</p>
+<ul>
+<li><p>List getAll();</p>
+<li><p>void create(Entity entity);</p>
+<li><p>void update(Entity entity);</p>
+<li><p>void delete (int id);</p>
+<li><p>Entity getById(int id);</p>
+</ul>
 <li><p>implementations of DataAccessible - dao classes (for each entity) contain methods with SQL queries</p>
 <li><p>implementations of RowMapper (springframework.jdbc.core.RowMapper) - mappers for each dao class</p>
 </ul>
@@ -49,15 +56,22 @@ Employees who are located on construction sites can use this web-application to 
 <ul>
 <li><p>interface-marker Entity;</p>
 <li><p>Entity-classes (implement Entity)</p>
-<p>Setters in Entities (only for reference types) contain 'if' statement to check a null (get rid of nulls, in case of nulls from database).</p>
+<p>Setters in Entities (only for reference types) contain 'if' statement for getting rid of nulls (in case of null from database).</p>
 <li><p>Entity-presentable classes (for views);</p>
 </ul>
 
 <h3>ru/goryachev/foreman/services</h3>
 <ul>
-<li><p>interface Applicable;</p>
-<li><p>Classes of services (implementations of Applicable) have the following functionality:</p>
-<ul><p>conversion from entities to entities-presentable (either using standard selections from DAO or doing custom selections without SQL queries from full selection);</p>
+<li><p>Interface Applicable includes 4 methods for CRUD operations:</p>
+<ul>
+<li><p>List getAll();</p>
+<li><p>void create(Entity entity);</p>
+<li><p>void update(Entity entity);</p>
+<li><p>void delete (int id);</p>
+</ul>
+<li><p>Classes of services can implement Applicable and have the following functionality:</p>
+<ul>
+<li><p>conversion from entities to entities-presentable (either using standard selections from DAO or doing custom selections without SQL queries from full selection);</p>
 <li><p>getting data from sessions;</p>
 <li><p>automatic setting of parameters (current time, current names);</p>
 <li><p>conversion data to entities (for tables) and transmitting them to DAO</p>

@@ -26,8 +26,8 @@ public class BillPositionService implements Applicable {
     }
 
     @Override
-    public void save(Entity entity) {
-        billPositionDAO.save(entity);
+    public void create(Entity entity) {
+        billPositionDAO.create(entity);
     }
 
     @Override

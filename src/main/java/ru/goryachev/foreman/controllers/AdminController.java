@@ -43,7 +43,7 @@ public class AdminController {
     //create: users
     @PostMapping("/users/add")
     public String addUsers (@ModelAttribute("appUserAttr") AppUser appUser) {
-        appUserService.save(appUser);
+        appUserService.create(appUser);
     return "redirect:/admin/users-editable";
     }
 

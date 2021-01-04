@@ -53,7 +53,7 @@ public class ConstructionSiteController {
     //create: billposition
     @PostMapping("/{name}/materials/editable/add")
     public String addBillPosition (@PathVariable("name") String name, @ModelAttribute("billposition") BillPosition billPosition) {
-        billPositionService.save(billPosition);
+        billPositionService.create(billPosition);
         return "redirect:/construction/{name}/materials-editable";
     }
 
@@ -96,7 +96,7 @@ public class ConstructionSiteController {
             //create: orderposition
             @PostMapping("/{name}/order/{orderId}/orderposition/add")
             public String addOrderPosition (@PathVariable("name") String name, @ModelAttribute("orderposition") OrderPosition orderPosition, @PathVariable("orderId") int orderId) {
-                orderPositionService.save(orderPosition);
+                orderPositionService.create(orderPosition);
                 return "redirect:/construction/{name}/order/{orderId}/orderpositions-edit";
             }
 
@@ -132,7 +132,7 @@ public class ConstructionSiteController {
     public String addOrderBeta (@PathVariable("name") String name) {
         orderService.setParameters(constructionService.getByName(name).getId());
         Order order = new Order();
-        orderService.save(order);
+        orderService.create(order);
         return "redirect:/construction/{name}/orders-editable";
     }
 

@@ -2,7 +2,7 @@ package ru.goryachev.foreman.entities;
 
 import java.time.LocalDateTime;
 
-public class OrderPresentable {
+public class OrderPresentable implements Entity {
 
     private int id;
     private LocalDateTime orderTime;
@@ -22,6 +22,9 @@ public class OrderPresentable {
     }
 
     public void setOrderTime(LocalDateTime orderTime) {
+        if (orderTime == null) {
+            this.orderTime = LocalDateTime.of(0, 0, 0, 0, 0);
+        }
         this.orderTime = orderTime;
     }
 
@@ -30,6 +33,9 @@ public class OrderPresentable {
     }
 
     public void setConstructionName(String constructionName) {
+        if (constructionName == null) {
+            this.constructionName = "";
+        }
         this.constructionName = constructionName;
     }
 
@@ -38,6 +44,9 @@ public class OrderPresentable {
     }
 
     public void setAppUserLastName(String appUserLastName) {
+        if (appUserLastName == null) {
+            this.appUserLastName = "";
+        }
         this.appUserLastName = appUserLastName;
     }
 }

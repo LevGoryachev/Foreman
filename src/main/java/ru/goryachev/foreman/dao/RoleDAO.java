@@ -21,7 +21,7 @@ public class RoleDAO implements DataAccessible {
     }
 
     @Override
-    public void save(Entity entity) {
+    public void create(Entity entity) {
 
     }
 
@@ -33,5 +33,10 @@ public class RoleDAO implements DataAccessible {
     @Override
     public void delete(int id) {
 
+    }
+
+    @Override
+    public Role getById(int id) {
+        return null;
     }
 }

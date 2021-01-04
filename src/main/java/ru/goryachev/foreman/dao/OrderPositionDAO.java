@@ -22,7 +22,7 @@ public class OrderPositionDAO implements DataAccessible {
     }
 
     @Override
-    public void save(Entity entity) {
+    public void create(Entity entity) {
         OrderPosition orderPosition = ((OrderPosition) entity);
         String sqlQuery = "INSERT INTO orderposition (construction_id, material_id, order_id, status_delivered, orderqty) VALUES (?, ?, ?, ?, ?)";
         jdbcTemplate.update(sqlQuery, orderPosition.getConstructionid(), orderPosition.getMaterialid(), orderPosition.getOrderid(), orderPosition.isStatusDelivered(), orderPosition.getOrderqty());
@@ -43,4 +43,8 @@ public class OrderPositionDAO implements DataAccessible {
         jdbcTemplate.update(sqlQuery, construction_id, material_id, order_id);
     }
 
+    @Override
+    public OrderPosition getById(int id) {
+        return null;
+    }
 }

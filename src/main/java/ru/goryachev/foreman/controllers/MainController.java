@@ -37,7 +37,7 @@ public class MainController {
     //create: constructions
     @PostMapping("/constructions/add")
     public String addConstructions (@ModelAttribute("construction") Construction construction) {
-        constructionService.save(construction);
+        constructionService.create(construction);
         return "redirect:/constructions-editable";
     }
 
@@ -79,7 +79,7 @@ public class MainController {
     //create: materials
     @PostMapping("/materials/add")
     public String addGeneralMaterial (@ModelAttribute("material") Material material) {
-        materialService.save(material);
+        materialService.create(material);
     return "redirect:/materials-editable";
     }
 

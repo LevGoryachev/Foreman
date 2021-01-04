@@ -38,6 +38,9 @@ public class OrderPositionPresentable implements Entity {
     }
 
     public void setConstructionName(String constructionName) {
+        if (constructionName == null) {
+            this.constructionName = "";
+        }
         this.constructionName = constructionName;
     }
 
@@ -46,6 +49,9 @@ public class OrderPositionPresentable implements Entity {
     }
 
     public void setMaterialName(String materialName) {
+        if (materialName == null) {
+            this.materialName = "";
+        }
         this.materialName = materialName;
     }
 
