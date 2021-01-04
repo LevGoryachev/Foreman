@@ -25,15 +25,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/customlogin", "/registration").anonymous()
-                //.antMatchers("/construction/**/materials").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE", "SUPPLIER")
-                .antMatchers("/construction/orders").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE", "SUPPLIER")
-                //.antMatchers("/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
-                //.antMatchers(HttpMethod.POST, "/construction/**/materials/**").hasAnyRole("ADMIN", "CHIEF")
-                .antMatchers(HttpMethod.GET,"/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
-                .antMatchers(HttpMethod.POST, "/constructions", "/construction/**").hasAnyRole("ADMIN", "CHIEF")
+
+                .antMatchers("/constructions").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
+                .antMatchers( "/constructions-editable").hasAnyRole("ADMIN", "CHIEF")
+                .antMatchers( "/construction/**/materials-editable").hasAnyRole("ADMIN", "CHIEF")
+                .antMatchers("/construction/**").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
+
                 .antMatchers("/materials").hasAnyRole("ADMIN", "CHIEF", "EMPLOYEE")
-                .antMatchers("/admin").hasAnyRole("ADMIN")
-                .antMatchers("/**").hasAnyRole("ADMIN", "CHIEF")
+                .antMatchers( "/materials-editable").hasAnyRole("ADMIN", "CHIEF")
+
+                .antMatchers( "/supplier").hasAnyRole("ADMIN", "CHIEF", "SUPPLIER")
+                .antMatchers(HttpMethod.POST, "/orders/**").hasAnyRole("ADMIN", "SUPPLIER")
+
+                .antMatchers("/").hasAnyRole()
+                .antMatchers("/admin").hasRole("ADMIN")
+
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/customlogin")
                 .defaultSuccessUrl("/", true)

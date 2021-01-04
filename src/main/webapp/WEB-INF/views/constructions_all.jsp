@@ -37,7 +37,7 @@
             <tr>
                 <td width="100px">${constructionsList.id}</td>
                 <td width="200px">${constructionsList.codenumber}</td>
-                <td width="200px"><a href="./construction/${constructionsList.name}">${constructionsList.name}</a></td>
+                <td width="200px"><a href="./construction/${constructionsList.name}"><b>${constructionsList.name}</b></a></td>
                 <td width="400px">${constructionsList.description}</td>
             </tr>
         </c:forEach>

@@ -4,7 +4,7 @@ Employees who are located on construction sites can use this web-application to 
 <p><b>Java 11, Spring-Web-MVC, Spring JDBC, Spring Security, JSP</b></p>
 <p><b>DB: relational database with stored procedures(PostgreSQL)</b></p>
 
-<p>An example launched on: <a href="https://foreman-one.herokuapp.com" target="_blank">https://foreman-one.herokuapp.com</a></p>
+<p>An example launched on: <a href="https://foreman-one.herokuapp.com" target="_blank">https://foreman-one.herokuapp.com</a> (first launch can take about 20-30 sec.)</p>
 
 <h2>1. Structure</h2>
 <h3>ru/goryachev/foreman/app</h3>

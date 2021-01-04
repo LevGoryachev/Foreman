@@ -25,7 +25,7 @@
         <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/archive">ARCHIVE</a>
     </p>
     <p>
-        <a class="mainearbutton buttonblick" href="#">Logout</a>
+        <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
     </p>
 
 </div>
