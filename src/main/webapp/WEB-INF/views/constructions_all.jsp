@@ -53,7 +53,7 @@
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions-editable">EDIT LIST</a>
     </div>
     <div class="footerightbtns">
-        <a class="linearbutton buttonblick" href="#">Account info</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/user-info" target="_blank">Account info</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
     </div>
 </div>

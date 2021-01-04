@@ -91,7 +91,7 @@
         <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/construction/${currentName}/materials">Back to Bill</a>
     </div>
     <div class="footerightbtns">
-        <a class="linearbutton buttonblick" href="#">Account info</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/user-info" target="_blank">Account info</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
     </div>
 </div>

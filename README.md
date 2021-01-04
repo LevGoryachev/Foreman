@@ -25,7 +25,7 @@ Employees who are located on construction sites can use this web-application to 
 <li><p><b>DAOConfig.java</b> - data access object layer configuration (DAO beans, scan components @Repository).</p>
 <li><p><b>ServiceConfig.java</b> - service layer configuration (beans of Service, scan components @Service).</p>
 <li><p><b>WebConfig.java</b> - web configuration (ViewResolver (InternalResourceViewResolver) and scan components @Controller).</p>
-<li><p><b>SecurityConfig.java</b> - security configuration (extends WebSecurityConfigurerAdapter) - jdbc authentication (from DB), permissions, passwordencoder.</p>
+<li><p><b>SecurityConfig.java</b> - security configuration (extends WebSecurityConfigurerAdapter) - jdbc authentication (from DB), permissions, passwordencoder, SecurityAuthHandler (for redirect after authentication).</p>
 </ul>
 
 <h3>ru/goryachev/foreman/controllers</h3>
