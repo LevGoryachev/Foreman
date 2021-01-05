@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.goryachev.foreman.entities.BillPosition;
 import ru.goryachev.foreman.entities.Entity;
+import ru.goryachev.foreman.service.BillPositionService;
+
 import java.util.List;
 
 @Repository
@@ -22,7 +24,7 @@ public class BillPositionDAO implements DataAccessible{
 
     //
     @Override
-    public void save(Entity entity) {
+    public void create(Entity entity) {
         BillPosition billPosition = ((BillPosition) entity);
         String sqlQuery = "INSERT  INTO billposition (construction_id, material_id, billqty) VALUES (?, ?, ?)";
         jdbcTemplate.update(sqlQuery, billPosition.getConstructionId(), billPosition.getMaterialId(), billPosition.getBillqty());
@@ -42,10 +44,14 @@ public class BillPositionDAO implements DataAccessible{
         jdbcTemplate.update(sqlQuery, construction_id, material_id);
     }
 
+    @Override
+    public BillPosition getById(int id) {
+        return null;
+    }
+
     public List<BillPosition> getByConstruction(int id) {
         //String sqlQuery = "SELECT * FROM billposition WHERE construction_id=?";
         String sqlQuery = "SELECT bp.*, c.id AS c_id, c.name AS c_name, c.codenumber, m.name AS m_name, m.um, m.unitweight_kg, m.notes FROM construction c LEFT JOIN  billposition bp ON bp.construction_id=c.id LEFT JOIN material m ON bp.material_id=m.id WHERE c.id=?";
         return jdbcTemplate.query(sqlQuery, new BillPositionMapper(), id);
     }
-
 }

@@ -21,7 +21,7 @@ public class AppUsersDAO implements DataAccessible {
     }
 
     @Override
-    public void save(Entity entity) {
+    public void create(Entity entity) {
         AppUser appUser = ((AppUser)entity);
         String sqlQuery = "INSERT INTO app_user (id, firstname, middlename, lastname, login, password, email, role_id) values (?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sqlQuery, appUser.getId(), appUser.getFirstName(), appUser.getMiddleName(), appUser.getLastName(), appUser.getLogin(), appUser.getPassword(), appUser.getEmail(), appUser.getRoleId());
@@ -41,6 +41,7 @@ public class AppUsersDAO implements DataAccessible {
         jdbcTemplate.update(sqlQuery, id);
     }
 
+    @Override
     public AppUser getById(int id) {
         //String sqlQuery = "SELECT * FROM app_user WHERE id=?";
         String sqlQuery = "SELECT au.*, r.rank AS r_rank FROM app_user au LEFT JOIN  role r ON au.role_id=r.id WHERE au.id=?";

@@ -16,23 +16,12 @@ public class ConstructionService implements Applicable {
 
     @Override
     public List<Construction> getAll() {
-
-        //Check List<>
-       /* List <Construction> co = constructionsDAO.getAll();
-        System.out.println("Service check: ready");
-        for(Construction stroyka : co) {
-            System.out.println("Service check: " + stroyka);
-        }
-        if (co.isEmpty()){
-            System.out.println("Service check: LIST IS EMPTY");
-        }*/
-
         return constructionsDAO.getAll();
     }
 
     @Override
-    public void save(Entity entity) {
-        constructionsDAO.save(entity);
+    public void create(Entity entity) {
+        constructionsDAO.create(entity);
     }
 
     @Override

@@ -57,7 +57,7 @@
             <td width="100px"><input class="smallfield" title="UNIT MEASURE" type="text" name="um"></td>
             <td width="100px"><input class="smallfield" title="UNIT WEIGHT, KG" type="text" name="unitWkg"></td>
             <td width="400px"><textarea cols="50" rows="5" title="NOTES" type="text" name="notes"></textarea></td>
-            <td colspan="2"><input type="submit" value="ADD NEW"></td>
+            <td colspan="2"><input type="submit" value="ADD"></td>
         </tr>
     </form>
 </table>
@@ -71,8 +71,11 @@
         <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
         <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/materials">Back to Materials</a>
     </div>
+    <div id="copyrightline">
+        <p>Foreman createdByLevGoryachev();</p>
+    </div>
     <div class="footerightbtns">
-        <a class="linearbutton buttonblick" href="#">Account info</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/user-info" target="_blank">Account info</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
     </div>
 </div>

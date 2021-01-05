@@ -76,7 +76,7 @@
                     <td></td>
                     <td><input title="BILLQTY" type="text" name="billqty"></td>
                     <td></td>
-                    <td><input type="submit" value="ADD NEW"></td>
+                    <td><input type="submit" value="ADD"></td>
                 </form>
             </tr>
     </table>
@@ -90,8 +90,11 @@
         <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
         <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/construction/${currentName}/materials">Back to Bill</a>
     </div>
+    <div id="copyrightline">
+        <p>Foreman createdByLevGoryachev();</p>
+    </div>
     <div class="footerightbtns">
-        <a class="linearbutton buttonblick" href="#">Account info</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/user-info" target="_blank">Account info</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
     </div>
 </div>

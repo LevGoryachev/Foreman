@@ -22,8 +22,8 @@ public class AppUserService implements Applicable {
     }
 
     @Override
-    public void save(Entity entity) {
-        appUsersDAO.save(entity);
+    public void create(Entity entity) {
+        appUsersDAO.create(entity);
     }
 
     @Override

@@ -8,10 +8,11 @@ public interface DataAccessible {
 
     List getAll();
 
-    void save(Entity entity);
+    void create(Entity entity);
 
     void update (Entity entity);
 
     void delete (int id);
 
+    Entity getById(int id);
 }

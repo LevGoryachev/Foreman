@@ -20,7 +20,7 @@ public class MaterialsDAO implements DataAccessible {
     }
 
     @Override
-    public void save(Entity entity) {
+    public void create(Entity entity) {
         Material material = ((Material) entity);
         String sqlQuery = "INSERT  INTO material (id, name, um, unitweight_kg, notes) VALUES (?, ?, ?, ?, ?)";
         jdbcTemplate.update(sqlQuery, material.getId(), material.getName(), material.getUm(), material.getUnitWkg(), material.getNotes());
@@ -40,6 +40,7 @@ public class MaterialsDAO implements DataAccessible {
 
     }
 
+    @Override
     public Material getById(int id) {
         String sqlQuery = "SELECT * FROM material WHERE id=?";
         return jdbcTemplate.queryForObject(sqlQuery, new MaterialMapper(), id);

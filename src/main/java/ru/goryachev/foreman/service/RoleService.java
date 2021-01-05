@@ -20,7 +20,7 @@ public class RoleService implements Applicable {
     }
 
     @Override
-    public void save(Entity entity) {
+    public void create(Entity entity) {
 
     }
 

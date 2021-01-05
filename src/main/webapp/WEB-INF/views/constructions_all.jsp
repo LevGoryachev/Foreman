@@ -37,7 +37,7 @@
             <tr>
                 <td width="100px">${constructionsList.id}</td>
                 <td width="200px">${constructionsList.codenumber}</td>
-                <td width="200px"><a href="./construction/${constructionsList.name}">${constructionsList.name}</a></td>
+                <td width="200px"><a href="./construction/${constructionsList.name}"><b>${constructionsList.name}</b></a></td>
                 <td width="400px">${constructionsList.description}</td>
             </tr>
         </c:forEach>
@@ -52,8 +52,11 @@
         <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/constructions-editable">EDIT LIST</a>
     </div>
+    <div id="copyrightline">
+        <p>Foreman createdByLevGoryachev();</p>
+    </div>
     <div class="footerightbtns">
-        <a class="linearbutton buttonblick" href="#">Account info</a>
+        <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/user-info" target="_blank">Account info</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>
     </div>
 </div>

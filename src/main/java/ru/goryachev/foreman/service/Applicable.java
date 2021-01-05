@@ -8,7 +8,7 @@ public interface Applicable {
 
     List getAll();
 
-    void save(Entity entity);
+    void create(Entity entity);
 
     void update (Entity entity);
 

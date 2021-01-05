@@ -33,7 +33,7 @@ public class OrderService implements Applicable {
     }
 
     @Override
-    public void save(Entity entity) {
+    public void create(Entity entity) {
         Order order = ((Order) entity);
         order.setConstructionId(currentConstructionID);
         order.setOrdertime(currentOrderTime);
@@ -41,15 +41,14 @@ public class OrderService implements Applicable {
         order.setSent(false);
         order.setStatusExecuted(false);
         order.setAppUserId(currentUserID);
-        ordersDAO.save(order);
+        ordersDAO.create(order);
     }
 
     //automatically set fields when saving an order (save(Entity entity))
     public void setParameters (int currentConstructionID) {
         this.currentConstructionID = currentConstructionID;
         this.currentOrderTime = LocalDateTime.now();
-        this.currentUserID = 5; //temporary for debug
-        //this.currentUserID = appUsersService.getCurrentUser().getId(); // extrsct user from session
+        this.currentUserID = appUsersService.getCurrentUser().getId(); // extract user from session
     }
 
     @Override

@@ -22,7 +22,7 @@ public class OrdersDAO implements DataAccessible {
     }
 
     @Override
-    public void save(Entity entity) {
+    public void create(Entity entity) {
         Order order = ((Order) entity);
         char dm = 34;
         String sqlQuery = "INSERT  INTO " + dm + "order" + dm + " (construction_id, ordertime, posted, sent, status_executed, app_user_id) VALUES (?, ?, ?, ?, ?, ?)";
@@ -44,6 +44,7 @@ public class OrdersDAO implements DataAccessible {
         jdbcTemplate.update(sqlQuery, id);
     }
 
+    @Override
     public Order getById(int id) {
         char dm = 34;
         String sqlQuery = "SELECT * FROM " + dm + "order" + dm + " WHERE id=?";

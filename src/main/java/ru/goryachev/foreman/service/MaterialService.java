@@ -19,8 +19,8 @@ public class MaterialService implements Applicable {
     }
 
     @Override
-    public void save(Entity entity) {
-        materialsDAO.save(entity);
+    public void create(Entity entity) {
+        materialsDAO.create(entity);
     }
 
     @Override

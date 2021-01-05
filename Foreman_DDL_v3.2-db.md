@@ -54,7 +54,8 @@ posted BOOLEAN NOT NULL DEFAULT false,
 sent BOOLEAN NOT NULL DEFAULT false,
 status_executed BOOLEAN NOT NULL DEFAULT false,
 app_user_id INTEGER NOT NULL REFERENCES "app_user"(id) ON DELETE SET NULL,
-PRIMARY KEY (construction_id, id)
+PRIMARY KEY (construction_id, id),
+UNIQUE(id)
 );
 
 CREATE TABLE "orderposition"(

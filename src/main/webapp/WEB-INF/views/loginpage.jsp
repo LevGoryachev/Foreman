@@ -7,27 +7,56 @@
 </head>
 
 <body class="presentational">
-<h2>Welcome to FOREMAN!</h2>
-<h3>- please, login</h3>
 
-<c:if test="${not empty errorMessge}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMessge}</div></c:if>
-
-<form name='login' action="${pageContext.request.contextPath}/customlogin" method='POST'>
+<div>
+    <h1>Welcome to FOREMAN!</h1>
+    <h3>supply service for building construction</h3>
+        <p>
+            You can try Foreman using these authorizations:
+        </p>
     <table>
         <tr>
-            <td>UserName:</td>
-            <td><input type='text' name='username' value=''></td>
+            <td>Ivanov (CEO) - login: <b>Ivanov</b>, password: <b>ivanov</b>, has role CHIEF</td>
         </tr>
         <tr>
-            <td>Password:</td>
-            <td><input type='password' name='password' /></td>
+            <td>Petrov (technician) - login: <b>Petrov</b>, password: <b>petrov</b>, has role EMPLOYEE</td>
         </tr>
         <tr>
-            <td colspan='2'><input name="submit" type="submit" value="submit" /></td>
+            <td>Sidorov (supply) - login: <b>Sidorov</b>, password: <b>sidorov</b>, has role SUPPLIER</td>
+        </tr>
+        <tr>
+            <td>Admin - login: <b>Admin</b>, password: <b>admin</b>, has role ADMIN</td>
         </tr>
     </table>
-    <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />-->
-</form>
+</div>
+
+<div>
+    <!--<c:if test="${not empty errorMessge}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMessge}</div></c:if>-->
+    <div class="mainearblock">
+    <form name='login' action="${pageContext.request.contextPath}/customlogin" method='POST'>
+        <table align="center">
+            <tr>
+                <td>login:</td>
+                <td><input type='text' name='username' value=''></td>
+            </tr>
+            <tr>
+                <td>password:</td>
+                <td><input type='password' name='password' /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input class="mainearbutton buttonblick" name="submit" type="submit" value="submit" /></td>
+            </tr>
+        </table>
+        <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />-->
+    </form>
+    </div>
+</div>
+
+<div id="copyrightline">
+    <p>Foreman createdByLevGoryachev();</p>
+</div>
+
 </body>
 
 </html>
