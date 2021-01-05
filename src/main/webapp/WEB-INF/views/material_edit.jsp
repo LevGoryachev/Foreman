@@ -51,6 +51,9 @@
     <div class="footerleftbtns">
         <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/materials-editable">Back to List</a>
     </div>
+    <div id="copyrightline">
+        <p>Foreman createdByLevGoryachev();</p>
+    </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/user-info" target="_blank">Account info</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>

@@ -51,6 +51,9 @@
 <div  class="footer">
     <div class="footerleftbtns">
     </div>
+    <div id="copyrightline">
+        <p>Foreman createdByLevGoryachev();</p>
+    </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblickdimmed" href="#">Account info</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>

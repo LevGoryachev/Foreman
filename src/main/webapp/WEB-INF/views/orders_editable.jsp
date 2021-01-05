@@ -55,7 +55,7 @@
             </c:forEach>
             <form name = "order" action = "${pageContext.request.contextPath}/construction/${showConstruction.name}/orders/add" method="post" onsubmit="return confirm('Add new?');">
                 <tr>
-                    <td colspan="6"><input type="submit" value="ADD NEW"></td>
+                    <td colspan="6"><input type="submit" value="ADD NEW ORDER"></td>
                 </tr>
             </form>
         </table>
@@ -91,6 +91,9 @@
         <a class="linearbutton buttonblickdimmed" href="#">ORDERS</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/construction/${showConstruction.name}/orders-acceptable">ACCEPTANCE</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/archive" target="_blank">ARCHIVE</a>
+    </div>
+    <div id="copyrightline">
+        <p>Foreman createdByLevGoryachev();</p>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/user-info" target="_blank">Account info</a>

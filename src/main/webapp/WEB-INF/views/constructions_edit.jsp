@@ -54,7 +54,7 @@
                 <td width="200px"><input class="averagefield" title="CODENUMBER" type="text" name="codenumber"></td>
                 <td width="200px"><input class="averagefield" title="NAME" type="text" name="name"></td>
                 <td width="400px"><textarea cols="50" rows="5" title="DESCRIPTION" type="text" name="description"></textarea></td>
-                <td colspan="2"><input type="submit" value="ADD NEW"></td>
+                <td colspan="2"><input type="submit" value="ADD"></td>
             </tr>
         </form>
     </table>
@@ -67,6 +67,9 @@
         <a class="linearbutton buttonblick" href="#top">PageUP</a>
         <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
         <a class="linearbutton buttonblicklighted" href="${pageContext.request.contextPath}/constructions">Back to Constructions</a>
+    </div>
+    <div id="copyrightline">
+        <p>Foreman createdByLevGoryachev();</p>
     </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/user-info" target="_blank">Account info</a>

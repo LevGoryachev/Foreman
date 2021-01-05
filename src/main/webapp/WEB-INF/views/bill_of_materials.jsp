@@ -75,6 +75,9 @@
         <a class="linearbutton buttonblick" href="#bottom">PageDOWN</a>
         <a class="linearbutton buttonblick" href="../${currentName}/materials-editable">EDIT LIST</a>
     </div>
+    <div id="copyrightline">
+        <p>Foreman createdByLevGoryachev();</p>
+    </div>
     <div class="footerightbtns">
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/user-info" target="_blank">Account info</a>
         <a class="linearbutton buttonblick" href="${pageContext.request.contextPath}/logout">Logout</a>

@@ -11,10 +11,28 @@
 <div>
     <h1>Welcome to FOREMAN!</h1>
     <h3>supply service for building construction</h3>
+        <p>
+            You can try Foreman using these authorizations:
+        </p>
+    <table>
+        <tr>
+            <td>Ivanov (CEO) - login: <b>Ivanov</b>, password: <b>ivanov</b>, has role CHIEF</td>
+        </tr>
+        <tr>
+            <td>Petrov (technician) - login: <b>Petrov</b>, password: <b>petrov</b>, has role EMPLOYEE</td>
+        </tr>
+        <tr>
+            <td>Sidorov (supply) - login: <b>Sidorov</b>, password: <b>sidorov</b>, has role SUPPLIER</td>
+        </tr>
+        <tr>
+            <td>Admin - login: <b>Admin</b>, password: <b>admin</b>, has role ADMIN</td>
+        </tr>
+    </table>
 </div>
 
-<div class="mainer">
-    <c:if test="${not empty errorMessge}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMessge}</div></c:if>
+<div>
+    <!--<c:if test="${not empty errorMessge}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMessge}</div></c:if>-->
+    <div class="mainearblock">
     <form name='login' action="${pageContext.request.contextPath}/customlogin" method='POST'>
         <table align="center">
             <tr>
@@ -32,6 +50,7 @@
         </table>
         <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />-->
     </form>
+    </div>
 </div>
 
 <div id="copyrightline">

@@ -9,12 +9,15 @@
 
 <body class="presentational">
 
-<div>
+<div class="maineartableinfo">
     <h1>Welcome to FOREMAN!</h1>
     <h3>supply service for building construction</h3>
 </div>
 
-<div class="mainer">
+<div>
+
+</div>
+<div class="mainearpresent">
     <p>
         <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
         <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
