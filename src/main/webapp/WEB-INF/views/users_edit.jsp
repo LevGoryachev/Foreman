@@ -29,7 +29,7 @@
             <td>MIDDLE NAME</td>
             <td>LAST NAME</td>
             <td>LOGIN</td>
-            <td>PASSWORD (To generate password use <a href="https://bcrypt-generator.com/" target="_blank">BCrypt generator</a>)</td>
+            <td>PASSWORD (before saving passwords, use <a href="https://bcrypt-generator.com/" target="_blank">BCrypt generator</a>) (12 rounds)</td>
             <td>ROLE</td>
             <td colspan="2">EDIT DATA</td>
         </tr>
@@ -70,7 +70,7 @@
         </form>
     </table>
     <p>
-        BCrypt generator: <a href="https://bcrypt-generator.com/" target="_blank">https://bcrypt-generator.com</a>
+        Before saving passwords, use BCrypt generator: <a href="https://bcrypt-generator.com/" target="_blank">https://bcrypt-generator.com</a> (12 rounds).
     </p>
     <p>
         <a class="buttonblicklighted" href="${pageContext.request.contextPath}/admin">Back to admin panel</a>

@@ -102,12 +102,15 @@ public class MainController {
         return "redirect:/materials-editable";
     }
 
-
     //Guide
     //read: guide
-    @GetMapping ("/guide")
-    public String guide (Model model) {
-        model.addAttribute("constructionsList", constructionService.getAll());
-        return "guide";
+    @GetMapping ("/guide/{lang}")
+    public String guideRus (@PathVariable("lang") String lang) {
+        if (lang.equals("eng")){
+            return "guide-eng";
+        } else if (lang.equals("rus")){
+            return "guide-rus";
+        }
+        return "guide-rus";
     }
 }
