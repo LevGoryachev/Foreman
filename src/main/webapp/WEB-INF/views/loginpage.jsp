@@ -16,16 +16,16 @@
         </p>
     <table>
         <tr>
-            <td>Ivanov (CEO) - login: <b>Ivanov</b>, password: <b>ivanov</b>, has role CHIEF</td>
+            <td>I.I. Ivanov (CEO) - login: <b>ivanov</b>, password: <b>ivanov</b>, has role CHIEF</td>
         </tr>
         <tr>
-            <td>Petrov (technician) - login: <b>Petrov</b>, password: <b>petrov</b>, has role EMPLOYEE</td>
+            <td>P.P. Petrov (technician) - login: <b>petrov</b>, password: <b>petrov</b>, has role EMPLOYEE</td>
         </tr>
         <tr>
-            <td>Sidorov (supply) - login: <b>Sidorov</b>, password: <b>sidorov</b>, has role SUPPLIER</td>
+            <td>S.S. Sidorov (supply) - login: <b>sidorov</b>, password: <b>sidorov</b>, has role SUPPLIER</td>
         </tr>
         <tr>
-            <td>Admin - login: <b>Admin</b>, password: <b>admin</b>, has role ADMIN</td>
+            <td>Admin - login: <b>admin</b>, password: <b>admin</b>, has role ADMIN</td>
         </tr>
     </table>
 </div>

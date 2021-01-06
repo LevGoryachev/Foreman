@@ -36,7 +36,7 @@
     <p>
         <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/constructions">Constructions</a>
         <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/materials">Materials</a>
-        <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/guide" target="_blank">Guide</a>
+        <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/guide/rus" target="_blank">Guide</a>
     </p>
     <p>
         <a class="mainearbutton buttonblick" href="${pageContext.request.contextPath}/supplier">SUPPLIER</a>
