@@ -53,4 +53,9 @@ public class LoginController {
         model.addAttribute("userInfo", appUserService.getCurrentUser());
         return "user_info";
     }
+
+    @GetMapping ("/denied")
+    public String accessDenied () {
+        return "access_denied";
+    }
 }
