@@ -29,19 +29,20 @@
             <td>MIDDLE NAME</td>
             <td>LAST NAME</td>
             <td>LOGIN</td>
-            <td>PASSWORD (<a href="https://bcrypt-generator.com/" target="_blank">BCrypt generator</a>)</p>
-            </td>
+            <td>PASSWORD (<a href="https://bcrypt-generator.com/" target="_blank">BCrypt generator</a>)</td>
+            <td>EMAIL</td>
             <td>ROLE</td>
             <td>Confirm</td>
         </tr>
         <form name = "appUserAttr" action = "${pageContext.request.contextPath}/admin/users/upd" method="post" onsubmit="return confirm('Update this?');">
             <tr>
                 <td><input title="ID" type="text" name="id" value="${userEdit.id}" readonly></td>
-                <td><input title="FIRST NAME" type="text" name="firstName" value="${userEdit.firstName}"></td>
+                <td><input title="FIRST NAME" type="text" name="firstName" value="${userEdit.firstName}" required pattern="^[^\s]*$"></td>
                 <td><input title="MIDDLE NAME" type="text" name="middleName" value="${userEdit.middleName}"></td>
-                <td><input title="LAST NAME" type="text" name="lastName" value="${userEdit.lastName}"></td>
-                <td><input title="LOGIN" type="text" name="login" value="${userEdit.login}"></td>
-                <td><input title="PASSWORD" type="text" name="password" value="${userEdit.password}"></td>
+                <td><input title="LAST NAME" type="text" name="lastName" value="${userEdit.lastName}" required pattern="^[^\s]*$"></td>
+                <td><input title="LOGIN" type="text" name="login" value="${userEdit.login}" required pattern="^[^\s]*$"></td>
+                <td><input title="PASSWORD" type="text" name="password" value="${userEdit.password}" required></td>
+                <td><input title="EMAIL" type="text" name="email" value="${userEdit.email}"></td>
                 <td>
                     <select name="roleId">
                         <option value="${userEdit.roleId}" selected>${userEdit.entityRoleRank}</option>

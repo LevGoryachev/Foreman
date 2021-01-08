@@ -30,6 +30,7 @@
             <td>LAST NAME</td>
             <td>LOGIN</td>
             <td>PASSWORD (before saving passwords, use <a href="https://bcrypt-generator.com/" target="_blank">BCrypt generator</a>) (12 rounds)</td>
+            <td>EMAIL</td>
             <td>ROLE</td>
             <td colspan="2">EDIT DATA</td>
         </tr>
@@ -41,6 +42,7 @@
                 <td>${userList.lastName}</td>
                 <td>${userList.login}</td>
                 <td>${userList.password}</td>
+                <td>${userList.email}</td>
                 <td>${userList.entityRoleRank}</td>
                 <form name = "edit" action = "${pageContext.request.contextPath}/admin/users/edit/${userList.id}" method="get">
                     <td><input type="submit" value="EDIT"></td>
@@ -52,12 +54,13 @@
         </c:forEach>
         <form name = "appUserAttr" action = "${pageContext.request.contextPath}/admin/users/add" method="post" onsubmit="return confirm('Add new?');">
             <tr>
-                <td><input title="ID" type="text" name="id"></td>
-                <td><input title="FIRST NAME" type="text" name="firstName"></td>
+                <td><input title="ID" type="text" name="id" required pattern="^[ 0-9]+$"></td>
+                <td><input title="FIRST NAME" type="text" name="firstName" required pattern="^[^\s]*$"></td>
                 <td><input title="MIDDLE NAME" type="text" name="middleName"></td>
-                <td><input title="LAST NAME" type="text" name="lastName"></td>
-                <td><input title="LOGIN" type="text" name="login"></td>
-                <td><input title="PASSWORD" type="text" name="password"></td>
+                <td><input title="LAST NAME" type="text" name="lastName" required pattern="^[^\s]*$"></td>
+                <td><input title="LOGIN" type="text" name="login" required pattern="^[^\s]*$"></td>
+                <td><input title="PASSWORD" type="text" name="password" required></td>
+                <td><input title="EMAIL" type="text" name="email"></td>
                 <td>
                     <select name="roleId">
                         <c:forEach items="${allRolesList}" var="allRolesList">

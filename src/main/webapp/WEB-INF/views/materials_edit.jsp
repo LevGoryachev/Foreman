@@ -52,10 +52,10 @@
         </c:forEach>
     <form name = "material" action = "${pageContext.request.contextPath}/materials/add" method="post" onsubmit="return confirm('Add new?');">
         <tr>
-            <td width="100px"><input class="smallfield" title="ID" type="text" name="id"></td>
-            <td width="400px"><input class="widefield" title="NAME" type="text" name="name"></td>
-            <td width="100px"><input class="smallfield" title="UNIT MEASURE" type="text" name="um"></td>
-            <td width="100px"><input class="smallfield" title="UNIT WEIGHT, KG" type="text" name="unitWkg"></td>
+            <td width="100px"><input class="smallfield" title="ID" type="text" name="id" required pattern="^[ 0-9]+$"></td>
+            <td width="400px"><input class="widefield" title="NAME" type="text" name="name" required></td>
+            <td width="100px"><input class="smallfield" title="UNIT MEASURE" type="text" name="um" required></td>
+            <td width="100px"><input class="smallfield" title="UNIT WEIGHT, KG" type="text" name="unitWkg" required pattern="^[ 0-9]+$"></td>
             <td width="400px"><textarea cols="50" rows="5" title="NOTES" type="text" name="notes"></textarea></td>
             <td colspan="2"><input type="submit" value="ADD"></td>
         </tr>

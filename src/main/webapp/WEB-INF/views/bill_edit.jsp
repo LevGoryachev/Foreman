@@ -74,7 +74,7 @@
                     </td>
                     <td></td>
                     <td></td>
-                    <td><input title="BILLQTY" type="text" name="billqty"></td>
+                    <td><input title="BILLQTY" type="text" name="billqty" required pattern="^[ 0-9]+$"></td>
                     <td></td>
                     <td><input type="submit" value="ADD"></td>
                 </form>

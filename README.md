@@ -7,33 +7,34 @@ Employees who are located on construction sites can use this web-application to 
 <p>An example launched on: <a href="https://foreman-one.herokuapp.com" target="_blank">https://foreman-one.herokuapp.com</a> (first launch can take about 20-30 sec.)</p>
 
 <h2>1. Description</h2>
-<p>GUI based on Java server pages (JSP).</p>
-<p>Before authorization the application allows to view only login page.</p>
-<p>SpringSecurity defines permissions and redirects after login.</p>
-<p>After authorization user gets to the appropriate page (that depends on role).</p>
-<p>As an example, if users have common roles (CHIEF, EMPLOYEE) they will be redirected to the main paige (index.jsp).</p>
+<p>The operation of Foreman web-app is entirely based on data from database and the GUI is completely based on Java server pages (JSP).
+Since security settings are controlled by SpringSecurity, it defines permissions and redirects.</p>
+<p>Before authorization it is possible to view only the login page.
+When a user is logged in, one will be redirected to the appropriate page (that depends on role).</p>
+
+<p>As an example, if users have common roles (CHIEF, EMPLOYEE) they will be redirected to the main page (index.jsp).</p>
 
 index.jsp
 ![screen_1](https://user-images.githubusercontent.com/61917893/103707527-d1ac2600-4fbf-11eb-9287-f2f870a80530.jpg)
 
-<p>Basically, the web-pages contain presented forms with data to view and edit. </p>
+<p>Basically, the web-pages contain presented forms with data to view and edit.</p>
 <p>E.g., if user makes a new entry in the form "list of Constructions" the entry will be saved in the appropriate database table,
-and the form "list of Constructions" will get a link for a new Construction 
+and the form "list of Constructions" will get a link for a new Construction page
 (custom mapping will be formed - ConstructionSiteController.java(see <b>2.Structure</b>) will work with it),
  and user will be able to go to this page (construction_page.jsp).</p>
-<p>Page of construction site displays custom context (data) and has controls (buttons - links to other functional pages).</p>
+<p>Page of construction site displays custom context (data) and has control buttons (links to other functional pages).</p>
 
 construction_page.jsp
 ![screen_2](https://user-images.githubusercontent.com/61917893/103707537-d5d84380-4fbf-11eb-96b1-ea3069c5fd46.jpg)
 
 <p>E.g., the button "Orders" leads to the page for creating and modifying orders (orders_editable.jsp).
-Lists of orders (taken from the database and reworked) are presented in the form of this page.</p>
+Lists of orders (taken from the database and reworked by service layer) are presented in the form of this page.</p>
 
 orders_editable.jsp
 ![screen_3](https://user-images.githubusercontent.com/61917893/103707546-d83a9d80-4fbf-11eb-9a27-fca8b05ed48d.jpg)
 
-<p>Generally, the Application provides for CRUD operations in database by different users
- (one user creates, the other reads - the way of exchanging data).</p>
+<p>Generally, Foreman web-app provides for CRUD operations in database by different users
+ (one user creates, the other reads - thus the way of exchanging data).</p>
 
 <h2>2. Structure</h2>
 <h3>ru/goryachev/foreman/app</h3>
@@ -57,8 +58,9 @@ orders_editable.jsp
 </ul>
 <p>The classes of Spring Security configuration:</p>
 <ul>
-<li><p><b>SecurityConfig.java</b> - security configuration (extends WebSecurityConfigurerAdapter) - jdbc authentication (from DB), permissions, passwordencoder, AuthenticationSuccessHandler</p>
+<li><p><b>SecurityConfig.java</b> - security configuration (extends WebSecurityConfigurerAdapter) - jdbc authentication (from DB), permissions, passwordencoder, AuthenticationSuccessHandler, AccessDeniedHandler.</p>
 <li><p><b>SecurityAuthHandler.java</b> for redirect after authentication.</p>
+<li><p><b>SecurityDeniedHandler.java</b> for redirect if access denied.</p>
 </ul>
 
 <h3>ru/goryachev/foreman/controllers</h3>

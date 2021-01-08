@@ -36,8 +36,8 @@
         <form name = "construction" action = "${pageContext.request.contextPath}/constructions/upd" method="post" onsubmit="return confirm('Update this?');">
             <tr>
                 <td width="100px"><input class="smallfield" title="ID" type="text" name="id" value="${constructionEdit.id}" readonly></td>
-                <td width="200px"><input class="averagefield" title="CODENUMBER" type="text" name="codenumber" value="${constructionEdit.codenumber}"></td>
-                <td width="200px"><input class="averagefield" title="NAME" type="text" name="name" value="${constructionEdit.name}"></td>
+                <td width="200px"><input class="averagefield" title="CODENUMBER" type="text" name="codenumber" value="${constructionEdit.codenumber}" required pattern="^[^\s]*$"></td>
+                <td width="200px"><input class="averagefield" title="NAME" type="text" name="name" value="${constructionEdit.name}" required></td>
                 <td width="400px"><textarea cols="50" rows="5" title="DESCRIPTION" type="text" name="description">${constructionEdit.description}</textarea></td>
                 <td><input type="submit" value="UPDATE"></td>
             </tr>
