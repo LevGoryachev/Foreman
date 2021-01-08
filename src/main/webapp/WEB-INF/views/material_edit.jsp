@@ -37,9 +37,9 @@
         <form name = "material" action = "${pageContext.request.contextPath}/materials/upd" method="post" onsubmit="return confirm('Update this?');">
             <tr>
                 <td width="100px"><input class="smallfield" title="ID" type="text" name="id" value="${materialEdit.id}" readonly></td>
-                <td width="400px"><input class="widefield" title="NAME" type="text" name="name" value="${materialEdit.name}"></td>
-                <td width="100px"><input class="smallfield" title="UNIT MEASURE" type="text" name="um" value="${materialEdit.um}"></td>
-                <td width="100px"><input class="smallfield" title="UNIT WEIGHT, KG" type="text" name="unitWkg" value="${materialEdit.unitWkg}"></td>
+                <td width="400px"><input class="widefield" title="NAME" type="text" name="name" value="${materialEdit.name}" required></td>
+                <td width="100px"><input class="smallfield" title="UNIT MEASURE" type="text" name="um" value="${materialEdit.um}" required></td>
+                <td width="100px"><input class="smallfield" title="UNIT WEIGHT, KG" type="text" name="unitWkg" value="${materialEdit.unitWkg}" required pattern="^[ 0-9]+$"></td>
                 <td width="400px"><textarea cols="50" rows="5" title="NOTES" type="text" name="notes">${materialEdit.notes}</textarea></td>
                 <td><input type="submit" value="UPDATE"></td>
             </tr>

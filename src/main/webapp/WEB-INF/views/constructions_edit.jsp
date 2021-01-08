@@ -50,9 +50,9 @@
         </c:forEach>
         <form name = "construction" action = "${pageContext.request.contextPath}/constructions/add" method="post" onsubmit="return confirm('Add new?');">
             <tr>
-                <td width="100px"><input class="smallfield" title="ID" type="text" name="id"></td>
-                <td width="200px"><input class="averagefield" title="CODENUMBER" type="text" name="codenumber"></td>
-                <td width="200px"><input class="averagefield" title="NAME" type="text" name="name"></td>
+                <td width="100px"><input class="smallfield" title="ID" type="text" name="id" required pattern="^[ 0-9]+$"></td>
+                <td width="200px"><input class="averagefield" title="CODENUMBER" type="text" name="codenumber" required pattern="^[^\s]*$"></td>
+                <td width="200px"><input class="averagefield" title="NAME" type="text" name="name" required></td>
                 <td width="400px"><textarea cols="50" rows="5" title="DESCRIPTION" type="text" name="description"></textarea></td>
                 <td colspan="2"><input type="submit" value="ADD"></td>
             </tr>

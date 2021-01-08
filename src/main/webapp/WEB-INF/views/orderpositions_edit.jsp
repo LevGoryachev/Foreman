@@ -59,7 +59,7 @@
                         </select>
                     </td>
                     <input title="statusDelivered" type="text" name="statusDelivered" value="false" readonly hidden>
-                    <td><input title="ORDERQTY" type="text" name="orderqty"></td>
+                    <td><input title="ORDERQTY" type="text" name="orderqty" required pattern="^[ 0-9]+$"></td>
                     <td><input type="submit" value="ADD"></td>
                 </tr>
             </form>
