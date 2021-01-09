@@ -28,6 +28,9 @@
             <td>Admin - login: <b>admin</b>, password: <b>admin</b>, has role ADMIN</td>
         </tr>
     </table>
+    <p>
+       APP exhibits different behaviors for each role.
+    </p>
 </div>
 
 <div>
