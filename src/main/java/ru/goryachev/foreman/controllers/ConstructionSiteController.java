@@ -69,8 +69,8 @@ public class ConstructionSiteController {
     //read: orders for employees, FIRST: ORDERS (editable)
     @GetMapping("/{name}/orders-editable")
     public String constructionOrdersEdit (@PathVariable("name") String name, Model model) {
-        model.addAttribute("changeableList", orderService.getChangeablePresentable(constructionService.getByName(name).getId()));
-        model.addAttribute("postedList", orderService.getPostedPresentable(constructionService.getByName(name).getId()));
+        model.addAttribute("changeableList", orderService.getDTOChangeable(constructionService.getByName(name).getId()));
+        model.addAttribute("postedList", orderService.getDTOPosted(constructionService.getByName(name).getId()));
         model.addAttribute("showConstruction", constructionService.getByName(name));
         return "orders_editable";
     }
@@ -79,17 +79,17 @@ public class ConstructionSiteController {
             @GetMapping("/{name}/order/{orderId}/orderpositions-edit")
             public String orderPositionsEdit (@PathVariable("name") String name, @PathVariable("orderId") int orderId, Model model) {
                 //left side
-                model.addAttribute("orderpositionsList", orderPositionService.getByOrderIdPresentable(orderId));
+                model.addAttribute("orderpositionsList", orderPositionService.getDTOByOrderId(orderId));
 
                 //getDeductionOfList: if current ORDER already contains these positions (materials) - they should NOT be available in the current ORDER
                 model.addAttribute("billpositionList", billPositionService.getDeductionOfList(constructionService.getByName(name).getId(), orderId));
 
-                model.addAttribute("orderAttributes", orderService.getByIdPresentable(orderId));
+                model.addAttribute("orderAttributes", orderService.getDTOById(orderId));
                 model.addAttribute("showConstruction", constructionService.getByName(name));
                 model.addAttribute("showOrderId", orderId);
 
                 //right side
-                model.addAttribute("postedList", orderService.getPostedPresentable(constructionService.getByName(name).getId()));
+                model.addAttribute("postedList", orderService.getDTOPosted(constructionService.getByName(name).getId()));
                 return "orderpositions_edit";
             }
 
@@ -111,7 +111,7 @@ public class ConstructionSiteController {
     //read: orders for employees, SECOND: ACCEPTANCE
     @GetMapping("/{name}/orders-acceptable")
     public String constructionOrdersAccept (@PathVariable("name") String name, Model model) {
-        model.addAttribute("sentList", orderService.getSentPresentable(constructionService.getByName(name).getId()));
+        model.addAttribute("sentList", orderService.getDTOSent(constructionService.getByName(name).getId()));
         model.addAttribute("billpositionList", billPositionService.getByConstruction(constructionService.getByName(name).getId()));
         model.addAttribute("showConstruction", constructionService.getByName(name));
         return "orders_acceptable";
@@ -120,8 +120,8 @@ public class ConstructionSiteController {
             //read: sub-page of SECOND (read and check order positions):
             @GetMapping("/{name}/order/{orderId}/orderpositions-check")
             public String orderPositionsCheck (@PathVariable("name") String name, @PathVariable("orderId") int orderId, Model model) {
-                model.addAttribute("orderpositionsList", orderPositionService.getByOrderIdPresentable(orderId));
-                model.addAttribute("orderAttributes", orderService.getByIdPresentable(orderId));
+                model.addAttribute("orderpositionsList", orderPositionService.getDTOByOrderId(orderId));
+                model.addAttribute("orderAttributes", orderService.getDTOById(orderId));
                 model.addAttribute("billpositionList", billPositionService.getByConstruction(constructionService.getByName(name).getId()));
                 model.addAttribute("showConstruction", constructionService.getByName(name));
                 return "orderpositions_check";

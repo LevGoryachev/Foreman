@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class BillPositionService implements Applicable {
+public class BillPositionService {
 
     @Autowired
     public BillPositionDAO billPositionDAO;
@@ -19,27 +19,14 @@ public class BillPositionService implements Applicable {
     @Autowired
     public OrderPositionService orderPositionService;
 
-
-    @Override
     public List<BillPosition> getAll() {
         return billPositionDAO.getAll();
     }
 
-    @Override
     public void create(Entity entity) {
         billPositionDAO.create(entity);
     }
 
-    @Override
-    public void update(Entity entity) {
-        //BillPosition was not supposed to be update for a while
-    }
-
-    @Override
-    public void delete(int id) {
-    }
-
-    //Overloaded. It's better to change delete (int id) delete(int...varargs) later
     public void delete(int construction_id, int material_id) {
         billPositionDAO.delete(construction_id, material_id);
     }

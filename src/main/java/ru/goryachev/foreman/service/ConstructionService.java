@@ -9,27 +9,23 @@ import ru.goryachev.foreman.entities.Entity;
 import java.util.List;
 
 @Service
-public class ConstructionService implements Applicable {
+public class ConstructionService {
 
     @Autowired
     public ConstructionsDAO constructionsDAO;
 
-    @Override
     public List<Construction> getAll() {
         return constructionsDAO.getAll();
     }
 
-    @Override
     public void create(Entity entity) {
         constructionsDAO.create(entity);
     }
 
-    @Override
     public void update(Entity entity) {
         constructionsDAO.update(entity);
     }
 
-    @Override
     public void delete(int id) {
         constructionsDAO.delete(id);
     }

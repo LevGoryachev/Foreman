@@ -2,7 +2,7 @@
 Foreman is a web-application for supply service (construction industry).
 Employees who are located on construction sites can use it to create and send orders on-line.
 Construction supply managers are, in their turn, able to recieve the orders and initiate the delivery of materials.
-<p><b>Java 11, Spring-Web-MVC, Spring JDBC, Spring Security, JSP</b></p>
+<p><b>Summary: Java 11, Spring-Web-MVC, Spring JDBC, Spring Security, JSP</b></p>
 <p><b>DB: relational database with stored procedures(PostgreSQL)</b></p>
 
 <p>An example launched on: <a href="https://foreman-one.herokuapp.com" target="_blank">https://foreman-one.herokuapp.com</a> (first launch can take about 20-30 sec.)
@@ -10,7 +10,7 @@ Use trial authorizations (login page) and see <b>Guide</b>.</p>
 
 <h2>1. Description</h2>
 <p>The operation of Foreman web-app is entirely based on data from database (see <b>4.Database</b>) and the GUI is completely based on Java server pages (JSP - see <b>3.GUI</b>).
-Since security settings are controlled by SpringSecurity, it defines permissions and redirects.</p>
+The security settings are controlled by SpringSecurity (permissions, redirects, etc.).</p>
 <p>Before authorization it is possible to view only the login page.
 When a user is logged in, one will be redirected to the appropriate page (that depends on role).</p>
 
@@ -74,6 +74,19 @@ orders_editable.jsp
 <li><p><b>ConstructionSiteController.java</b></p>
 <li><p><b>SupplyDepController.java</b></p>
 </ul>
+<p>The detailed information is available in <b>3.GUI</b> (see color code down below).</p>
+
+
+<h3>ru/goryachev/foreman/entities</h3>
+<p>Entities that represent persistent data maintained in a database and mapped to database tables.</p>
+<ul>
+<li><p>interface-marker Entity;</p>
+<li><p>Entity-classes (implement Entity)</p>
+</ul>
+
+<h3>ru/goryachev/foreman/dto</h3>
+<p>Data transfer objects are used to transfer data from service layer to JSP (mapped to views).</p>
+<p>The package contains DTO classes (to show data on web page), and they can be further used for API.</p>
 
 <h3>ru/goryachev/foreman/dao</h3>
 <ul>
@@ -89,32 +102,14 @@ orders_editable.jsp
 <li><p>implementations of RowMapper (springframework.jdbc.core.RowMapper) - mappers for each dao class</p>
 </ul>
 
-
-<h3>ru/goryachev/foreman/entities</h3>
-<ul>
-<li><p>interface-marker Entity;</p>
-<li><p>Entity-classes (implement Entity)</p>
-<p>Setters in Entities (only for reference types) contain 'if' statement for getting rid of nulls (in case of null from database).</p>
-<li><p>Entity-presentable classes (for views);</p>
-</ul>
-
 <h3>ru/goryachev/foreman/services</h3>
+<p>Services exchange data with each other and have the following functionality:</p>
 <ul>
-<li><p>Interface Applicable includes 4 methods for CRUD operations:</p>
-<ul>
-<li><p>List getAll();</p>
-<li><p>void create(Entity entity);</p>
-<li><p>void update(Entity entity);</p>
-<li><p>void delete (int id);</p>
-</ul>
-<li><p>Classes of services can implement Applicable and have the following functionality:</p>
-<ul>
-<li><p>conversion from entities to entities-presentable (either using standard selections from DAO or doing custom selections without SQL queries from full selection);</p>
-<li><p>getting data from sessions;</p>
-<li><p>automatic setting of parameters (current time, current names);</p>
-<li><p>conversion data to entities (for tables) and transmitting them to DAO</p>
-</ul>
-<li><p>Classes of services running for third-party services or applications.</p>
+<li><p>conversion from entities (interface Entity) to DTO (either using standard selections from DAO or using their own methods (without SQL queries) to get custom selections);</p>
+<li><p>getting data from sessions (current names and other user information);</p>
+<li><p>automatic setting of parameters (current time, construction, etc);</p>
+<li><p>provide data for view layer; get data from view layer;</p>
+<li><p>conversion data to entities for DAO.</p>
 </ul>
 
 <h2>3. Graphical user interface</h2>

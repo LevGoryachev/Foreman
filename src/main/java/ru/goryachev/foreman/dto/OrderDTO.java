@@ -1,8 +1,10 @@
-package ru.goryachev.foreman.entities;
+package ru.goryachev.foreman.dto;
+
+import ru.goryachev.foreman.entities.Entity;
 
 import java.time.LocalDateTime;
 
-public class OrderPresentable implements Entity {
+public class OrderDTO implements Entity {
 
     private int id;
     private LocalDateTime orderTime;
