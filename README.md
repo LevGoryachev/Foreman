@@ -8,6 +8,16 @@ Construction supply managers are, in their turn, able to recieve the orders and 
 <p>An example launched on: <a href="https://foreman-one.herokuapp.com" target="_blank">https://foreman-one.herokuapp.com</a> (first launch can take about 20-30 sec.)
 Use trial authorizations (login page) and see <b>Guide</b>.</p>
 
+<p><b>Contents:</b></p>
+<ul>
+<li><p><a href="#description"><b>1. Description</b></a></p></li>
+<li><p><a href="#structure"><b>2. Structure</b></a></p></li>
+<li><p><a href="#gui"><b>3. Graphical user interface</b></a></p></li>
+<li><p><a href="#database"><b>4. Database</b></a></p></li>
+
+</ul>
+
+<p><a name="description"></a></p>
 <h2>1. Description</h2>
 <p>The operation of Foreman web-app is entirely based on data from database (see <b>4.Database</b>) and the GUI is completely based on Java server pages (JSP - see <b>3.GUI</b>).
 The security settings are controlled by SpringSecurity (permissions, redirects, etc.).</p>
@@ -38,7 +48,10 @@ orders_editable.jsp
 <p>Generally, Foreman web-app provides for CRUD operations in database by different users
  (one user creates, the other reads - thus the way of exchanging data).</p>
 
+<p><a name="structure"></a></p>
 <h2>2. Structure</h2>
+
+![STRUCTURE_Scheme](https://user-images.githubusercontent.com/61917893/104650332-14a88080-56c7-11eb-890c-75578780d38d.jpg)
 
 <h3>ru/goryachev/foreman/app</h3>
 <ul>
@@ -59,7 +72,7 @@ orders_editable.jsp
 <li><p><b>ServiceConfig.java</b> - service layer configuration (beans of Service, scan components @Service).</p>
 <li><p><b>WebConfig.java</b> - web configuration (ViewResolver (InternalResourceViewResolver) and scan components @Controller).</p>
 </ul>
-<p>The classes of Spring Security configuration:</p>
+<p>The classes of Spring Security:</p>
 <ul>
 <li><p><b>SecurityConfig.java</b> - security configuration (extends WebSecurityConfigurerAdapter) - jdbc authentication (from DB), permissions, passwordencoder, AuthenticationSuccessHandler, AccessDeniedHandler.</p>
 <li><p><b>SecurityAuthHandler.java</b> for redirect after authentication.</p>
@@ -102,7 +115,7 @@ orders_editable.jsp
 <li><p>implementations of RowMapper (springframework.jdbc.core.RowMapper) - mappers for each dao class</p>
 </ul>
 
-<h3>ru/goryachev/foreman/services</h3>
+<h3>ru/goryachev/foreman/service</h3>
 <p>Services exchange data with each other and have the following functionality:</p>
 <ul>
 <li><p>conversion from entities (interface Entity) to DTO (either using standard selections from DAO or using their own methods (without SQL queries) to get custom selections);</p>
@@ -112,6 +125,7 @@ orders_editable.jsp
 <li><p>conversion data to entities for DAO.</p>
 </ul>
 
+<p><a name="gui"></a></p>
 <h2>3. Graphical user interface</h2>
 <p>GUI based on JSP (JSTL-1.2) and configured in WebConfig.java.</p>
 
@@ -129,6 +143,7 @@ orders_editable.jsp
 </ul>
 <p>(optional usage).</p>
 
+<p><a name="database"></a></p>
 <h2>4. Database</h2>
 
 <p>Database structure in files:</p>
