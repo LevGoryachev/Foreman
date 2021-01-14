@@ -11,7 +11,7 @@ import java.util.List;
 public class RoleService {
 
     @Autowired
-    public RoleDAO roleDAO;
+    private RoleDAO roleDAO;
 
     public List<Role> getAll() {
         return roleDAO.getAll();

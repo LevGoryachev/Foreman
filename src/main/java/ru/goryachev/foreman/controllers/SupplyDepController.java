@@ -12,10 +12,10 @@ import ru.goryachev.foreman.service.OrderService;
 public class SupplyDepController {
 
     @Autowired
-    public OrderService orderService;
+    private OrderService orderService;
 
     @Autowired
-    public OrderPositionService orderPositionService;
+    private OrderPositionService orderPositionService;
 
     //read: orders with status POSTED (for suppliers)
     @GetMapping("/supplier")

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class BillPositionMapper implements RowMapper<BillPosition> {
+
     @Override
     public BillPosition mapRow(ResultSet rs, int rowNum) throws SQLException {
         BillPosition billPosition = new BillPosition();

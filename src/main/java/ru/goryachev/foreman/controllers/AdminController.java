@@ -13,10 +13,10 @@ import ru.goryachev.foreman.service.RoleService;
 public class AdminController {
 
     @Autowired
-    public RoleService roleService;
+    private RoleService roleService;
 
     @Autowired
-    public AppUserService appUserService;
+    private AppUserService appUserService;
 
     @GetMapping ("")
     public String adminPanel () {

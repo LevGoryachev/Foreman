@@ -19,13 +19,13 @@ public class OrderService {
     private LocalDateTime currentOrderTime;
 
     @Autowired
-    public OrdersDAO ordersDAO;
+    private OrdersDAO ordersDAO;
 
     @Autowired
-    public AppUserService appUsersService;
+    private AppUserService appUsersService;
 
     @Autowired
-    public ConstructionService constructionService;
+    private ConstructionService constructionService;
 
     //for a while is used getAll(DAO) instead this
     public List<Order> getAll() {

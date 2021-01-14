@@ -11,7 +11,7 @@ import java.util.List;
 public class MaterialService {
 
     @Autowired
-    public MaterialsDAO materialsDAO;
+    private MaterialsDAO materialsDAO;
 
     public List<Material> getAll() {
         return materialsDAO.getAll();

@@ -12,7 +12,7 @@ import java.util.List;
 public class RoleDAO implements DataAccessible {
 
     @Autowired
-    public JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public List<Role> getAll() {

@@ -14,10 +14,10 @@ import ru.goryachev.foreman.service.MaterialService;
 public class MainController {
 
     @Autowired
-    public ConstructionService constructionService;
+    private ConstructionService constructionService;
 
     @Autowired
-    public MaterialService materialService;
+    private MaterialService materialService;
 
     //CRUD: constructions
     //read: constructions

@@ -13,7 +13,7 @@ import java.util.List;
 public class BillPositionDAO implements DataAccessible{
 
     @Autowired
-    public JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public List<BillPosition> getAll() {

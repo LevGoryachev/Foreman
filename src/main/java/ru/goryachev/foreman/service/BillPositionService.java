@@ -14,7 +14,7 @@ import java.util.List;
 public class BillPositionService {
 
     @Autowired
-    public BillPositionDAO billPositionDAO;
+    private BillPositionDAO billPositionDAO;
 
     @Autowired
     public OrderPositionService orderPositionService;

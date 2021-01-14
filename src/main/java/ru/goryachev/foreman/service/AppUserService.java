@@ -14,7 +14,7 @@ import java.util.List;
 public class AppUserService {
 
     @Autowired
-    public AppUsersDAO appUsersDAO;
+    private AppUsersDAO appUsersDAO;
 
     public List<AppUser> getAll() {
         return appUsersDAO.getAll();

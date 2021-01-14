@@ -12,7 +12,7 @@ import java.util.List;
 public class ConstructionService {
 
     @Autowired
-    public ConstructionsDAO constructionsDAO;
+    private ConstructionsDAO constructionsDAO;
 
     public List<Construction> getAll() {
         return constructionsDAO.getAll();

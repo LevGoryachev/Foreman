@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    public DataSource dataSource;
+    private DataSource dataSource;
 
     protected void configure(HttpSecurity http) throws Exception {
         http

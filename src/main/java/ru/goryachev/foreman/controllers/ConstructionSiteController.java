@@ -20,13 +20,13 @@ public class ConstructionSiteController {
     private ConstructionService constructionService;
 
     @Autowired
-    public MaterialService materialService;
+    private MaterialService materialService;
 
     @Autowired
-    public BillPositionService billPositionService;
+    private BillPositionService billPositionService;
 
     @Autowired
-    public OrderPositionService orderPositionService;
+    private OrderPositionService orderPositionService;
 
     @GetMapping("/{name}")
     public String showByid(@PathVariable("name") String name, Model model) {

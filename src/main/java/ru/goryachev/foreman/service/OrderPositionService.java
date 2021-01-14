@@ -14,16 +14,16 @@ import java.util.List;
 public class OrderPositionService {
 
     @Autowired
-    public OrderPositionDAO orderPositionDAO;
+    private OrderPositionDAO orderPositionDAO;
 
     @Autowired
-    public OrderService orderService;
+    private OrderService orderService;
 
     @Autowired
-    public ConstructionService constructionService;
+    private ConstructionService constructionService;
 
     @Autowired
-    public MaterialService materialService;
+    private MaterialService materialService;
 
     public List<OrderPosition> getAll() {
         return orderPositionDAO.getAll();
