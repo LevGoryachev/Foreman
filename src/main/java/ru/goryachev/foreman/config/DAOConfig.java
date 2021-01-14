@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan(basePackages = "ru.goryachev.foreman.dao")
 public class DAOConfig implements WebMvcConfigurer {
 /*
+    //example of use beans
     @Bean
     public ConstructionsDAO getConstructionsDAO () {
         return new ConstructionsDAO();
@@ -44,5 +45,4 @@ public class DAOConfig implements WebMvcConfigurer {
         return new RoleDAO();
     }
     */
-
 }

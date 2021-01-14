@@ -11,27 +11,23 @@ import ru.goryachev.foreman.entities.Entity;
 import java.util.List;
 
 @Service
-public class AppUserService implements Applicable {
+public class AppUserService {
 
     @Autowired
-    public AppUsersDAO appUsersDAO;
+    private AppUsersDAO appUsersDAO;
 
-    @Override
     public List<AppUser> getAll() {
         return appUsersDAO.getAll();
     }
 
-    @Override
     public void create(Entity entity) {
         appUsersDAO.create(entity);
     }
 
-    @Override
     public void update(Entity entity) {
         appUsersDAO.update(entity);
     }
 
-    @Override
     public void delete(int id) {
         appUsersDAO.delete(id);
     }

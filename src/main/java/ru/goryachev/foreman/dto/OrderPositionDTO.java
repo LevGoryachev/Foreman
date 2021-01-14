@@ -1,6 +1,8 @@
-package ru.goryachev.foreman.entities;
+package ru.goryachev.foreman.dto;
 
-public class OrderPositionPresentable implements Entity {
+import ru.goryachev.foreman.entities.Entity;
+
+public class OrderPositionDTO implements Entity {
 
     private int constructionId;
     private int materialId;

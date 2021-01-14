@@ -12,39 +12,39 @@ import ru.goryachev.foreman.service.OrderService;
 public class SupplyDepController {
 
     @Autowired
-    public OrderService orderService;
+    private OrderService orderService;
 
     @Autowired
-    public OrderPositionService orderPositionService;
+    private OrderPositionService orderPositionService;
 
     //read: orders with status POSTED (for suppliers)
     @GetMapping("/supplier")
     public String supplierOrders (Model model) {
-        model.addAttribute("postedAllList", orderService.getPostedAllPresentable());
+        model.addAttribute("postedAllList", orderService.getDTOPostedAll());
         return "supplier_page";
     }
 
     //read: orderpositions in order with status POSTED (for suppliers) and reload the page
     @GetMapping("/supplier/{orderId}/orderpositions")
     public String supplierOrderPositions (@PathVariable("orderId") int orderId, Model model) {
-        model.addAttribute("postedAllList", orderService.getPostedAllPresentable());
-        model.addAttribute("orderpositionsList", orderPositionService.getByOrderIdPresentable(orderId));
-        model.addAttribute("orderAttributes", orderService.getByIdPresentable(orderId));
+        model.addAttribute("postedAllList", orderService.getDTOPostedAll());
+        model.addAttribute("orderpositionsList", orderPositionService.getDTOByOrderId(orderId));
+        model.addAttribute("orderAttributes", orderService.getDTOById(orderId));
         return "supplier_page";
     }
 
     //read: orders in status EXECUTED (for suppliers)
     @GetMapping("/archive")
     public String ordersArchive (Model model) {
-        model.addAttribute("executedAllList", orderService.getExecutedAllPresentable());
+        model.addAttribute("executedAllList", orderService.getDTOExecutedAll());
         return "orders_archive";
     }
 
     @GetMapping("/archive/{orderId}/orderpositions")
     public String ordersArchiveOrderPositions (@PathVariable("orderId") int orderId, Model model) {
-        model.addAttribute("executedAllList", orderService.getExecutedAllPresentable());
-        model.addAttribute("orderpositionsList", orderPositionService.getByOrderIdPresentable(orderId));
-        model.addAttribute("orderAttributes", orderService.getByIdPresentable(orderId));
+        model.addAttribute("executedAllList", orderService.getDTOExecutedAll());
+        model.addAttribute("orderpositionsList", orderPositionService.getDTOByOrderId(orderId));
+        model.addAttribute("orderAttributes", orderService.getDTOById(orderId));
         return "orders_archive";
     }
 

@@ -5,34 +5,33 @@ import org.springframework.stereotype.Service;
 import ru.goryachev.foreman.dao.OrdersDAO;
 import ru.goryachev.foreman.entities.Entity;
 import ru.goryachev.foreman.entities.Order;
-import ru.goryachev.foreman.entities.OrderPresentable;
+import ru.goryachev.foreman.dto.OrderDTO;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class OrderService implements Applicable {
+public class OrderService {
 
     private int currentConstructionID;
     private int currentUserID;
     private LocalDateTime currentOrderTime;
 
     @Autowired
-    public OrdersDAO ordersDAO;
+    private OrdersDAO ordersDAO;
 
     @Autowired
-    public AppUserService appUsersService;
+    private AppUserService appUsersService;
 
     @Autowired
-    public ConstructionService constructionService;
+    private ConstructionService constructionService;
 
-    @Override
+    //for a while is used getAll(DAO) instead this
     public List<Order> getAll() {
         return ordersDAO.getAll();
     }
 
-    @Override
     public void create(Entity entity) {
         Order order = ((Order) entity);
         order.setConstructionId(currentConstructionID);
@@ -49,11 +48,6 @@ public class OrderService implements Applicable {
         this.currentConstructionID = currentConstructionID;
         this.currentOrderTime = LocalDateTime.now();
         this.currentUserID = appUsersService.getCurrentUser().getId(); // extract user from session
-    }
-
-    @Override
-    public void update(Entity entity) {
-        ordersDAO.update(entity);
     }
 
     //to set order's STATUS 2
@@ -77,7 +71,6 @@ public class OrderService implements Applicable {
         ordersDAO.update(order);
     }
 
-    @Override
     public void delete(int id) {
         //"IF statement" to avoid any changes with orders (and positions) that have STATUS 2 or 3 or 4
         if (!this.getById(id).isPosted() && !this.getById(id).isSent() && !this.getById(id).isStatusExecuted()) {
@@ -89,31 +82,31 @@ public class OrderService implements Applicable {
         return ordersDAO.getById(id);
     }
 
-    public OrderPresentable getByIdPresentable(int id) {
+    public OrderDTO getDTOById(int id) {
 
-        OrderPresentable orderPresentable = new OrderPresentable();
+        OrderDTO orderDTO = new OrderDTO();
         Order order = ordersDAO.getById(id);
 
-        orderPresentable.setId(order.getId());
-        orderPresentable.setOrderTime(order.getOrdertime());
-        orderPresentable.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
-        orderPresentable.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
-        return orderPresentable;
+        orderDTO.setId(order.getId());
+        orderDTO.setOrderTime(order.getOrdertime());
+        orderDTO.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
+        orderDTO.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
+        return orderDTO;
     }
 
 
     //get by construction ID for EMPLOYEE pages, orders with STATUS 1 (edit)
-    public List<OrderPresentable> getChangeablePresentable(int currentConstructionID) {
-        List<OrderPresentable> list = new ArrayList<>();
+    public List<OrderDTO> getDTOChangeable(int currentConstructionID) {
+        List<OrderDTO> list = new ArrayList<>();
 
         for (Order order: ordersDAO.getAll()) {
             if (currentConstructionID == order.getConstructionId() && !order.isPosted() && !order.isSent() && !order.isStatusExecuted()) {
-                OrderPresentable orderPresentable = new OrderPresentable();
-                orderPresentable.setId(order.getId());
-                orderPresentable.setOrderTime(order.getOrdertime());
-                orderPresentable.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
-                orderPresentable.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
-                list.add(orderPresentable);
+                OrderDTO orderDTO = new OrderDTO();
+                orderDTO.setId(order.getId());
+                orderDTO.setOrderTime(order.getOrdertime());
+                orderDTO.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
+                orderDTO.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
+                list.add(orderDTO);
 
             }
         }
@@ -121,34 +114,34 @@ public class OrderService implements Applicable {
     }
 
     //get by construction ID for EMPLOYEE pages, orders with STATUS 2 (posted to supply)
-    public List<OrderPresentable> getPostedPresentable(int currentConstructionID) {
-        List<OrderPresentable> list = new ArrayList<>();
+    public List<OrderDTO> getDTOPosted(int currentConstructionID) {
+        List<OrderDTO> list = new ArrayList<>();
 
         for (Order order: ordersDAO.getAll()) {
             if (currentConstructionID == order.getConstructionId() && order.isPosted() && !order.isSent() && !order.isStatusExecuted()) {
-                OrderPresentable orderPresentable = new OrderPresentable();
-                orderPresentable.setId(order.getId());
-                orderPresentable.setOrderTime(order.getOrdertime());
-                orderPresentable.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
-                orderPresentable.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
-                list.add(orderPresentable);
+                OrderDTO orderDTO = new OrderDTO();
+                orderDTO.setId(order.getId());
+                orderDTO.setOrderTime(order.getOrdertime());
+                orderDTO.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
+                orderDTO.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
+                list.add(orderDTO);
             }
         }
         return list;
     }
 
     //get by construction ID for EMPLOYEE pages, orders with STATUS 3 (when supplier sent the materials)
-    public List<OrderPresentable> getSentPresentable(int currentConstructionID) {
-        List<OrderPresentable> list = new ArrayList<>();
+    public List<OrderDTO> getDTOSent(int currentConstructionID) {
+        List<OrderDTO> list = new ArrayList<>();
 
         for (Order order: ordersDAO.getAll()) {
             if (currentConstructionID == order.getConstructionId() && order.isPosted() && order.isSent() && !order.isStatusExecuted()) {
-                OrderPresentable orderPresentable = new OrderPresentable();
-                orderPresentable.setId(order.getId());
-                orderPresentable.setOrderTime(order.getOrdertime());
-                orderPresentable.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
-                orderPresentable.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
-                list.add(orderPresentable);
+                OrderDTO orderDTO = new OrderDTO();
+                orderDTO.setId(order.getId());
+                orderDTO.setOrderTime(order.getOrdertime());
+                orderDTO.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
+                orderDTO.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
+                list.add(orderDTO);
             }
         }
         return list;
@@ -156,17 +149,17 @@ public class OrderService implements Applicable {
 
     //get by construction ID for EMPLOYEE pages, orders with STATUS 4 (when the employee received the materials on construction site)
     //method is not used in the current version
-    public List<OrderPresentable> getExecutedPresentable(int currentConstructionID) {
-        List<OrderPresentable> list = new ArrayList<>();
+    public List<OrderDTO> getDTOExecuted(int currentConstructionID) {
+        List<OrderDTO> list = new ArrayList<>();
 
         for (Order order: ordersDAO.getAll()) {
             if (currentConstructionID == order.getConstructionId() && order.isStatusExecuted()) {
-                OrderPresentable orderPresentable = new OrderPresentable();
-                orderPresentable.setId(order.getId());
-                orderPresentable.setOrderTime(order.getOrdertime());
-                orderPresentable.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
-                orderPresentable.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
-                list.add(orderPresentable);
+                OrderDTO orderDTO = new OrderDTO();
+                orderDTO.setId(order.getId());
+                orderDTO.setOrderTime(order.getOrdertime());
+                orderDTO.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
+                orderDTO.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
+                list.add(orderDTO);
             }
         }
         return list;
@@ -174,17 +167,17 @@ public class OrderService implements Applicable {
 
 
     //get all (all constructions) for SUPPLIER pages, orders with STATUS 2
-    public List<OrderPresentable> getPostedAllPresentable() {
-        List<OrderPresentable> list = new ArrayList<>();
+    public List<OrderDTO> getDTOPostedAll() {
+        List<OrderDTO> list = new ArrayList<>();
 
         for (Order order: ordersDAO.getAll()) {
             if (order.isPosted() && !order.isSent() && !order.isStatusExecuted()) {
-                OrderPresentable orderPresentable = new OrderPresentable();
-                orderPresentable.setId(order.getId());
-                orderPresentable.setOrderTime(order.getOrdertime());
-                orderPresentable.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
-                orderPresentable.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
-                list.add(orderPresentable);
+                OrderDTO orderDTO = new OrderDTO();
+                orderDTO.setId(order.getId());
+                orderDTO.setOrderTime(order.getOrdertime());
+                orderDTO.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
+                orderDTO.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
+                list.add(orderDTO);
             }
         }
         return list;
@@ -192,34 +185,34 @@ public class OrderService implements Applicable {
 
     //get all (all constructions) for SUPPLIER pages, orders with STATUS 3
     //method is not used in the current version
-    public List<OrderPresentable> getSentAllPresentable() {
-        List<OrderPresentable> list = new ArrayList<>();
+    public List<OrderDTO> getDTOSentAll() {
+        List<OrderDTO> list = new ArrayList<>();
 
         for (Order order: ordersDAO.getAll()) {
             if (order.isPosted() && order.isSent() && !order.isStatusExecuted()) {
-                OrderPresentable orderPresentable = new OrderPresentable();
-                orderPresentable.setId(order.getId());
-                orderPresentable.setOrderTime(order.getOrdertime());
-                orderPresentable.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
-                orderPresentable.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
-                list.add(orderPresentable);
+                OrderDTO orderDTO = new OrderDTO();
+                orderDTO.setId(order.getId());
+                orderDTO.setOrderTime(order.getOrdertime());
+                orderDTO.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
+                orderDTO.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
+                list.add(orderDTO);
             }
         }
         return list;
     }
 
     //get all (all constructions) for SUPPLIER pages, orders with STATUS 4 (archive of orders)
-    public List<OrderPresentable> getExecutedAllPresentable() {
-        List<OrderPresentable> list = new ArrayList<>();
+    public List<OrderDTO> getDTOExecutedAll() {
+        List<OrderDTO> list = new ArrayList<>();
 
         for (Order order: ordersDAO.getAll()) {
             if (order.isStatusExecuted()) {
-                OrderPresentable orderPresentable = new OrderPresentable();
-                orderPresentable.setId(order.getId());
-                orderPresentable.setOrderTime(order.getOrdertime());
-                orderPresentable.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
-                orderPresentable.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
-                list.add(orderPresentable);
+                OrderDTO orderDTO = new OrderDTO();
+                orderDTO.setId(order.getId());
+                orderDTO.setOrderTime(order.getOrdertime());
+                orderDTO.setConstructionName(constructionService.getById(order.getConstructionId()).getName());
+                orderDTO.setAppUserLastName(appUsersService.getById(order.getAppUserId()).getLastName());
+                list.add(orderDTO);
             }
         }
         return list;

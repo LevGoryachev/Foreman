@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginController {
 
     @Autowired
-    public AppUserService appUserService;
+    private AppUserService appUserService;
 
     @GetMapping("/customlogin")
     public String loginPage() {

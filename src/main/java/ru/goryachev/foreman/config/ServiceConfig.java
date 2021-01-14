@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan(basePackages = "ru.goryachev.foreman.service")
 public class ServiceConfig implements WebMvcConfigurer {
 /*
-
+    //example of use beans
     @Bean
     public ConstructionService getConstructionService () {
         return new ConstructionService();
@@ -30,19 +30,14 @@ public class ServiceConfig implements WebMvcConfigurer {
         return new AppUserService();
     }
 
-
       @Bean
       public RoleService getRoleService () {
         return new RoleService();
-    }*//*
-
-
-
+    }
 
     @Bean
     public OrderService getOrderService () {
         return new OrderService();
     }
 */
-
 }

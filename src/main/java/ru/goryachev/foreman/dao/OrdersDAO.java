@@ -12,7 +12,7 @@ import java.util.List;
 public class OrdersDAO implements DataAccessible {
 
     @Autowired
-    public JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public List<Order> getAll() {

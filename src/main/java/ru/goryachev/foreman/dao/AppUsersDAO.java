@@ -11,7 +11,7 @@ import java.util.List;
 public class AppUsersDAO implements DataAccessible {
 
     @Autowired
-    public JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public List<AppUser> getAll() {

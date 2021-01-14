@@ -8,27 +8,23 @@ import ru.goryachev.foreman.entities.Material;
 import java.util.List;
 
 @Service
-public class MaterialService implements Applicable {
+public class MaterialService {
 
     @Autowired
-    public MaterialsDAO materialsDAO;
+    private MaterialsDAO materialsDAO;
 
-    @Override
     public List<Material> getAll() {
         return materialsDAO.getAll();
     }
 
-    @Override
     public void create(Entity entity) {
         materialsDAO.create(entity);
     }
 
-    @Override
     public void update(Entity entity) {
         materialsDAO.update(entity);
     }
 
-    @Override
     public void delete(int id) {
         materialsDAO.delete(id);
     }

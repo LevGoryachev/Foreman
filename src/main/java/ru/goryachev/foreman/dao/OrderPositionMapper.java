@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class OrderPositionMapper implements RowMapper<OrderPosition> {
+
     @Override
     public OrderPosition mapRow(ResultSet rs, int rowNum) throws SQLException {
         OrderPosition orderPosition = new OrderPosition();

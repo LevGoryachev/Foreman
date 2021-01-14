@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AppUserMapper implements RowMapper<AppUser> {
+
     @Override
     public AppUser mapRow(ResultSet rs, int rowNum) throws SQLException {
         AppUser appUser = new AppUser();

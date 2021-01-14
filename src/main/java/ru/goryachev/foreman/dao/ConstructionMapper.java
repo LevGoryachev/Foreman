@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ConstructionMapper implements RowMapper<Construction> {
+
     @Override
     public Construction mapRow(ResultSet rs, int rowNum) throws SQLException {
         Construction construction = new Construction();
