@@ -22,6 +22,8 @@ dependencies {
     compile group: 'javax.servlet', name: 'jstl', version: '1.2'
     compile group: 'org.springframework.security', name: 'spring-security-web', version: '5.3.5.RELEASE'
     compile group: 'org.springframework.security', name: 'spring-security-config', version: '5.3.5.RELEASE'
+    compile group: 'com.ibm.icu', name: 'icu4j', version: '49.1'
+
 }
 
 war {
